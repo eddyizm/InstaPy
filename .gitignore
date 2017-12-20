@@ -11,6 +11,9 @@ quickstart.py
 # C extensions
 *.so
 
+# personal info
+login.txt
+
 # Distribution / packaging
 .Python
 env/
@@ -98,3 +101,4 @@ ENV/
 
 # Editors
 .idea
+assets/chromedriver.exe
