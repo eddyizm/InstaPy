@@ -13,8 +13,8 @@ session = InstaPy(username=insta_username, password=insta_password,  headless_br
 session.login()
 
 # set up all the settings
-session.set_upper_follower_count(limit=500)
-session.set_lower_follower_count(limit = 50)
+session.set_upper_follower_count(limit=1000)
+session.set_lower_follower_count(limit = 25)
 session.set_do_comment(True, percentage=20)
 # session.follow_user_followers(['noel_russ'], amount=5, randomize=True)
 session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])

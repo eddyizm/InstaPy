@@ -13,7 +13,7 @@ session = InstaPy(username=insta_username, password=insta_password)
 session.login()
 
 # set up all the settings
-session.set_upper_follower_count(limit=500)
+session.set_upper_follower_count(limit=1000)
 session.set_lower_follower_count(limit = 50)
 
 # session.set_dont_include(['friend1', 'friend2', 'friend3'])
@@ -22,6 +22,6 @@ session.set_dont_like(['death', 'cancer'])
 # do the actual liking
 # session.like_by_tags(['natgeo', 'world'], amount=100)
 session.like_by_feed(amount=200)
-# session.like_from_image(amount=25)
+
 # end the bot session
 session.end()
