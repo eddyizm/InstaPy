@@ -9,7 +9,7 @@ insta_password = login[1]
 
 # if you want to run this script on a server, 
 # simply add nogui=True to the InstaPy() constructor
-session = InstaPy(username=insta_username, password=insta_password)
+session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
 session.login()
 
 # set up all the settings
