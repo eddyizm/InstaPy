@@ -24,7 +24,6 @@ session.set_dont_like(['death', 'cancer'])
 # do the actual liking
 session.set_smart_hashtags(['ceramics', 'coffee', 'etsy'], limit=3, sort='top', log_tags=True)
 session.like_by_tags(amount=10, use_smart_hashtags=True)
-# session.like_by_feed(amount=200)
 
 # end the bot session
 session.end()

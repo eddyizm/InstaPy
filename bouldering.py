@@ -23,7 +23,7 @@ session.set_comments(['Rad!', 'Super cool!', 'Excellent!', 'Amazing!'])
 session.set_dont_like(['death', 'cancer'])
 
 # do the actual liking
-session.like_by_tags(['bouldering', 'climbing_pictures_of_instagram', 'natgeo', 'optoutside'], amount=125 )
+session.like_by_tags(['bouldering', 'climbing_pictures_of_instagram', 'natgeo', 'optoutside'], amount=15025 )
 
 # end the bot session
 session.end()
