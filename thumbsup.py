@@ -22,7 +22,7 @@ session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
 session.set_dont_like(['death', 'cancer'])
 
 # do the actual liking
-session.like_by_tags(['wanderlust', 'rei1440project', 'nationalpark'], amount=100)
+session.like_by_tags(['wanderlust', 'rei1440project', 'nationalpark', 'vsconature', 'mountains', 'mytinyatlas' ], amount=50)
 # session.like_by_tags(['gothefuckoutside', 'optoutside'], amount=50)
 
 # end the bot session
