@@ -1,8 +1,19 @@
 from instapy import InstaPy
+import time
 
+# open log file and write time
+n = open('logs/timelog.txt','a+')
+# get time stamp
+t = time.strftime("%H:%M:%S")
+#write timestamp
+n.write(t)
 # read login info from file
 f = open ('scripts/login.txt', 'r')
+
+
+
 login = f.read().splitlines()
+f.close()
 
 insta_username = login[0]
 insta_password = login[1]
@@ -22,9 +33,12 @@ session.set_dont_include(['helloklai'])
 session.set_dont_like(['death', 'cancer'])
 
 # do the actual liking
-session.set_smart_hashtags(['ceramics', 'coffee', 'etsy'], limit=3, sort='top', log_tags=True)
+session.set_smart_hashtags(['ceramics', 'coffee', 'etsy'], limit=1, sort='top', log_tags=True)
 session.like_by_tags(amount=10, use_smart_hashtags=True)
 
+# closing timestamp
+c = time.strftime("%H:%M:%S")
+n.write(c)
+n.close()
 # end the bot session
 session.end()
-

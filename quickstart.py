@@ -6,7 +6,7 @@ insta_username = login[0]
 insta_password = login[1]
 # if you want to run this script on a server, 
 # simply add nogui=True to the InstaPy() constructor
-session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, nogui=True)
+session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
 session.login()
 # set up all the settings
 session.set_upper_follower_count(limit=2500)
@@ -14,6 +14,6 @@ session.set_lower_follower_count(limit = 50)
 # Set don't include
 session.set_dont_like(['death', 'cancer'])
 # do the actual liking
-session.like_by_feed(amount=25)
+session.like_by_feed(amount=100)
 # end the bot session
 session.end()

@@ -18,7 +18,6 @@ session.set_lower_follower_count(limit = 25)
 session.set_do_comment(True, percentage=20)
 # session.follow_user_followers(['noel_russ'], amount=5, randomize=True)
 session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-# session.set_dont_include(['friend1', 'friend2', 'friend3'])
 session.set_dont_like(['death', 'cancer'])
 
 # do the actual liking
