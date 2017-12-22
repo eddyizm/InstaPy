@@ -36,7 +36,7 @@ session.set_dont_like(['death', 'cancer'])
 session.set_smart_hashtags(['ceramics', 'coffee', 'etsy'], limit=1, sort='top', log_tags=True)
 session.like_by_tags(amount=10, use_smart_hashtags=True)
 
-# closing timestamp
+# closing timestamp 
 c = time.strftime("%H:%M:%S")
 n.write(c)
 n.close()
