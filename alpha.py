@@ -14,6 +14,6 @@ session.set_lower_follower_count(limit = 50)
 # Set don't include
 session.set_dont_like(['death', 'cancer'])
 # do the actual liking
-session.like_by_feed(amount=25)
+session.like_by_tags(['sonyalpha', 'a7r'], amount=25 )
 # end the bot session
 session.end()
