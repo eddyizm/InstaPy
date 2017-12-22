@@ -5,12 +5,11 @@ import time
 n = open('logs/timelog.txt','a+')
 # get time stamp
 t = time.strftime("%H:%M:%S")
-#write timestamp
+#write script name and timestamp
+n.write('ceramics.py\n')
 n.write(t)
 # read login info from file
 f = open ('scripts/login.txt', 'r')
-
-
 
 login = f.read().splitlines()
 f.close()
