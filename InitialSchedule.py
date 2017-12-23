@@ -79,7 +79,7 @@ def ceramics():
     except:
         print('ceramics fail!')
     
-def bouldering:
+def bouldering():
     try:
         n = open('logs/timelog.txt','a+')
         t = time.strftime("%H:%M:%S")
@@ -98,7 +98,7 @@ def bouldering:
         session.set_do_follow(enabled=True, percentage=10, times=2)
         session.set_comments(['Rad!', 'Super cool!', 'Excellent!', 'Amazing!'])
         session.set_dont_like(['death', 'cancer'])
-        session.like_by_tags(['bouldering', 'climbing_pictures_of_instagram', 'natgeo', ,'rei1440project','optoutside'], amount=25)
+        session.like_by_tags(['bouldering', 'climbing_pictures_of_instagram', 'natgeo','rei1440project','optoutside'], amount=25)
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
