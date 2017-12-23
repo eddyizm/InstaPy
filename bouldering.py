@@ -13,7 +13,7 @@ session = InstaPy(username=insta_username, password=insta_password, headless_bro
 session.login()
 
 # set up all the settings
-session.set_upper_follower_count(limit=500)#
+session.set_upper_follower_count(limit=500)
 session.set_lower_follower_count(limit = 50)
 session.set_do_comment(True, percentage=10)
 session.set_do_follow(enabled=True, percentage=10, times=2)
@@ -23,7 +23,7 @@ session.set_comments(['Rad!', 'Super cool!', 'Excellent!', 'Amazing!'])
 session.set_dont_like(['death', 'cancer'])
 
 # do the actual liking
-session.like_by_tags(['bouldering', 'climbing_pictures_of_instagram', 'natgeo', ,'rei1440project','optoutside'], amount=25)
+session.like_by_tags(['trailrunning', 'climbing_pictures_of_instagram', 'natgeo', ,'rei1440project','optoutside'], amount=25)
 
 # end the bot session
 session.end()
