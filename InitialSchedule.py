@@ -165,7 +165,7 @@ def interact():
         n.close()      
         session.end()
     except:
-        print('unfollow fail!')
+        print('interact fail!')
 
 # scheduled methods
 schedule.every().day.at("6:35").do(quickstart)
@@ -173,7 +173,7 @@ schedule.every().day.at("10:35").do(thumbsup)
 schedule.every().day.at("14:30").do(ceramics)
 schedule.every().day.at("19:30").do(quickstart)
 schedule.every().wednesday.at("22:30").do(bouldering) 
-schedule.every().monday.at("22:30").do(unfollow)
+schedule.every().monday.at("22:45").do(unfollow)
 schedule.every().tuesday.at("22:30").do(quickstart)  
 schedule.every().thursday.at("22:30").do(interact)  
 schedule.every().friday.at("22:30").do(thumbsup)  
