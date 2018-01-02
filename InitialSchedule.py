@@ -156,7 +156,7 @@ def lit():
         session.set_do_comment(True, percentage=20)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.like_by_tags(['ironbetic','quote','literature'], amount=20)
-       c = time.strftime("%H:%M:%S")
+        c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
         session.end()
