@@ -70,5 +70,3 @@ def daily_log():
     n.close()
     # print(message)
     SendBody(message, nextday[5])
-
-# os.system('pause')
