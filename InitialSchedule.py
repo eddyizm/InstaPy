@@ -197,7 +197,7 @@ def interact():
 schedule.every().day.at("6:00").do(quickstart)
 schedule.every().day.at("10:35").do(thumbsup)
 schedule.every().day.at("14:30").do(ceramics)
-schedule.every().day.at("19:00").do(sendlog)
+schedule.every().day.at("22:15").do(sendlog)
 schedule.every().day.at("19:30").do(quickstart)
 schedule.every().wednesday.at("23:30").do(bouldering) 
 schedule.every().tuesday.at("2:45").do(unfollow)
