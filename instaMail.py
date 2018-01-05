@@ -1,5 +1,6 @@
 import smtplib
 import sqlite3 
+from datetime import datetime
 
 def SendBody(body, d):
     # get login info
@@ -70,3 +71,30 @@ def daily_log():
     n.close()
     # print(message)
     SendBody(message, nextday[5])
+
+def completeTask(jobname):
+    # fCount = file_len('logs/general.log')
+    tStamp = datetime.now()
+    n = tStamp.strftime("%Y-%m-%d")
+    # import modules. 
+    from shutil import copyfile
+    message = 'function: '+jobname +' completed at: '+ n + '\n'
+    # get log info : 
+    # 'logs/general.log'
+    logfile = 'logs/general.log'
+    endFile = file_len(logfile)
+    n = open(logfile,'r')
+    log = n.readlines()
+    count = endFile-100
+    for x in range(count, (endFile)):
+        message+=log[x]
+    n.close()
+    SendBody(message, jobname)
+
+def archive_log():
+    from shutil import copyfile
+    tStamp = datetime.now()
+    nLog = tStamp.strftime("%Y-%m-%d")+'_general.log'
+    copyfile('logs/general.log', 'C:\\Users\\eddyizm\\Documents\\emailLog\\'+nLog)
+    open('logs/general.log','w').close()
+   
