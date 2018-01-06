@@ -4,6 +4,7 @@ import schedule
 import time
 import instaMail
 
+print ('here we go!')
 def sendlog():
     instaMail.daily_log()
 
@@ -23,7 +24,7 @@ def quickstart():
         session.set_upper_follower_count(limit=2500)
         session.set_lower_follower_count(limit = 50)
         session.set_dont_like(['death', 'cancer'])
-        session.like_by_feed(amount=50, unfollow=False, randomize=True, interact=True)
+        session.like_by_feed(amount=35, unfollow=False, randomize=True, interact=True)
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
@@ -83,7 +84,7 @@ def ceramics():
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:', 'Awesome!', 'Sweet!'])
         session.set_dont_include(['helloklai'])
         session.set_dont_like(['death', 'cancer'])
-        session.like_by_tags(['ceramics', 'coffee', 'etsy'], amount=30)
+        session.like_by_tags(['ceramics', 'coffee', 'etsy'], amount=25)
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
@@ -108,11 +109,11 @@ def bouldering():
         session.login()
         session.set_upper_follower_count(limit=500)
         session.set_lower_follower_count(limit = 50)
-        session.set_do_comment(True, percentage=10)
-        session.set_do_follow(enabled=True, percentage=10, times=2)
+        session.set_do_comment(True, percentage=20)
+        session.set_do_follow(enabled=True, percentage=5, times=1)
         session.set_comments(['Rad!', 'Super cool!', 'Excellent!', 'Amazing!'])
         session.set_dont_like(['death', 'cancer'])
-        session.like_by_tags(['bouldering', 'climbing_pictures_of_instagram', 'natgeo','rei1440project','optoutside'], amount=25)
+        session.like_by_tags(['bouldering', 'climbing_pictures_of_instagram', 'trailrunning','optoutside'], amount=25)
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
@@ -209,10 +210,10 @@ def interact():
         instaMail.completeTask('interact fail')
 
 # scheduled methods
-schedule.every().day.at("6:00").do(quickstart)
-schedule.every().day.at("10:35").do(thumbsup)
-schedule.every().day.at("14:30").do(ceramics)
-schedule.every().day.at("5:30").do(sendlog)
+schedule.every().day.at("5:15").do(quickstart)
+schedule.every().day.at("9:30").do(thumbsup)
+schedule.every().day.at("14:00").do(ceramics)
+schedule.every().day.at("5:00").do(sendlog)
 schedule.every().day.at("19:30").do(quickstart)
 schedule.every().wednesday.at("23:30").do(bouldering) 
 schedule.every().tuesday.at("2:45").do(unfollow)

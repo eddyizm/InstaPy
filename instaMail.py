@@ -78,19 +78,21 @@ def completeTask(jobname):
     n = tStamp.strftime("%Y-%m-%d")
     # import modules. 
     from shutil import copyfile
-    message = 'function: '+jobname +' completed at: '+ n + '\n'
+    message = 'function: '+jobname +' completed'
     # get log info : 
-    # 'logs/general.log'
-    logfile = 'logs/general.log'
-    endFile = file_len(logfile)
-    n = open(logfile,'r')
-    log = n.readlines()
-    count = endFile-100
-    for x in range(count, (endFile)):
-        message+=log[x]
-    n.close()
-    SendBody(message, jobname)
-
+    try:
+        logfile = 'logs/general.log'
+        endFile = file_len(logfile)
+        n = open(logfile,'r')
+        log = n.readlines()
+        count = endFile-100
+        for x in range(count, (endFile-1)):
+            message+=log[x]
+        n.close()
+    except IOError:
+        print('error retrieving log')
+    SendBody(message, jobname)    
+    
 def archive_log():
     from shutil import copyfile
     tStamp = datetime.now()
