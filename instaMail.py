@@ -3,41 +3,46 @@ import sqlite3
 from datetime import datetime
 
 def SendBody(body, d):
-    # get login info
     f = open ('scripts/login.txt', 'r')
     login = f.read().splitlines()
     f.close()
     u = login[2]
     l = login[3]
     # set up the SMTP server
-    s = smtplib.SMTP(host='smtp.live.com', port=587)
-    s.starttls()
-    s.login(u, l)
+    try:
+        s = smtplib.SMTP(host='smtp.live.com', port=587)
+        s.starttls()
+        s.login(u, l)
 
-    # import necessary packages
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text import MIMEText
+        # import necessary packages
+        from email.mime.multipart import MIMEMultipart
+        from email.mime.text import MIMEText
 
-    # create a message
-    msg = MIMEMultipart()       
-    print('sending mail')
-      
-    # setup the parameters of the message
-    msg['From']='cervantes.e@outlook.com'
-    msg['To']='eddyizm@me.com'
-    msg['Subject']='Instapy Stats '+d
+        # create a message
+        msg = MIMEMultipart()       
+        print('sending mail')
+        
+        # setup the parameters of the message
+        msg['From']='cervantes.e@outlook.com'
+        msg['To']='eddyizm@me.com'
+        msg['Subject']='Instapy Stats '+d
 
-    # add in the message body
-    msg.attach(MIMEText(body, 'plain'))
+        # add in the message body
+        msg.attach(MIMEText(body, 'plain'))
 
-    # send the message via the server set up earlier.
-    s.send_message(msg)
+        # send the message via the server set up earlier.
+        s.send_message(msg)
+    except smtplib.SMTPException as e:
+        print (str(e))
 
 def file_len(fname):
-    with open(fname) as f:
-        for i, l in enumerate(f):
-            pass
-    return i + 1
+    try: 
+        with open(fname) as f:
+            for i, l in enumerate(f):
+                pass
+        return i + 1
+    except IOError as e:
+        print (str(e))
 
 def daily_log():
     #get follower count 
@@ -89,14 +94,16 @@ def completeTask(jobname):
         for x in range(count, (endFile-1)):
             message+=log[x]
         n.close()
-    except IOError:
-        print('error retrieving log')
+    except IOError as e:
+        print (str(e))
     SendBody(message, jobname)    
     
 def archive_log():
     from shutil import copyfile
     tStamp = datetime.now()
     nLog = tStamp.strftime("%Y-%m-%d")+'_general.log'
-    copyfile('logs/general.log', 'C:\\Users\\eddyizm\\Documents\\emailLog\\'+nLog)
-    open('logs/general.log','w').close()
-   
+    try:
+        copyfile('logs/general.log', 'C:\\Users\\eddyizm\\Documents\\emailLog\\'+nLog)
+        open('logs/general.log','w').close()
+    except IOError as e:
+        print (str(e))
