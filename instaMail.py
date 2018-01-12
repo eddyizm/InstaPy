@@ -37,10 +37,12 @@ def SendBody(body, d):
 
 def file_len(fname):
     try: 
-        with open(fname) as f:
-            for i, l in enumerate(f):
-                pass
-        return i + 1
+        count = len(open(fname).readlines())
+        return count
+        # with open(fname) as f:
+        #     for i, l in enumerate(f):
+        #         pass
+        # return i + 1
     except IOError as e:
         print (str(e))
 
@@ -83,16 +85,22 @@ def completeTask(jobname):
     n = tStamp.strftime("%Y-%m-%d")
     # import modules. 
     from shutil import copyfile
-    message = 'function: '+jobname +' completed'
+    message = 'function: '+jobname +' completed \n'
     # get log info : 
     try:
         logfile = 'logs/general.log'
         endFile = file_len(logfile)
+        
         n = open(logfile,'r')
         log = n.readlines()
-        count = endFile-100
-        for x in range(count, (endFile-1)):
-            message+=log[x]
+        count = endFile-99
+        # print (count)
+        # print (endFile)
+        if endFile > 100:
+            for x in range(count, (endFile-1)):
+                message+=log[x]
+        else:
+            pass        
         n.close()
     except IOError as e:
         print (str(e))
@@ -107,3 +115,5 @@ def archive_log():
         open('logs/general.log','w').close()
     except IOError as e:
         print (str(e))
+
+   
