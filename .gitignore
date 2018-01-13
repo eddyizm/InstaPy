@@ -103,3 +103,4 @@ ENV/
 # Editors
 .idea
 assets/chromedriver.exe
+db/instapy.db
