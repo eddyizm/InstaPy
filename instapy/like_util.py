@@ -317,7 +317,8 @@ def get_links_for_username(browser,
                     "window.scrollTo(0, document.body.scrollHeight);")
                 sleep(2)
         except:
-            logger.warning('Load button not found, working with current images!')
+            logger.warning(
+                'Load button not found, working with current images!')
         else:
             abort = False
             body_elem.send_keys(Keys.END)
@@ -534,7 +535,7 @@ def like_image(browser, username, blacklist, logger):
         "//a[@role='button']/span[text()='Unlike']")
 
     if len(like_elem) == 1:
-        like_elem[0].send_keys("\n")
+        browser.execute_script("document.getElementsByClassName('" + like_elem[0].get_attribute("class") + "')[0].click()")
         logger.info('--> Image Liked!')
         update_activity('likes')
         if blacklist['enabled'] is True:

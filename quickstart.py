@@ -18,7 +18,7 @@ def quickstart():
         f.close()
         insta_username = login[0]
         insta_password = login[1]
-        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
+        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
         session.login()
         session.set_upper_follower_count(limit=5000)
         session.set_lower_follower_count(limit = 50)
@@ -27,10 +27,13 @@ def quickstart():
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
-        session.end()
         instaMail.completeTask('quickstart success')
     except Exception :
         print('quickstart fail!')
         instaMail.completeTask('quickstart fail!')
+    finally:
+    # end the bot session
+    session.end()    
         
 quickstart()        
+
