@@ -4,7 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from .util import update_activity
 
 
-def login_user(browser, username, password, switch_language=True):
+def login_user(browser, username, password, switch_language=False):
     """Logins the user with the given username and password"""
     browser.get('https://www.instagram.com')
     # update server calls
