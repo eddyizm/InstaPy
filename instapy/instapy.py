@@ -57,7 +57,7 @@ class InstaPy:
                  headless_browser=False):
 
         if nogui:
-            self.display = Display(visible=0, size=(800, 600))
+            self.display = Display(visible=0, size=(1920, 1080))
             self.display.start()
 
         self.browser = None
