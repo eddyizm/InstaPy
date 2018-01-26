@@ -28,7 +28,6 @@ def interactUser():
         ob = 'berniesanders'
         return ob
 
-
 def interact():
     try:
         n = open('logs/timelog.txt','a+')
@@ -41,7 +40,7 @@ def interact():
         u = interactUser()
         insta_username = login[0]
         insta_password = login[1]
-        session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
+        session = InstaPy(username=insta_username, password=insta_password)
         session.login()
         session.set_upper_follower_count(limit=3000)
         session.set_lower_follower_count(limit = 25)
