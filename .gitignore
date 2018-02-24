@@ -105,4 +105,4 @@ ENV/
 assets/chromedriver.exe
 db/instapy.db
 
-.vscode
+.vscode/
