@@ -30,26 +30,27 @@ def interactUser():
 
 def interact():
     try:
+        logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
         n = open('logs/timelog.txt','a+')
         t = time.strftime("%H:%M:%S")
         n.write('interact\n')
         n.write(t+'\n')
-        f = open ('scripts/login.txt', 'r')
+        f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
         u = interactUser()
         insta_username = login[0]
         insta_password = login[1]
-        session = InstaPy(username=insta_username, password=insta_password)
+        session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
-        session.set_upper_follower_count(limit=3000)
+        session.set_upper_follower_count(limit=4000)
         session.set_lower_follower_count(limit = 25)
         session.set_user_interact(amount=4, randomize=True, percentage=70, media='Photo')
         session.set_do_like(enabled=True, percentage=80)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.set_do_comment(enabled=True, percentage=20)
         session.set_dont_like(['death', 'cancer'])
-        session.interact_user_followers([u], amount=25, randomize=True)
+        session.interact_user_followers([u], amount=50, randomize=True)
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      

@@ -1,14 +1,16 @@
 from instapy import InstaPy
+
 import time
 import instaMail
-print ('alpha script')
+import random
 logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+print ('lit solo')
 
-def alpha():
+def lit():
     try:
         n = open('logs/timelog.txt','a+')
         t = time.strftime("%H:%M:%S")
-        n.write('alphapy.py\n')
+        n.write('lit\n')
         n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
@@ -20,16 +22,16 @@ def alpha():
         session.set_dont_like(['death', 'cancer'])
         session.set_upper_follower_count(limit=5000)
         session.set_lower_follower_count(limit = 25)
-        session.set_do_comment(True, percentage=30)
+        session.set_do_comment(True, percentage=20)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['rural', 'abandoned', 'decay'], amount=50 )
+        session.like_by_tags(['astronomy','architecture','literature'], amount=40)
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
         session.end()
-        instaMail.completeTask('alpha success')
+        instaMail.completeTask('literature success')
     except:
-        print('alpha fail!')        
-        instaMail.completeTask('alpha fail')
+        print('lit fail!')        
+        instaMail.completeTask('lit fail')
 
-alpha()
+lit()

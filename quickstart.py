@@ -4,7 +4,7 @@ import schedule
 import time
 import instaMail
 import random
-
+logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
 print ('quickstart solo')
 
 def quickstart():
@@ -13,13 +13,17 @@ def quickstart():
         t = time.strftime("%H:%M:%S")
         n.write('quickstart\n')
         n.write(t+'\n')
-        f = open ('scripts/login.txt', 'r')
+        f = open (logintext, 'r')
         login = f.read().splitlines()
         f.close()
         insta_username = login[0]
         insta_password = login[1]
-        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
+        print ('pre session creation')
+        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
+        session.switch_language=False
+        print ('pre login')     
         session.login()
+
         session.set_upper_follower_count(limit=5000)
         session.set_lower_follower_count(limit = 50)
         session.set_dont_like(['death', 'cancer'])
@@ -27,13 +31,14 @@ def quickstart():
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
-        instaMail.completeTask('quickstart success')
-    except Exception :
+        #instaMail.completeTask('quickstart success')
+        session.end() 
+    except Exception:
         print('quickstart fail!')
-        instaMail.completeTask('quickstart fail!')
+        #instaMail.completeTask('quickstart fail!')
     finally:
-    # end the bot session
-    session.end()    
+        # end the bot session
+        pass   
         
 quickstart()        
 

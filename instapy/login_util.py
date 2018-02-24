@@ -110,13 +110,14 @@ def login_user(browser,
     # Changes instagram language to english, to ensure no errors ensue from
     # having the site on a different language
     # Might cause problems if the OS language is english
+    '''
     if switch_language:
         browser.find_element_by_xpath(
             "//footer[@Class='_s5vm9']/div[@class='_g7lf5 _9z659']/nav["
             "@Class='_luodr']/ul[@Class='_g8wl6']/li[@Class='_538w0'][10]/"
             "span[@class='_pqycz _hqmnd']/select[@Class='_fsoey']/option"
             "[text()='English']").click()
-
+    '''
     # Check if the first div is 'Create an Account' or 'Log In'
     login_elem = browser.find_element_by_xpath(
         "//article/div/div/p/a[text()='Log in']")

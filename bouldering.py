@@ -1,7 +1,8 @@
 from instapy import InstaPy
 
+logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
 # read login info from file
-f = open ('scripts/login.txt', 'r')
+f = open ( logintext , 'r')
 login = f.read().splitlines()
 
 insta_username = login[0]

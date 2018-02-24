@@ -1,7 +1,8 @@
 from instapy import InstaPy
 
+logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
 # read login info from file
-f = open ('scripts/login.txt', 'r')
+f = open ( logintext , 'r')
 login = f.read().splitlines()
 
 insta_username = login[0]
@@ -16,7 +17,6 @@ session.login()
 session.set_upper_follower_count(limit=1000)
 session.set_lower_follower_count(limit = 25)
 session.set_do_comment(True, percentage=20)
-# session.follow_user_followers(['noel_russ'], amount=5, randomize=True)
 session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
 session.set_dont_like(['death', 'cancer'])
 

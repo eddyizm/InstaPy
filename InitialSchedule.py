@@ -5,6 +5,8 @@ import time
 import instaMail
 import random
 
+logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+
 print ('here we go!')
 def sendlog():
     instaMail.daily_log()
@@ -15,7 +17,7 @@ def quickstart():
         t = time.strftime("%H:%M:%S")
         n.write('quickstart\n')
         n.write(t+'\n')
-        f = open ('scripts/login.txt', 'r')
+        f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
         insta_username = login[0]
@@ -41,7 +43,7 @@ def thumbsup():
         t = time.strftime("%H:%M:%S")
         n.write('thumbsup\n')
         n.write(t+'\n')
-        f = open ('scripts/login.txt', 'r')
+        f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
         insta_username = login[0]
@@ -71,7 +73,7 @@ def ceramics():
         n.write('ceramics\n')
         n.write(t+'\n')
         #login
-        f = open ('scripts/login.txt', 'r')
+        f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
         insta_username = login[0]
@@ -101,7 +103,7 @@ def bouldering():
         t = time.strftime("%H:%M:%S")
         n.write('bouldering\n')
         n.write(t+'\n')
-        f = open ('scripts/login.txt', 'r')
+        f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
         insta_username = login[0]
@@ -130,7 +132,7 @@ def unfollow():
         t = time.strftime("%H:%M:%S")
         n.write('unfollow\n')
         n.write(t+'\n')
-        f = open ('scripts/login.txt', 'r')
+        f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
         insta_username = login[0]
@@ -157,7 +159,7 @@ def lit():
         t = time.strftime("%H:%M:%S")
         n.write('lit\n')
         n.write(t+'\n')
-        f = open ('scripts/login.txt', 'r')
+        f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
         insta_username = login[0]
@@ -209,7 +211,7 @@ def interact():
         t = time.strftime("%H:%M:%S")
         n.write('interact\n')
         n.write(t+'\n')
-        f = open ('scripts/login.txt', 'r')
+        f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
         u = interactUser()

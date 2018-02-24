@@ -2,8 +2,10 @@ import smtplib
 import sqlite3 
 from datetime import datetime
 
+
 def SendBody(body, d):
-    f = open ('scripts/login.txt', 'r')
+    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+    f = open ( logintext , 'r')
     login = f.read().splitlines()
     f.close()
     u = login[2]
