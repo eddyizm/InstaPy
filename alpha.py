@@ -22,7 +22,7 @@ def alpha():
         session.set_lower_follower_count(limit = 25)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['urbex', 'stephenhawking', 'python'], amount=50 )
+        session.like_by_tags(['knowledge', 'snacks', 'developer'], amount=50 )
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
