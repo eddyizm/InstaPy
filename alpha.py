@@ -15,14 +15,14 @@ def alpha():
         f.close()
         insta_username = login[0]
         insta_password = login[1]
-        session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
+        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
         session.login()
         session.set_dont_like(['death', 'cancer'])
         session.set_upper_follower_count(limit=5000)
         session.set_lower_follower_count(limit = 25)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['knowledge', 'snacks', 'developer'], amount=50 )
+        session.like_by_tags(['upperleftusa', 'believeinfilm', 'germany'], amount=50 )
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
@@ -33,3 +33,10 @@ def alpha():
         instaMail.completeTask('alpha fail')
 
 alpha()
+# #liveamplified
+'''
+#creativeminds #photo #vlog #uppsala #hamburg 
+# #mavicpro #lumix #myerasmus #dji #panasonic #life #imagine 
+# #engineer #sweden #germany #youtube #creative #erasmus 
+# #igworldglobal #machupicchu #peru #waynapicchu #dbtravel #lam
+'''

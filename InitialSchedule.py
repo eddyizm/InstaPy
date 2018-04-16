@@ -32,10 +32,10 @@ def quickstart():
         n.write(c+'\n')
         n.close()      
         session.end()
-        instaMail.completeTask('quickstart success')
+        #instaMail.completeTask('quickstart success')
     except Exception :
         print('quickstart fail!')
-        instaMail.completeTask('quickstart fail!')
+        #instaMail.completeTask('quickstart fail!')
 
 def thumbsup():
     try:
@@ -60,10 +60,10 @@ def thumbsup():
         n.write(c+'\n')
         n.close()      
         session.end()
-        instaMail.completeTask('thumbsup success')
+        #instaMail.completeTask('thumbsup success')
     except:
         print('thumbsup fail!')
-        instaMail.completeTask('thumbsup fail')
+        #instaMail.completeTask('thumbsup fail')
 
 def ceramics():
     try:
@@ -92,10 +92,10 @@ def ceramics():
         n.write(c+'\n')
         n.close()      
         session.end()
-        instaMail.completeTask('ceramics success')
+        #instaMail.completeTask('ceramics success')
     except:
         print('ceramics fail!')
-        instaMail.completeTask('thumbsup fail!')
+        #instaMail.completeTask('thumbsup fail!')
     
 def bouldering():
     try:
@@ -121,10 +121,10 @@ def bouldering():
         n.write(c+'\n')
         n.close()      
         session.end()
-        instaMail.completeTask('bouldering success')
+        #instaMail.completeTask('bouldering success')
     except:
         print ('bouldering failed!')
-        instaMail.completeTask('bouldering fail!')
+        #instaMail.completeTask('bouldering fail!')
 
 def unfollow():
     try:
@@ -148,10 +148,10 @@ def unfollow():
         n.close()      
         session.end()
         instaMail.archive_log()
-        instaMail.completeTask('unfollow success')
+        #instaMail.completeTask('unfollow success')
     except:
         print('unfollow fail!')
-        instaMail.completeTask('unfollow fail')
+        #instaMail.completeTask('unfollow fail')
 
 def lit():
     try:
@@ -176,10 +176,10 @@ def lit():
         n.write(c+'\n')
         n.close()      
         session.end()
-        instaMail.completeTask('literature success')
+        #instaMail.completeTask('literature success')
     except:
         print('lit fail!')        
-        instaMail.completeTask('lit fail')
+        #instaMail.completeTask('lit fail')
 
 def interactUser():
     t = random.randint(0,6)
@@ -231,10 +231,10 @@ def interact():
         n.write(c+'\n')
         n.close()      
         session.end()
-        instaMail.completeTask('interact success')
+        #instaMail.completeTask('interact success')
     except:
         print('interact fail!')
-        instaMail.completeTask('interact fail')
+        #instaMail.completeTask('interact fail')
 
 # scheduled methods
 schedule.every().day.at("5:15").do(quickstart)
