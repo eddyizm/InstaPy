@@ -30,7 +30,7 @@ def interactUser():
 
 def interact():
     try:
-        logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+        logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
         n = open('logs/timelog.txt','a+')
         t = time.strftime("%H:%M:%S")
         n.write('interact\n')
@@ -56,8 +56,8 @@ def interact():
         n.close()      
         session.end()
         instaMail.completeTask('interact success')
-    except:
-        print('interact fail!')
-        instaMail.completeTask('interact fail')
+    except Exception as r:
+        print(r)
+        instaMail.completeTask(r)
  
 interact() 

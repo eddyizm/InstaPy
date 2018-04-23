@@ -102,7 +102,7 @@ ENV/
 
 # Editors
 .idea
-assets/chromedriver.exe
+assets/
 db/instapy.db
 
 .vscode/

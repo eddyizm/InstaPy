@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 def SendBody(body, d):
-    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+    logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
     f = open ( logintext , 'r')
     login = f.read().splitlines()
     f.close()
