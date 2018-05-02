@@ -30,9 +30,15 @@ def quickstart():
         session.switch_language=False
         print ('pre login')     
         session.login()
-
-        session.set_upper_follower_count(limit=5000)
-        session.set_lower_follower_count(limit = 50)
+        session.set_relationship_bounds(enabled=True,
+                potency_ratio=-1.21,
+                delimit_by_numbers=True,
+                max_followers=5000,
+                    max_following=5555,
+                    min_followers=45,
+                    min_following=77)
+        # session.set_upper_follower_count(limit=5000)
+        # session.set_lower_follower_count(limit = 50)
         session.set_dont_like(['death', 'cancer'])
         session.like_by_feed(amount=50, unfollow=False, randomize=True, interact=True)
                

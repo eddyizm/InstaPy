@@ -3,6 +3,14 @@ from instapy import InstaPy
 import time
 import instaMail
 import random
+import os
+
+if os.name == 'nt':
+    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+else:
+    logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
+     
+
 
 def interactUser():
     t = random.randint(0,6)
@@ -30,7 +38,7 @@ def interactUser():
 
 def interact():
     try:
-        logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
+        
         n = open('logs/timelog.txt','a+')
         t = time.strftime("%H:%M:%S")
         n.write('interact\n')
@@ -43,8 +51,13 @@ def interact():
         insta_password = login[1]
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
-        session.set_upper_follower_count(limit=4000)
-        session.set_lower_follower_count(limit = 25)
+        session.set_relationship_bounds(enabled=True,
+            potency_ratio=-1.21,
+            delimit_by_numbers=True,
+            max_followers=5000,
+                max_following=5555,
+                min_followers=45,
+                min_following=77)
         session.set_user_interact(amount=4, randomize=True, percentage=70, media='Photo')
         session.set_do_like(enabled=True, percentage=80)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])

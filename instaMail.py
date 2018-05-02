@@ -1,10 +1,14 @@
 import smtplib
 import sqlite3 
 from datetime import datetime
+import os
 
+if os.name == 'nt':
+    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+else:
+    logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
 
 def SendBody(body, d):
-    logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
     f = open ( logintext , 'r')
     login = f.read().splitlines()
     f.close()
@@ -87,7 +91,7 @@ def completeTask(jobname):
     n = tStamp.strftime("%Y-%m-%d")
     # import modules. 
     from shutil import copyfile
-    message = 'function: '+jobname +' completed \n'
+    message = ' completed \n'
     # get log info : 
     try:
         logfile = 'logs/general.log'

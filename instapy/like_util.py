@@ -495,12 +495,6 @@ def check_link(browser, link, dont_like, ignore_if_contains, ignore_users, usern
         # update server calls
         update_activity()
         sleep(1)
-<<<<<<< HEAD
-        num_followers = browser.execute_script(
-            "return window._sharedData.entry_data."
-            #"ProfilePage[0].user.followed_by.count")
-            "ProfilePage[0].graphql.user.edge_followed_by.count")
-=======
 
         relationship_ratio = None
         reverse_relationship = False
@@ -549,7 +543,6 @@ def check_link(browser, link, dont_like, ignore_if_contains, ignore_users, usern
                         logger.info("\nError occured during getting the following count of '{}'\n".format(user_name))
                         following_count = None
             
->>>>>>> 04784cd84103b97df7cb42884e16d27a747593f4
         browser.get(link)
         # update server calls
         update_activity()
