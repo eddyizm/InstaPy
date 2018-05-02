@@ -22,7 +22,7 @@ def alpha():
         session.set_lower_follower_count(limit = 25)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['upperleftusa', 'believeinfilm', 'germany'], amount=50 )
+        session.like_by_tags(['fullerton', 'ghosttown', 'space'], amount=50 )
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
@@ -35,8 +35,8 @@ def alpha():
 alpha()
 # #liveamplified
 '''
-#creativeminds #photo #vlog #uppsala #hamburg 
+#creativeminds #photo #vlog #hamburg 
 # #mavicpro #lumix #myerasmus #dji #panasonic #life #imagine 
-# #engineer #sweden #germany #youtube #creative #erasmus 
-# #igworldglobal #machupicchu #peru #waynapicchu #dbtravel #lam
+# #engineer #sweden #germany #sexy #creative #erasmus 
+# # #machupicchu  #waynapicchu #dbtravel #science
 '''

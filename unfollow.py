@@ -22,7 +22,7 @@ def unfollow():
         session.set_dont_unfollow_active_users(enabled=True, posts=10)
         session.set_dont_include(['lularoshni', 'ironbetic'])
         session.set_dont_like(['death', 'cancer'])
-        session.unfollow_users(amount=2, onlyInstapyFollowed = True, onlyInstapyMethod = 'FIFO', sleep_delay=10)
+        session.unfollow_users(amount=4, onlyInstapyFollowed = True, onlyInstapyMethod = 'FIFO', sleep_delay=10)
         c = time.strftime("%H:%M:%S")
         n.write(c+'\n')
         n.close()      
