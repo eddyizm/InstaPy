@@ -9,12 +9,7 @@ def log_follower_num(browser, username, logfolder):
 
     followed_by = browser.execute_script(
         "return window._sharedData.""entry_data.ProfilePage[0]."
-<<<<<<< HEAD
-         "graphql.user.edge_followed_by.count")
-        #"user.followed_by.count")
-=======
         "graphql.user.edge_followed_by.count")
->>>>>>> 04784cd84103b97df7cb42884e16d27a747593f4
 
     with open('{}followerNum.txt'.format(logfolder), 'a') as numFile:
         numFile.write(

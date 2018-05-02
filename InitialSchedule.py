@@ -4,6 +4,7 @@ import schedule
 import time
 import instaMail
 import random
+import os
 
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
