@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 def SendBody(body, d):
-    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+    logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
     f = open ( logintext , 'r')
     login = f.read().splitlines()
     f.close()
@@ -55,7 +55,7 @@ def daily_log():
     s = f[fCount-1]
     followers = 'followers: '+(s[-5:]+'\n')
     # Access DB and parse out data.
-    conn = sqlite3.connect('C:\\Users\\eddyizm\\Source\\Repos\\InstaPy\\db\\instapy.db')
+    conn = sqlite3.connect('/Users/eduardocervantes/Downloads/Repo/InstaPy/db/instapy.db')
     # apparently you have to have a cursor with python/sqlite
     c = conn.cursor()
     # query text
@@ -113,7 +113,7 @@ def archive_log():
     tStamp = datetime.now()
     nLog = tStamp.strftime("%Y-%m-%d")+'_general.log'
     try:
-        copyfile('logs/general.log', 'C:\\Users\\eddyizm\\Documents\\emailLog\\'+nLog)
+        copyfile('logs/general.log', '/Users/eduardocervantes/Downloads/Repo/InstaPy/db/'+nLog)
         open('logs/general.log','w').close()
     except IOError as e:
         print (str(e))

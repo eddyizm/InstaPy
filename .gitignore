@@ -100,9 +100,18 @@ ENV/
 # Mac files
 .DS_Store
 
+# Storage
+instapy.db
+logs/
+
 # Editors
 .idea
-assets/chromedriver.exe
+assets/
 db/instapy.db
 
 .vscode/
+.vscode
+
+# pytest
+.pytest_cache/
+tests/logs
