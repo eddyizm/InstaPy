@@ -5,6 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import WebDriverException
 from .util import update_activity
 import pickle
+import time
 
 
 def bypass_suspicious_login(browser):
@@ -91,9 +92,13 @@ def login_user(browser,
                switch_language=True,
                bypass_suspicious_attempt=False):
     """Logins the user with the given username and password"""
+    assert username, 'Username not provided'
+    assert password, 'Password not provided'
+
     browser.get('https://www.instagram.com')
     # update server calls
     update_activity()
+    cookie_loaded = False
 
     # try to load cookie from username
     try:
@@ -101,11 +106,27 @@ def login_user(browser,
         for cookie in pickle.load(open('{0}{1}_cookie.pkl'
                                        .format(logfolder,username), 'rb')):
             browser.add_cookie(cookie)
-        # logged in!
-        return True
+            cookie_loaded = True
     except (WebDriverException, OSError, IOError):
         print("Cookie file not found, creating cookie...")
-        browser.get('https://www.instagram.com')
+
+    # include time.sleep(1) to prevent getting stuck on google.com
+    time.sleep(1)
+    
+    browser.get('https://www.instagram.com')
+
+    # Cookie has been loaded, user should be logged in. Ensurue this is true
+    login_elem = browser.find_elements_by_xpath(
+        "//*[contains(text(), 'Log in')]")
+    # Login text is not found, user logged in
+    # If not, issue with cookie, create new cookie
+    if len(login_elem) == 0:
+        return True
+
+    # If not, issue with cookie, create new cookie
+    if cookie_loaded:
+        print("Issue with cookie for user " + username
+              + ". Creating new cookie...")
 
     # Changes instagram language to english, to ensure no errors ensue from
     # having the site on a different language
@@ -113,11 +134,16 @@ def login_user(browser,
     '''
     if switch_language:
         browser.find_element_by_xpath(
+<<<<<<< HEAD
             "//footer[@Class='_s5vm9']/div[@class='_g7lf5 _9z659']/nav["
             "@Class='_luodr']/ul[@Class='_g8wl6']/li[@Class='_538w0'][10]/"
             "span[@class='_pqycz _hqmnd']/select[@Class='_fsoey']/option"
             "[text()='English']").click()
     '''
+=======
+          "//select[@class='_fsoey']/option[text()='English']").click()
+
+>>>>>>> 04784cd84103b97df7cb42884e16d27a747593f4
     # Check if the first div is 'Create an Account' or 'Log In'
     login_elem = browser.find_element_by_xpath(
         "//article/div/div/p/a[text()='Log in']")
@@ -135,6 +161,8 @@ def login_user(browser,
     sleep(1)
     input_password = browser.find_elements_by_xpath(
         "//input[@name='password']")
+    if not isinstance(password, str):
+        password = str(password)
     ActionChains(browser).move_to_element(input_password[0]). \
         click().send_keys(password).perform()
 

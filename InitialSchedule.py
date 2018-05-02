@@ -5,7 +5,10 @@ import time
 import instaMail
 import random
 
-logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
+if os.name == 'nt':
+    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+else:
+    logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
 
 print ('here we go!')
 def sendlog():

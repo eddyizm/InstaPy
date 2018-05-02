@@ -39,13 +39,14 @@ Table of Contents
   * [Following by a list](#following-by-a-list)
   * [Follow someone else's followers](#follow-someone-elses-followers)
   * [Follow users that someone else is following](#follow-users-that-someone-else-is-following)
-  * [Follow someone else's followers/following](#follow-someone-elses-followers/following)
+  * [Follow someone else's followers/following](#follow-someone-elses-followersfollowing)
   * [Interact with specific users](#interact-with-specific-users)
   * [Interact with users that someone else is following](#interact-with-users-that-someone-else-is-following)
   * [Interact with someone else's followers](#interact-with-someone-elses-followers)
   * [Unfollowing](#unfollowing)
   * [Don't unfollow active users](#dont-unfollow-active-users)
-  * [Interactions based on the number of followers a user has](#interactions-based-on-the-number-of-followers-a-user-has)
+  * [Interactions based on the number of followers and/or following a user has](#interactions-based-on-the-number-of-followers-andor-following-a-user-has)
+  * [Comment by Locations](#comment-by-locations)
   * [Like by Locations](#like-by-locations)
   * [Like by Tags](#like-by-tags)
   * [Like by Feeds](#like-by-feeds)
@@ -67,8 +68,10 @@ Table of Contents
 * [Running Multiple Accounts](#running-multiple-accounts)
 * [Running with Docker microservices manual](#running-with-docker-microservices-manual)
 * [Running all-in-one with Docker (obsolete)](#running-all-in-one-with-docker-obsolete)
-* [Automate with cron](#automate-with-cron)
-* [Automate with Schedule](#automate-with-schedule)
+* [Automate InstaPy](#automate-instapy)
+  * [Windows Task Scheduler](#windows-task-scheduler)
+  * [cron](#cron)
+  * [Schedule](#schedule)
 * [Extra Informations](#extra-informations)
 
 ## Getting started
@@ -96,6 +99,21 @@ or
 ```
 4. Download ```chromedriver``` for your system [from here](https://sites.google.com/a/chromium.org/chromedriver/downloads). Extract the .zip file and put it in ```/assets``` folder.
 
+### Preferred Installation:
+
+The best way to install InstaPy is to create a virtualenv, install InstaPy there and run it from a separate file:
+
+```bash
+1. virtualenv venv
+2. source venv/bin/activate
+3. pip install git+https://github.com/timgrossmann/InstaPy.git
+```
+
+If you're not familiar with virtualenv, please [read about it here](https://virtualenv.pypa.io/en/stable/) and use it to your advantage.
+In essence, this is be the _only_ Python library you should install as root (e.g., with sudo). All other Python libraries should be inside a virtualenv.
+Now copy/paste the `quickstart.py` Python code below and run your first InstaPy script. Remember to run it with Python from the virtualenv, so from `venv/bin/python`. To make sure which Python is used, run `which python`, it will tell you which Python is 'active'.
+Running `source venv/bin/activate` will activate the correct Python to run InstaPy. To exit an activated virtualenv run `deactivate'.
+
 ### Set it up yourself with this Basic Setup
 
 Basic setup is a good way to test the tool. At project root folder open `quickstart.py` and update with your username and password.
@@ -112,7 +130,13 @@ session = InstaPy(username=insta_username, password=insta_password)
 session.login()
 
 # set up all the settings
-session.set_upper_follower_count(limit=2500)
+session.set_relationship_bounds(enabled=True,
+				 potency_ratio=-1.21,
+				  delimit_by_numbers=True,
+				   max_followers=4590,
+				    max_following=5555,
+				     min_followers=45,
+				      min_following=77)
 session.set_do_comment(True, percentage=10)
 session.set_comments(['aMEIzing!', 'So much fun!!', 'Nicey!'])
 session.set_dont_include(['friend1', 'friend2', 'friend3'])
@@ -235,6 +259,43 @@ session.follow_user_followers(['friend1', 'friend2', 'friend3'], amount=10, rand
 session.follow_by_tags(['tag1', 'tag2'], amount=10)
 ```
 
+### Follow users that liked some photo(s)
+
+```python
+# Follows the people that liked given photo
+# The photo_url_arr is array of urls of photos, can also be just 1 url as string
+# The amount is how many people to follow
+# In this case 10 people who liked photo in photo_url_arr will be followed, for each photo
+
+session.follow_likers(['https://www.instagram.com/p/Bga_UUrDFoc/', 'https://www.instagram.com/p/BgbOtLHD7yp/?taken-by=natgeo'], amount=10)
+```
+
+### Follow users that liked some user's post(s)
+
+```python
+# Follows the people that liked photos of given array of users
+# The usernames can be array
+# The photos_grab_amount is how many photos will I grat from users profile and analyze who liked it.
+# The follow_likers_per_photo is how many people to follow per each photo
+# Randomize=False will take photos from newes, true will take random from first 12
+# In this case 2 random photos from each given user will be analyzed and 3 people who liked them will be followed, so 6 follows in total
+
+session.follow_user_likers (['user1' , 'user2'], photos_grab_amount = 2, follow_likers_per_photo = 3, randomize=True)
+```
+
+### Follow users who comment the most on given user(s)'s photos
+
+```python
+# Follows the people that commented photos of given array of users
+# The usernames can be array
+# The amount is how many people to follow
+# The daysold will only take commenters from photos no older than daysold days
+# The max_pic will limit number of photos to analyze
+# In thi case (max 100 newest photos & maximum 365 days old) from each given user will be analyzed and 100 people who commented the most will be followed
+
+session.follow_commenters(['user1', 'user2', 'user3'], amount=100, daysold=365, max_pic = 100)
+```
+
 ### Interact with specific users
 ```python
 # Interact with specific users
@@ -287,13 +348,20 @@ session.interact_user_followers(['natgeo'], amount=10, randomize=True)
 # onlyInstapyMethod is using only when onlyInstapyFollowed = True
 # sleep_delay sets the time it will sleep every 10 profile unfollow, default
 # is 10min
-
 session.unfollow_users(amount=10, onlyInstapyFollowed = True, onlyInstapyMethod = 'FIFO', sleep_delay=60 )
 
 # You can only unfollow user that won't follow you back by adding
 # onlyNotFollowMe = True it still only support on profile following
 # you should disable onlyInstapyFollowed when use this
 session.unfollow_users(amount=10, onlyNotFollowMe=True, sleep_delay=60)
+
+# You can also unfollow users only after following them certain amount of time,
+# this will provide seamless unfollow activity without the notice of the targeted user
+# To use, just add `unfollow_after` argument with the desired time, e.g.
+session.unfollow_users(amount=10, onlyInstapyFollowed = True, onlyInstapyMethod = 'FIFO', sleep_delay=600, unfollow_after=48*60*60)
+# will unfollow users only after following them 48 hours (2 days), since `unfollow_after`s value
+# is seconds, you can simply give it `unfollow_after=100` to unfollow after 100 seconds,
+# but `1*60*60` (which is equal to 1 hour or 3600 seconds) style is a lot simpler to use 👍
 ```
 
 ### Don't unfollow active users
@@ -304,21 +372,64 @@ session.unfollow_users(amount=10, onlyNotFollowMe=True, sleep_delay=60)
 session.set_dont_unfollow_active_users(enabled=True, posts=5)
 ```
 
-### Interactions based on the number of followers a user has
+### Interactions based on the number of followers and/or following a user has
 
+##### This is used to check the number of _followers_ and/or _following_ a user has and if these numbers _either_ **exceed** the number set OR **does not pass** the number set OR if **their ratio does not reach** desired potency ratio then no further interaction happens
 ```python
-# This is used to check the number of followers a user has and if this number
-# exceeds the number set then no further interaction happens
+session.set_relationship_bounds(enabled=True,
+				 potency_ratio=1.34,
+				  delimit_by_numbers=True,
+				   max_followers=8500,
+				    max_following=4490,
+				     min_followers=100,
+				      min_following=56)
+```
+`delimit_by_numbers` is used to **activate** & **deactivate** the usage of max & min values  
+`potency_ratio` accepts values in **2 format**s _according to your_ **style**: _positive_ & _negative_  
+* `potency_ratio` with **POSITIVE** values can be used to _route_ interactions to _only_ **potential** (_real_) **users** _WHOSE_ **followers count** is higher than **following count** (**e.g.**, `potency_ratio = 1.39`)  
+_**find** desired_ `potency_ratio` _with this formula_: `potency_ratio` == **followers count** / **following count**  (_use desired counts_)
+>_**e.g.**_, target user has _`5000` followers_ & _`4000` following_ and you set `potency_ratio=1.35`.  
+**Now** it _will **not** interact_ with this user, **cos** the user's **relationship ratio** is `5000/4000==1.25` and `1.25` is **below** _desired_ `potency_ratio` _of `1.35`_  
 
-session.set_upper_follower_count(limit = 250)
+* `potency_ratio` with **NEGATIVE** values can be used to _route_ interactions to _only_ **massive followers** _WHOSE_ **following count** is higher than **followers count** (**e.g.**, `potency_ratio = -1.42`)  
+_**find** desired_ `potency_ratio` _with this formula_: `potency_ratio` == **following count** / **followers count**  (_use desired counts_)
+>_**e.g.**_, target user has _`2000` followers_ & _`3000` following_ and you set `potency_ratio = -1.7`.  
+**Now** it _will **not** interact_ with this user, **cos** the user's **relationship ratio** is `3000/2000==1.5` and `1.5` is **below** _desired_ `potency_ratio` _of `1.7`_ (_**note that**, negative `-` sign is only used to determine your style, nothing more_)
+
+###### There are **3** **COMBINATIONS** _available_ to use:
+* **1**. You can use `potency_ratio` **or not** (**e.g.**, `potency_ratio=None`, `delimit_by_numbers=True`) - _will decide only by your **pre-defined** max & min values regardless of the_ `potency_ratio`
+```python
+session.set_relationship_bounds (enabled=True, potency_ratio=None, delimit_by_numbers=True, max_followers=22668, max_following=10200, min_followers=400, min_following=240)
+```
+* **2**. You can use **only** `potency_ratio` (**e.g.**, `potency_ratio=-1.5`, `delimit_by_numbers=False`) - _will decide per_ `potency_ratio` _regardless of the **pre-defined** max & min values_
+```python
+session.set_relationship_bounds (enabled=True, potency_ratio=-1.5, delimit_by_numbers=False, max_followers=400701, max_following=90004, min_followers=963, min_following=2310)
+```
+> apparently, _once_ `delimit_by_numbers` gets `False` value, max & min values _do not matter_
+* **3**. You can use both `potency_ratio` and **pre-defined** max & min values **together** (**e.g.**, `potency_ratio=2.35`, `delimit_by_numbers=True`) - _will decide per_ `potency_ratio` _& your **pre-defined** max & min values_
+```python
+session.set_relationship_bounds (enabled=True, potency_ratio=2.35, delimit_by_numbers=True, max_followers=10005, max_following=24200, min_followers=77, min_following=500)
 ```
 
+> **All** of the **4** max & min values are _able to **freely** operate_, **e.g.**, you may want to _**only** delimit_ `max_followers` and `min_following` (**e.g.**, `max_followers=52639`, `max_following=None`, `min_followers=None`, `min_following=2240`)
 ```python
-# This is used to check the number of followers a user has and if this number
-# does not pass the number set then no further interaction happens
+session.set_relationship_bounds (enabled=True, potency_ratio=-1.44, delimit_by_numbers=True, max_followers=52639, max_following=None, min_followers=None, min_following=2240)
+```  
 
-session.set_lower_follower_count(limit = 1)
+
+
+### Comment by Locations
+
+```python
+session.comment_by_locations(['224442573/salton-sea/'], amount=100)
+# or
+session.comment_by_locations(['224442573'], amount=100)
+# or include media entities from top posts section
+
+session.comment_by_locations(['224442573'], amount=5, skip_top_posts=False)
 ```
+
+This method allows commenting by locations, without liking posts. To get locations follow instructions in 'Like by Locations'
 
 ### Like by Locations
 
@@ -467,6 +578,17 @@ You can use InstaPy behind a proxy by specifying server address and port
 
 ```python
 session = InstaPy(username=insta_username, password=insta_password, proxy_address='8.8.8.8', proxy_port=8080)
+```
+
+To use proxy with authentication you should firstly generate proxy chrome extension (works only with Chrome and headless_browser=False).
+
+```python
+from proxy_extension import create_proxy_extension
+
+proxy = 'login:password@ip:port'
+proxy_chrome_extension = create_proxy_extension(proxy)
+
+session = InstaPy(username=insta_username, password=insta_password, proxy_chrome_extension=proxy_chrome_extension, nogui=True)
 ```
 
 ### Switching to Firefox
@@ -658,7 +780,25 @@ After the build succeeds, you can simply run the container with:
 docker run --name=instapy -e INSTA_USER=<your-user> -e INSTA_PW=<your-pw> -d --rm instapy
 ```
 
-## Automate with `cron`
+## Automate InstaPy
+
+### [Windows Task Scheduler](https://msdn.microsoft.com/en-us/library/windows/desktop/aa383614(v=vs.85).aspx)
+
+You can use Window's built in Task Scheduler to automate InstaPy, using a variety of trigger types: time, login, computer idles, etc. To schedule a simple daily run of an Instapy script follow the below directions
+1. Open [Windows Task Scheduler](https://msdn.microsoft.com/en-us/library/windows/desktop/aa383614(v=vs.85).aspx)
+2. Select "Create Basic Task"
+3. Fill out "Name" and "Description" as desired, click "Next"
+4. On "Trigger" screen select how frequently to run, click "Next" (Frequency can be modified later)
+5. On "Daily" screen, hit "Next"
+6. "Action Screen" select "Start a program" and then click "Next"
+7. "Program/script" enter the path, or browse to select the path to python. ([How to find python path on Windows](https://stackoverflow.com/questions/647515/how-can-i-get-python-path-under-windows))
+8. "Add arguments" input the InstaPy script path you wish to run. (Example: C:\Users\USER_NAME\Documents\GitHub\InstaPy\craigquick.py)
+9. "Start in" input Instapy install location (Example: C:\Users\USER_NAME\Documents\GitHub\InstaPy\). Click "Next"
+10. To finish the process, hit "Finish"
+
+
+
+### `cron`
 
 You can add InstaPy to your crontab, so that the script will be executed regularly. This is especially useful for servers, but be sure not to break Instagrams follow and like limits.
 
@@ -672,7 +812,7 @@ crontab -e
 45 */4 * * * cd /home/user/InstaPy && /usr/bin/python ./quickstart.py
 ```
 
-## Automate with [Schedule](https://github.com/dbader/schedule)
+### [Schedule](https://github.com/dbader/schedule)
 
 > Schedule is an in-process scheduler for periodic jobs that uses the builder pattern for configuration. Schedule lets you run Python functions periodically at pre-determined intervals using a simple, human-friendly syntax.
 
