@@ -1,17 +1,17 @@
 from instapy import InstaPy
-
-import time
+from tempfile import gettempdir
+from selenium.common.exceptions import NoSuchElementException
+import os
 import instaMail
-import random
-logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+import time
+if os.name == 'nt':
+    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+else:
+    logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
 print ('unfollow solo')
 
 def unfollow():
     try:
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('unfollow\n')
-        n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -23,14 +23,26 @@ def unfollow():
         session.set_dont_include(['lularoshni', 'ironbetic'])
         session.set_dont_like(['death', 'cancer'])
         session.unfollow_users(amount=4, onlyInstapyFollowed = True, onlyInstapyMethod = 'FIFO', sleep_delay=10)
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
         session.end()
         instaMail.archive_log()
         instaMail.completeTask('unfollow success')
-    except:
+    except Exception as exc:
         print('unfollow fail!')
         instaMail.completeTask('unfollow fail')
+        # if changes to IG layout, upload the file to help us locate the change
+        if isinstance(exc, NoSuchElementException):
+            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+            with open(file_path, 'wb') as fp:
+                fp.write(session.browser.page_source.encode('utf8'))
+            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+                '*' * 70, file_path))
+        # full stacktrace when raising Github issue
+        raise
+
+    finally:
+        # end the bot session
+        session.end()
+    
+        
 
 unfollow()

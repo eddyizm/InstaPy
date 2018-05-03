@@ -59,7 +59,11 @@ def daily_log():
     s = f[fCount-1]
     followers = 'followers: '+(s[-5:]+'\n')
     # Access DB and parse out data.
-    conn = sqlite3.connect('/Users/eduardocervantes/Downloads/Repo/InstaPy/db/instapy.db')
+    if os.name == 'nt':
+        conn = sqlite3.connect("C:\\Users\\eddyizm\\Source\\Repos\\InstaPy\\db\\instapy.db")
+    else:
+        conn = sqlite3.connect('/Users/eduardocervantes/Downloads/Repo/InstaPy/db/instapy.db')
+    
     # apparently you have to have a cursor with python/sqlite
     c = conn.cursor()
     # query text
@@ -75,13 +79,13 @@ def daily_log():
     message =  followers+columns+x+z+'\n'
 
     # get log info : 
-    endFile = file_len('logs/timelog.txt')
-    n = open('logs/timelog.txt','r')
-    log = n.readlines()
-    count = endFile-15
-    for x in range(count, (endFile)):
-        message+=log[x]
-    n.close()
+    # endFile = file_len('logs/timelog.txt')
+    # n = open('logs/timelog.txt','r')
+    # log = n.readlines()
+    # count = endFile-15
+    # for x in range(count, (endFile)):
+    #     message+=log[x]
+    # n.close()
     # print(message)
     SendBody(message, nextday[5])
 
@@ -96,7 +100,6 @@ def completeTask(jobname):
     try:
         logfile = 'logs/general.log'
         endFile = file_len(logfile)
-        
         n = open(logfile,'r')
         log = n.readlines()
         count = endFile-99

@@ -14,8 +14,13 @@ session = InstaPy(username=insta_username, password=insta_password,  headless_br
 session.login()
 
 # set up all the settings
-session.set_upper_follower_count(limit=1000)
-session.set_lower_follower_count(limit = 25)
+session.set_relationship_bounds(enabled=True,
+            potency_ratio=-1.21,
+            delimit_by_numbers=True,
+            max_followers=5000,
+                max_following=5555,
+                min_followers=45,
+                min_following=77)
 session.set_do_comment(True, percentage=20)
 session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
 session.set_dont_like(['death', 'cancer'])

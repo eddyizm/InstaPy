@@ -1,16 +1,10 @@
 import os
 import time
 from tempfile import gettempdir
-
 from selenium.common.exceptions import NoSuchElementException
-
 from instapy import InstaPy
-
-import schedule
-import time
 import instaMail
-import random
-import os
+
 
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"

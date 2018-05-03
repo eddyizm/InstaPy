@@ -10,8 +10,6 @@ if os.name == 'nt':
 else:
     logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
      
-
-
 def interactUser():
     t = random.randint(0,6)
     if t == 0:
@@ -38,11 +36,6 @@ def interactUser():
 
 def interact():
     try:
-        
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('interact\n')
-        n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -50,7 +43,7 @@ def interact():
         insta_username = login[0]
         insta_password = login[1]
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
-        session.login()
+        session.login() 
         session.set_relationship_bounds(enabled=True,
             potency_ratio=-1.21,
             delimit_by_numbers=True,
@@ -64,13 +57,21 @@ def interact():
         session.set_do_comment(enabled=True, percentage=20)
         session.set_dont_like(['death', 'cancer'])
         session.interact_user_followers([u], amount=50, randomize=True)
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
         session.end()
         instaMail.completeTask('interact success')
-    except Exception as r:
-        print(r)
-        instaMail.completeTask(r)
- 
+    except Exception as exc:
+            # if changes to IG layout, upload the file to help us locate the change
+            if isinstance(exc, NoSuchElementException):
+                file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+                with open(file_path, 'wb') as fp:
+                    fp.write(session.browser.page_source.encode('utf8'))
+                print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+                    '*' * 70, file_path))
+            # full stacktrace when raising Github issue
+            raise
+
+        finally:
+            # end the bot session
+            session.end()
+         
 interact() 

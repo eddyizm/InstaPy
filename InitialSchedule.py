@@ -1,9 +1,11 @@
-from instapy import InstaPy
-
+import os
 import schedule
 import time
-import instaMail
 import random
+from tempfile import gettempdir
+from selenium.common.exceptions import NoSuchElementException
+from instapy import InstaPy
+import instaMail
 
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
@@ -16,10 +18,6 @@ def sendlog():
 
 def quickstart():
     try:
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('quickstart\n')
-        n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -27,25 +25,37 @@ def quickstart():
         insta_password = login[1]
         session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
         session.login()
-        session.set_upper_follower_count(limit=5000)
-        session.set_lower_follower_count(limit = 50)
+        session.set_relationship_bounds(enabled=True,
+            potency_ratio=-1.21,
+            delimit_by_numbers=True,
+            max_followers=5000,
+                max_following=5555,
+                min_followers=45,
+                min_following=77)
         session.set_dont_like(['death', 'cancer'])
         session.like_by_feed(amount=35, unfollow=False, randomize=True, interact=True)
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
         session.end()
         instaMail.completeTask('quickstart success')
-    except Exception :
+    except Exception as exc:
         print('quickstart fail!')
         instaMail.completeTask('quickstart fail!')
+        # if changes to IG layout, upload the file to help us locate the change
+        if isinstance(exc, NoSuchElementException):
+            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+            with open(file_path, 'wb') as fp:
+                fp.write(session.browser.page_source.encode('utf8'))
+            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+                '*' * 70, file_path))
+        # full stacktrace when raising Github issue
+        raise
+
+    finally:
+        # end the bot session
+        session.end()
+            
 
 def thumbsup():
     try:
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('thumbsup\n')
-        n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -53,15 +63,17 @@ def thumbsup():
         insta_password = login[1]
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
-        session.set_upper_follower_count(limit=1000)
-        session.set_lower_follower_count(limit = 25)
+        session.set_relationship_bounds(enabled=True,
+            potency_ratio=-1.21,
+            delimit_by_numbers=True,
+            max_followers=5000,
+                max_following=5555,
+                min_followers=45,
+                min_following=77)
         session.set_do_comment(True, percentage=20)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.set_dont_like(['death', 'cancer'])
         session.like_by_tags(['wanderlust', 'campvibes', 'nationalpark', 'vsconature', 'mountains', 'neverstopexploring' ], amount=50)
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
         session.end()
         instaMail.completeTask('thumbsup success')
     except:
@@ -70,12 +82,6 @@ def thumbsup():
 
 def ceramics():
     try:
-        #logfile
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('ceramics\n')
-        n.write(t+'\n')
-        #login
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -84,17 +90,19 @@ def ceramics():
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
         # set up all the settings
-        session.set_upper_follower_count(limit=5000)
-        session.set_lower_follower_count(limit = 25)
+        session.set_relationship_bounds(enabled=True,
+            potency_ratio=-1.21,
+            delimit_by_numbers=True,
+            max_followers=5000,
+                max_following=5555,
+                min_followers=45,
+                min_following=77)
         session.set_do_comment(True, percentage=20)
         session.set_do_follow(enabled=True, percentage=5, times=1)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:', 'Awesome!', 'Sweet!'])
         session.set_dont_include(['helloklai'])
         session.set_dont_like(['death', 'cancer'])
         session.like_by_tags(['ceramics', 'coffee', 'etsy'], amount=25)
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
         session.end()
         instaMail.completeTask('ceramics success')
     except:
@@ -103,10 +111,6 @@ def ceramics():
     
 def bouldering():
     try:
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('bouldering\n')
-        n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -114,16 +118,18 @@ def bouldering():
         insta_password = login[1]
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
-        session.set_upper_follower_count(limit=500)
-        session.set_lower_follower_count(limit = 50)
+        session.set_relationship_bounds(enabled=True,
+            potency_ratio=-1.21,
+            delimit_by_numbers=True,
+            max_followers=5000,
+                max_following=5555,
+                min_followers=45,
+                min_following=77)
         session.set_do_comment(True, percentage=20)
         session.set_do_follow(enabled=True, percentage=5, times=1)
         session.set_comments(['Rad!', 'Super cool!', u'Excellent! :thumbsup:', 'Amazing!'])
         session.set_dont_like(['death', 'cancer'])
         session.like_by_tags(['bouldering', 'streetphotography','climbing_pictures_of_instagram', 'trailrunning','optoutside'], amount=25)
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
         session.end()
         instaMail.completeTask('bouldering success')
     except:
@@ -132,10 +138,6 @@ def bouldering():
 
 def unfollow():
     try:
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('unfollow\n')
-        n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -147,9 +149,6 @@ def unfollow():
         session.set_dont_include(['lularoshni', 'ironbetic'])
         session.set_dont_like(['death', 'cancer'])
         session.unfollow_users(amount=4, onlyInstapyFollowed = True, onlyInstapyMethod = 'FIFO', sleep_delay=10)
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
         session.end()
         instaMail.archive_log()
         instaMail.completeTask('unfollow success')
@@ -159,10 +158,6 @@ def unfollow():
 
 def lit():
     try:
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('lit\n')
-        n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -171,14 +166,16 @@ def lit():
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
         session.set_dont_like(['death', 'cancer'])
-        session.set_upper_follower_count(limit=5000)
-        session.set_lower_follower_count(limit = 25)
+        session.set_relationship_bounds(enabled=True,
+            potency_ratio=-1.21,
+            delimit_by_numbers=True,
+            max_followers=5000,
+                max_following=5555,
+                min_followers=45,
+                min_following=77)
         session.set_do_comment(True, percentage=20)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.like_by_tags(['astronomy','architecture','literature'], amount=40)
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
         session.end()
         instaMail.completeTask('literature success')
     except:
@@ -211,10 +208,6 @@ def interactUser():
 
 def interact():
     try:
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('interact\n')
-        n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -223,17 +216,19 @@ def interact():
         insta_password = login[1]
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
-        session.set_upper_follower_count(limit=3000)
-        session.set_lower_follower_count(limit = 25)
+        session.set_relationship_bounds(enabled=True,
+            potency_ratio=-1.21,
+            delimit_by_numbers=True,
+            max_followers=5000,
+                max_following=5555,
+                min_followers=45,
+                min_following=77)
         session.set_user_interact(amount=4, randomize=True, percentage=70, media='Photo')
         session.set_do_like(enabled=True, percentage=80)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.set_do_comment(enabled=True, percentage=20)
         session.set_dont_like(['death', 'cancer'])
         session.interact_user_followers([u], amount=25, randomize=True)
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
         session.end()
         instaMail.completeTask('interact success')
     except:
