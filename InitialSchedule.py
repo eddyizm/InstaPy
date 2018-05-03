@@ -132,9 +132,21 @@ def bouldering():
         session.like_by_tags(['bouldering', 'streetphotography','climbing_pictures_of_instagram', 'trailrunning','optoutside'], amount=25)
         session.end()
         instaMail.completeTask('bouldering success')
-    except:
+    except Exception as exc:
         print ('bouldering failed!')
         instaMail.completeTask('bouldering fail!')
+        if isinstance(exc, NoSuchElementException):
+            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+            with open(file_path, 'wb') as fp:
+                fp.write(session.browser.page_source.encode('utf8'))
+            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+                '*' * 70, file_path))
+        
+        raise
+
+    finally:
+        session.end()
+    
 
 def unfollow():
     try:
@@ -152,9 +164,21 @@ def unfollow():
         session.end()
         instaMail.archive_log()
         instaMail.completeTask('unfollow success')
-    except:
+    except Exception as exc:
         print('unfollow fail!')
         instaMail.completeTask('unfollow fail')
+        if isinstance(exc, NoSuchElementException):
+            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+            with open(file_path, 'wb') as fp:
+                fp.write(session.browser.page_source.encode('utf8'))
+            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+                '*' * 70, file_path))
+        
+        raise
+
+    finally:
+        session.end()
+    
 
 def lit():
     try:
@@ -178,9 +202,22 @@ def lit():
         session.like_by_tags(['astronomy','architecture','literature'], amount=40)
         session.end()
         instaMail.completeTask('literature success')
-    except:
+    except Exception as exc:
         print('lit fail!')        
         instaMail.completeTask('lit fail')
+        if isinstance(exc, NoSuchElementException):
+            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+            with open(file_path, 'wb') as fp:
+                fp.write(session.browser.page_source.encode('utf8'))
+            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+                '*' * 70, file_path))
+        
+        raise
+
+    finally:
+        session.end()
+    
+
 
 def interactUser():
     t = random.randint(0,6)
@@ -231,9 +268,20 @@ def interact():
         session.interact_user_followers([u], amount=25, randomize=True)
         session.end()
         instaMail.completeTask('interact success')
-    except:
+    except Exception as exc:
         print('interact fail!')
         instaMail.completeTask('interact fail')
+        if isinstance(exc, NoSuchElementException):
+            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+            with open(file_path, 'wb') as fp:
+                fp.write(session.browser.page_source.encode('utf8'))
+            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+                '*' * 70, file_path))
+        
+        raise
+
+    finally:
+        session.end()
 
 # scheduled methods
 schedule.every().day.at("5:15").do(quickstart)

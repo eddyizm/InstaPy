@@ -63,12 +63,11 @@ def daily_log():
         conn = sqlite3.connect("C:\\Users\\eddyizm\\Source\\Repos\\InstaPy\\db\\instapy.db")
     else:
         conn = sqlite3.connect('/Users/eduardocervantes/Downloads/Repo/InstaPy/db/instapy.db')
-    
     # apparently you have to have a cursor with python/sqlite
     c = conn.cursor()
     # query text
     q = 'SELECT likes, comments, follows, unfollows, server_calls, created FROM statistics WHERE created > date("now","-4 day");'
-    results = c.execute(q)
+    c.execute(q)
     columns = 'like | comment | follow | unfollow | server_call | created'
     day = c.fetchone()
     z = '\n%s | %s | %s | %s | %s | %s' % (day[0],day[1],day[2], day[3], day[4], day[5])
