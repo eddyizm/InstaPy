@@ -1,15 +1,18 @@
 from instapy import InstaPy
 import time
 import instaMail
+from selenium.common.exceptions import NoSuchElementException
+from tempfile import gettempdir
+import os
+
 print ('alpha script')
-logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+if os.name == 'nt':
+    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+else:
+    logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
 
 def alpha():
     try:
-        n = open('logs/timelog.txt','a+')
-        t = time.strftime("%H:%M:%S")
-        n.write('alphapy.py\n')
-        n.write(t+'\n')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
@@ -18,25 +21,42 @@ def alpha():
         session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
         session.login()
         session.set_dont_like(['death', 'cancer'])
-        session.set_upper_follower_count(limit=5000)
-        session.set_lower_follower_count(limit = 25)
+        session.set_relationship_bounds(enabled=True,
+                potency_ratio=-1.21,
+                delimit_by_numbers=True,
+                max_followers=5000,
+                    max_following=5555,
+                    min_followers=45,
+                    min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['fullerton', 'ghosttown', 'space'], amount=50 )
-        c = time.strftime("%H:%M:%S")
-        n.write(c+'\n')
-        n.close()      
+        session.like_by_tags(['sweden', 'science', 'love'], amount=50 )
         session.end()
         instaMail.completeTask('alpha success')
-    except:
+    except Exception as exc:
         print('alpha fail!')        
         instaMail.completeTask('alpha fail')
+        # if changes to IG layout, upload the file to help us locate the change
+        if isinstance(exc, NoSuchElementException):
+            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+            with open(file_path, 'wb') as fp:
+                fp.write(session.browser.page_source.encode('utf8'))
+            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+                '*' * 70, file_path))
+        # full stacktrace when raising Github issue
+        raise
+
+    finally:
+        # end the bot session
+        session.end()
+        
+        
 
 alpha()
 # #liveamplified
 '''
 #creativeminds #photo #vlog #hamburg 
 # #mavicpro #lumix #myerasmus #dji #panasonic #life #imagine 
-# #engineer #sweden #germany #sexy #creative #erasmus 
-# # #machupicchu  #waynapicchu #dbtravel #science
+# #engineer # #germany #sexy #creative #erasmus 
+# # #machupicchu  #waynapicchu #dbtravel #
 '''
