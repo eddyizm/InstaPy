@@ -8,7 +8,6 @@ else:
 print ('ceramics solo')
 # read login info from file
 f = open ( logintext , 'r')
-
 login = f.read().splitlines()
 f.close()
 insta_username = login[0]
@@ -20,7 +19,7 @@ session = InstaPy(username=insta_username, password=insta_password,  headless_br
 session.login()
 # set up all the settings
 session.set_relationship_bounds(enabled=True,
-            potency_ratio=-1.21,
+            potency_ratio=None,
             delimit_by_numbers=True,
             max_followers=5000,
                 max_following=5555,
@@ -32,7 +31,6 @@ session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:', 'Awesome!', '
 session.set_dont_include(['helloklai'])
 session.set_dont_like(['death', 'cancer'])
 # do the actual liking
-session.set_smart_hashtags(['ceramics', 'coffee', 'etsy'], limit=1, sort='top', log_tags=True)
-session.like_by_tags(amount=10, use_smart_hashtags=True)
+session.like_by_tags(['ceramics', 'coffee', 'etsy'], amount=50 )
 # end the bot session
 session.end()
