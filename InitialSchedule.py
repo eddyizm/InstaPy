@@ -26,7 +26,7 @@ def quickstart():
         session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
         session.login()
         session.set_relationship_bounds(enabled=True,
-            potency_ratio=-1.21,
+            potency_ratio=None,
             delimit_by_numbers=True,
             max_followers=5000,
                 max_following=5555,
@@ -64,7 +64,7 @@ def thumbsup():
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
         session.set_relationship_bounds(enabled=True,
-            potency_ratio=-1.21,
+            potency_ratio=None,
             delimit_by_numbers=True,
             max_followers=5000,
                 max_following=5555,
@@ -104,7 +104,7 @@ def ceramics():
         session.login()
         # set up all the settings
         session.set_relationship_bounds(enabled=True,
-            potency_ratio=-1.21,
+            potency_ratio=None,
             delimit_by_numbers=True,
             max_followers=5000,
                 max_following=5555,
@@ -144,7 +144,7 @@ def bouldering():
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
         session.set_relationship_bounds(enabled=True,
-            potency_ratio=-1.21,
+            potency_ratio=None,
             delimit_by_numbers=True,
             max_followers=5000,
                 max_following=5555,
@@ -216,7 +216,7 @@ def lit():
         session.login()
         session.set_dont_like(['death', 'cancer'])
         session.set_relationship_bounds(enabled=True,
-            potency_ratio=-1.21,
+            potency_ratio=None,
             delimit_by_numbers=True,
             max_followers=5000,
                 max_following=5555,
@@ -279,7 +279,7 @@ def interact():
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
         session.set_relationship_bounds(enabled=True,
-            potency_ratio=-1.21,
+            potency_ratio=None,
             delimit_by_numbers=True,
             max_followers=5000,
                 max_following=5555,

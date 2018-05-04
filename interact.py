@@ -45,7 +45,7 @@ def interact():
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login() 
         session.set_relationship_bounds(enabled=True,
-            potency_ratio=-1.21,
+            potency_ratio=None,
             delimit_by_numbers=True,
             max_followers=5000,
                 max_following=5555,
