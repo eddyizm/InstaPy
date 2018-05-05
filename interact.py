@@ -63,18 +63,19 @@ def interact():
         instaMail.completeTask('interact success')
     except Exception as exc:
         print('interact fail')
-        if isinstance(exc, NoSuchElementException):
-            print('NoSuchElementException')
+        #if isinstance(exc, NoSuchElementException):
+            #print('NoSuchElementException')
             # file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
             # with open(file_path, 'wb') as fp:
             #     fp.write(session.browser.page_source.encode('utf8'))
             # print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
             #     '*' * 70, file_path))
         # full stacktrace when raising Github issue
-        raise
+        #raise
 
     finally:
-            # end the bot session
-            session.end()
+        session.end()
+           # end the bot session
+        
          
 interact() 

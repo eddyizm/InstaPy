@@ -30,7 +30,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['igersitalia', 'life', 'lumix'], amount=50 )
+        session.like_by_tags(['igersitalia', 'creativeminds', 'imagine'], amount=50 )
         session.end()
         print('alpha success')  
         #instaMail.completeTask('alpha success')
@@ -55,8 +55,8 @@ def alpha():
 alpha()
 # #liveamplified
 '''
-#creativeminds #photo #vlog #hamburg 
-# #mavicpro # #myerasmus #dji #panasonic # #imagine 
+# #photo #vlog #hamburg 
+# #mavicpro # #myerasmus #dji #panasonic # # 
 # #engineer # #germany #sexy #creative #erasmus 
 # # #machupicchu  #waynapicchu #dbtravel #
 '''
