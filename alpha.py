@@ -59,5 +59,11 @@ alpha()
 #mavicpro # #myerasmus #dji #panasonic 
 #engineer # #germany #sexy #creative #erasmus 
 # #machupicchu  #waynapicchu #dbtravel 
-#turkmen #turkmengirl  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife'
+#turkmen #turkmengirl  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
+#artnude #nudeart #coutrylife #farmlife #explorenewzealand #purenewzealand #gonewzealand
+#kilonewton #renewableenergy #engineering #greenenergy
+#functionalart #abstractart #textiles #artmatsdm #whimsical #charecterdesign
+#folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 
+ #folkgoood  #agameoftones #lifeofadventure #keepitwild #roadtrippin #roadtrip #dreaming #earthpix #moodynature #exploremore #folkcreative  
+ 
 '''
