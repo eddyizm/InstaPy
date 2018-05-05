@@ -38,7 +38,7 @@ def alpha():
         print('alpha fail!')        
         #instaMail.completeTask('alpha fail')
         # if changes to IG layout, upload the file to help us locate the change
-        if isinstance(exc, NoSuchElementException):
+        #if isinstance(exc, NoSuchElementException):
             # file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
             # with open(file_path, 'wb') as fp:
             #     fp.write(session.browser.page_source.encode('utf8'))
@@ -55,8 +55,9 @@ def alpha():
 alpha()
 # #liveamplified
 '''
-# #photo #vlog #hamburg 
-# #mavicpro # #myerasmus #dji #panasonic # # 
-# #engineer # #germany #sexy #creative #erasmus 
-# # #machupicchu  #waynapicchu #dbtravel #
+#photo #vlog #hamburg 
+#mavicpro # #myerasmus #dji #panasonic 
+#engineer # #germany #sexy #creative #erasmus 
+# #machupicchu  #waynapicchu #dbtravel 
+#turkmen #turkmengirl  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife'
 '''
