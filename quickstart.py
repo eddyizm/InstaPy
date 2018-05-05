@@ -38,14 +38,14 @@ def quickstart():
 
     except Exception as exc:
         # if changes to IG layout, upload the file to help us locate the change
-        if isinstance(exc, NoSuchElementException):
-            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            with open(file_path, 'wb') as fp:
-                fp.write(session.browser.page_source.encode('utf8'))
-            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-                '*' * 70, file_path))
+        # if isinstance(exc, NoSuchElementException):
+        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+        #     with open(file_path, 'wb') as fp:
+        #         fp.write(session.browser.page_source.encode('utf8'))
+        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+        #         '*' * 70, file_path))
         
-        raise
+        # raise
 
     finally:
         session.end()
