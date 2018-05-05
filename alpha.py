@@ -31,7 +31,6 @@ def alpha():
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.like_by_tags(['igersitalia', 'creativeminds', 'imagine'], amount=50 )
-        session.end()
         print('alpha success')  
         #instaMail.completeTask('alpha success')
     except Exception as exc:
