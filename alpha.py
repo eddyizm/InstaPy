@@ -30,12 +30,13 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['sweden', 'science', 'love'], amount=50 )
+        session.like_by_tags(['igersitalia', 'life', 'lumix'], amount=50 )
         session.end()
-        instaMail.completeTask('alpha success')
+        print('alpha success')  
+        #instaMail.completeTask('alpha success')
     except Exception as exc:
         print('alpha fail!')        
-        instaMail.completeTask('alpha fail')
+        #instaMail.completeTask('alpha fail')
         # if changes to IG layout, upload the file to help us locate the change
         if isinstance(exc, NoSuchElementException):
             file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
@@ -56,7 +57,7 @@ alpha()
 # #liveamplified
 '''
 #creativeminds #photo #vlog #hamburg 
-# #mavicpro #lumix #myerasmus #dji #panasonic #life #imagine 
+# #mavicpro # #myerasmus #dji #panasonic # #imagine 
 # #engineer # #germany #sexy #creative #erasmus 
 # # #machupicchu  #waynapicchu #dbtravel #
 '''

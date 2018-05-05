@@ -39,14 +39,14 @@ def quickstart():
     except Exception as exc:
         print('quickstart fail!')
         instaMail.completeTask('quickstart fail!')
-        # if changes to IG layout, upload the file to help us locate the change
-        if isinstance(exc, NoSuchElementException):
-            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            with open(file_path, 'wb') as fp:
-                fp.write(session.browser.page_source.encode('utf8'))
-            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-                '*' * 70, file_path))
-        # full stacktrace when raising Github issue
+        # # if changes to IG layout, upload the file to help us locate the change
+        # if isinstance(exc, NoSuchElementException):
+        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+        #     with open(file_path, 'wb') as fp:
+        #         fp.write(session.browser.page_source.encode('utf8'))
+        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+        #         '*' * 70, file_path))
+        # # full stacktrace when raising Github issue
         raise
 
     finally:
@@ -79,14 +79,14 @@ def thumbsup():
     except Exception as exc:
         print('thumbsup fail!')
         instaMail.completeTask('thumbsup fail')
-        if isinstance(exc, NoSuchElementException):
-            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            with open(file_path, 'wb') as fp:
-                fp.write(session.browser.page_source.encode('utf8'))
-            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-                '*' * 70, file_path))
+        # if isinstance(exc, NoSuchElementException):
+        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+        #     with open(file_path, 'wb') as fp:
+        #         fp.write(session.browser.page_source.encode('utf8'))
+        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+        #         '*' * 70, file_path))
         
-        raise
+        # raise
 
     finally:
         session.end()
@@ -120,15 +120,15 @@ def ceramics():
         instaMail.completeTask('ceramics success')
     except Exception as exc:
         print('ceramics fail!')
-        instaMail.completeTask('thumbsup fail!')
-        if isinstance(exc, NoSuchElementException):
-            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            with open(file_path, 'wb') as fp:
-                fp.write(session.browser.page_source.encode('utf8'))
-            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-                '*' * 70, file_path))
+        instaMail.completeTask('ceramics fail!')
+        # if isinstance(exc, NoSuchElementException):
+        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+        #     with open(file_path, 'wb') as fp:
+        #         fp.write(session.browser.page_source.encode('utf8'))
+        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+        #         '*' * 70, file_path))
         
-        raise
+        # raise
 
     finally:
         session.end()
@@ -160,14 +160,14 @@ def bouldering():
     except Exception as exc:
         print ('bouldering failed!')
         instaMail.completeTask('bouldering fail!')
-        if isinstance(exc, NoSuchElementException):
-            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            with open(file_path, 'wb') as fp:
-                fp.write(session.browser.page_source.encode('utf8'))
-            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-                '*' * 70, file_path))
+        # if isinstance(exc, NoSuchElementException):
+        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+        #     with open(file_path, 'wb') as fp:
+        #         fp.write(session.browser.page_source.encode('utf8'))
+        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+        #         '*' * 70, file_path))
         
-        raise
+        # raise
 
     finally:
         session.end()
@@ -192,14 +192,14 @@ def unfollow():
     except Exception as exc:
         print('unfollow fail!')
         instaMail.completeTask('unfollow fail')
-        if isinstance(exc, NoSuchElementException):
-            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            with open(file_path, 'wb') as fp:
-                fp.write(session.browser.page_source.encode('utf8'))
-            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-                '*' * 70, file_path))
+        # if isinstance(exc, NoSuchElementException):
+        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+        #     with open(file_path, 'wb') as fp:
+        #         fp.write(session.browser.page_source.encode('utf8'))
+        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+        #         '*' * 70, file_path))
         
-        raise
+        # raise
 
     finally:
         session.end()
@@ -230,14 +230,14 @@ def lit():
     except Exception as exc:
         print('lit fail!')        
         instaMail.completeTask('lit fail')
-        if isinstance(exc, NoSuchElementException):
-            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            with open(file_path, 'wb') as fp:
-                fp.write(session.browser.page_source.encode('utf8'))
-            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-                '*' * 70, file_path))
+        # if isinstance(exc, NoSuchElementException):
+        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+        #     with open(file_path, 'wb') as fp:
+        #         fp.write(session.browser.page_source.encode('utf8'))
+        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+        #         '*' * 70, file_path))
         
-        raise
+        # raise
 
     finally:
         session.end()
@@ -297,13 +297,14 @@ def interact():
         print('interact fail!')
         instaMail.completeTask('interact fail')
         if isinstance(exc, NoSuchElementException):
-            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            with open(file_path, 'wb') as fp:
-                fp.write(session.browser.page_source.encode('utf8'))
-            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-                '*' * 70, file_path))
+            print('NoSuchElementException')
+        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+        #     with open(file_path, 'wb') as fp:
+        #         fp.write(session.browser.page_source.encode('utf8'))
+        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+        #         '*' * 70, file_path))
         
-        raise
+        # raise
 
     finally:
         session.end()
