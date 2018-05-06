@@ -36,7 +36,7 @@ def quickstart():
                     min_followers=45,
                     min_following=77)
         session.set_dont_like(['death', 'cancer'])
-        session.like_by_feed(amount=50, unfollow=False, randomize=True, interact=True)
+        session.like_by_feed(amount=100, unfollow=False, randomize=True, interact=True)
         instaMail.completeTask('quickstart success')
     except Exception as exc:
         print('quickstart fail!')
