@@ -25,7 +25,7 @@ def quickstart():
         print ('pre login')     
         session.login()
         session.set_relationship_bounds(enabled=True,
-                potency_ratio=-1.21,
+                potency_ratio=-None,
                 delimit_by_numbers=True,
                 max_followers=5000,
                     max_following=5555,
