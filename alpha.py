@@ -69,4 +69,8 @@ alpha()
  # #ig_worldclub #followbackinstantly #followme #super_europe #igworldclub 
  # #wonderful_places #follow4follow #nature_perfection #worldtravelpics
  #  #igphoto #igersoftheday #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
+ #proud #lol #smile #snapback #headuphigh #pushthroughit #igotthis 
+ #almostthere #determination #fit #fitnessfreaks #fit#fitnessmotivation #fitfam #healthy #tone 
+ #tanlines #cutoffs #countrylife #farm 
+ #noh8 #blessed #keeppushing #keepgoing #keepgrinding #getit #blah #icute #summertime
  '''
