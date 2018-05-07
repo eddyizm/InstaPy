@@ -1660,6 +1660,7 @@ class InstaPy:
             pass
         return self
 
+        
     def like_by_feed_generator(self,
                      amount=50,
                      randomize=False,
