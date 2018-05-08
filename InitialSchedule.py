@@ -171,8 +171,7 @@ def unfollow():
         session.set_dont_include(['lularoshni', 'ironbetic'])
         session.set_dont_like(['death', 'cancer'])
         session.unfollow_users(amount=4, onlyInstapyFollowed = True, onlyInstapyMethod = 'FIFO', sleep_delay=10)
-        session.end()
-        instaMail.archive_log()
+        #instaMail.archive_log()
         instaMail.completeTask('unfollow success')
     except Exception as exc:
         print('unfollow fail!')
