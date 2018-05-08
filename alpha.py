@@ -30,7 +30,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['hamburg', 'farmlife', 'lifeofadventure'], amount=50 )
+        session.like_by_tags(['igersfrance', 'abstractart', 'fitfam'], amount=50 )
         print('alpha success')  
         #instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -48,29 +48,27 @@ def alpha():
     finally:
         # end the bot session
         session.end()
-        
-        
+       
+#alpha()
 
-alpha()
-# #liveamplified
 '''
 #photo #vlog #mavicpro #myerasmus #dji #panasonic #engineer # #germany #sexy #creative #erasmus 
 #machupicchu  #waynapicchu #dbtravel #turkmen #turkmengirl  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
 #artnude #nudeart #coutrylife #explorenewzealand #purenewzealand #gonewzealand
 #kilonewton #renewableenergy #engineering #greenenergy
-#functionalart #abstractart #textiles #artmatsdm #whimsical #charecterdesign
+#functionalart  #textiles #artmatsdm #whimsical #charecterdesign
 #folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 
  #folkgoood  #agameoftones #keepitwild #roadtrippin #roadtrip #dreaming #earthpix #moodynature #exploremore #folkcreative  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
- # #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare #like4like #vivocalabria #like4follow 
- # #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
- # #italiainunoscatto_hdr #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
- # #underwater #igersfrance #landscape_captures #followback #ig_europe #topfrancephoto 
- # #ig_worldclub #followbackinstantly #followme #super_europe #igworldclub 
- # #wonderful_places #follow4follow #nature_perfection #worldtravelpics
- #  #igphoto #igersoftheday #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
+ #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare #like4like #vivocalabria #like4follow 
+ #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
+ #italiainunoscatto_hdr #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
+ #underwater  #landscape_captures #followback #ig_europe #topfrancephoto 
+ #ig_worldclub #followbackinstantly #followme #super_europe #igworldclub 
+ #wonderful_places #follow4follow #nature_perfection #worldtravelpics
+ #igphoto #igersoftheday #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback #headuphigh #pushthroughit #igotthis 
- #almostthere #determination #fit #fitnessfreaks #fit#fitnessmotivation #fitfam #healthy #tone 
- #tanlines #cutoffs #countrylife #farm 
+ #almostthere #determination #fit #fitnessfreaks #fit#fitnessmotivation # #healthy #tone 
+ #tanlines #cutoffs #countrylife #farm #liveamplified
  #noh8 #blessed #keeppushing #keepgoing #keepgrinding #getit #blah #icute #summertime
  '''
