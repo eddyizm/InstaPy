@@ -281,11 +281,11 @@ def interact():
         session.end()
 
 # scheduled methods
-schedule.every().day.at("5:15").do(alpha.alpha())
+schedule.every().day.at("5:15").do(alpha.alpha)
 schedule.every().day.at("9:30").do(thumbsup)
 schedule.every().day.at("14:00").do(interact)
 schedule.every().day.at("5:00").do(sendlog)
-schedule.every().day.at("19:30").do(alpha.alpha())
+schedule.every().day.at("10:30").do(alpha.alpha)
 schedule.every().wednesday.at("23:30").do(bouldering) 
 schedule.every().tuesday.at("2:45").do(unfollow)
 schedule.every().monday.at("23:45").do(lit)
@@ -293,7 +293,7 @@ schedule.every().tuesday.at("23:30").do(interact)
 schedule.every().thursday.at("23:30").do(ceramics)  
 schedule.every().friday.at("23:30").do(thumbsup)  
 schedule.every().saturday.at("23:30").do(interact)  
-schedule.every().sunday.at("23:30").do(alpha.alpha())  
+schedule.every().sunday.at("23:30").do(alpha.alpha)  
 
 while True:
     schedule.run_pending()

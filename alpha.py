@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from tempfile import gettempdir
 import os
 
-print ('alpha script')
+
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
 else:
@@ -13,6 +13,7 @@ else:
 
 def alpha():
     try:
+        print ('alpha script')
         f = open ( logintext , 'r')
         login = f.read().splitlines()
         f.close()
