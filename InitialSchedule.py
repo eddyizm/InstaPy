@@ -67,18 +67,10 @@ def thumbsup():
         session.set_dont_like(['death', 'cancer'])
         session.like_by_tags(['wanderlust', 'campvibes', 'nationalpark', 'vsconature', 'mountains', 'neverstopexploring' ], amount=50)
         instaMail.completeTask('thumbsup success')
-    except Exception as exc:
+    except Exception:
         print('thumbsup fail!')
         instaMail.completeTask('thumbsup fail')
-        # if isinstance(exc, NoSuchElementException):
-        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-        #     with open(file_path, 'wb') as fp:
-        #         fp.write(session.browser.page_source.encode('utf8'))
-        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-        #         '*' * 70, file_path))
         
-        # raise
-
     finally:
         session.end()
     

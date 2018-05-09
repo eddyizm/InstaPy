@@ -55,7 +55,7 @@ def file_len(fname):
 def daily_log():
     #get follower count 
     fCount = file_len('logs/followerNum.txt')
-    f = open('logs/followerNum.txt','r').readlines()
+    f = open('logs/followerNum.txt','a+').readlines()
     s = f[fCount-1]
     followers = 'followers: '+(s[-5:]+'\n')
     # Access DB and parse out data.
@@ -118,8 +118,13 @@ def archive_log():
     from shutil import copyfile
     tStamp = datetime.now()
     nLog = tStamp.strftime("%Y-%m-%d")+'_general.log'
+    if os.name == 'nt':
+        archive = "C:\\Users\\eddyizm\\Documents\\emailLog\\"
+    else:
+        archive = '/Users/eduardocervantes/Downloads/Repo/InstaPy/db/'
+    
     try:
-        copyfile('logs/general.log', '/Users/eduardocervantes/Downloads/Repo/InstaPy/db/'+nLog)
+        copyfile('logs/general.log', archive+nLog)
         open('logs/general.log','w').close()
     except IOError as e:
         print (str(e))
