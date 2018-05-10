@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['wonderful_places', 'mavicpro', 'determination'], amount=50 )
+        session.like_by_tags(['explorenewzealand', 'vlog', 'sexy'], amount=50 )
         print('alpha success')  
         #instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -53,9 +53,9 @@ def alpha():
 alpha()
 
 '''
-#photo #vlog # #myerasmus #dji #panasonic #engineer # #germany #sexy #creative #erasmus 
+ # #myerasmus #dji #panasonic #engineer # #germany # #creative #erasmus 
 #machupicchu  #waynapicchu #dbtravel #turkmen #turkmengirl  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
-#artnude #nudeart #coutrylife #explorenewzealand #purenewzealand #gonewzealand
+#artnude #nudeart #coutrylife # #purenewzealand #gonewzealand
 #kilonewton #renewableenergy #engineering #greenenergy
 #functionalart  #textiles #artmatsdm #whimsical #charecterdesign
 #folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 

@@ -54,10 +54,10 @@ def file_len(fname):
 
 def daily_log():
     #get follower count 
-    fCount = file_len('logs/followerNum.txt')
-    f = open('logs/followerNum.txt','a+').readlines()
-    s = f[fCount-1]
-    followers = 'followers: '+(s[-5:]+'\n')
+    #fCount = file_len('logs/followerNum.txt')
+    #f = open('logs/followerNum.txt','a+').readlines()
+    #s = f[fCount-1]
+    #followers = 'followers: '+(s[-5:]+'\n')
     # Access DB and parse out data.
     if os.name == 'nt':
         conn = sqlite3.connect("C:\\Users\\eddyizm\\Source\\Repos\\InstaPy\\db\\instapy.db")
@@ -75,7 +75,7 @@ def daily_log():
     x = '\n%s | %s | %s | %s | %s | %s' % (nextday[0],nextday[1],nextday[2], nextday[3], nextday[4], nextday[5])
     # close db connection
     conn.close() 
-    message =  followers+columns+x+z+'\n'
+    message =  columns+x+z+'\n'
 
     # get log info : 
     # endFile = file_len('logs/timelog.txt')
