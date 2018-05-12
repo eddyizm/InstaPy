@@ -30,7 +30,7 @@ def quickstart():
         print ('pre login')     
         session.login()
         session.set_relationship_bounds(enabled=True,
-                potency_ratio=-None,
+                potency_ratio=None,
                 delimit_by_numbers=True,
                 max_followers=5000,
                     max_following=5555,
@@ -42,6 +42,7 @@ def quickstart():
 
     except Exception as exc:
         print ('quickstart fail')
+        print("error: {0}".format(exc))
 
     finally:
         session.end()
@@ -272,7 +273,7 @@ def interact():
         session.end()
 
 # scheduled methods
-schedule.every().day.at("5:15").do(alpha.alpha)
+schedule.every().day.at("5:15").do(quickstart)
 schedule.every().day.at("9:30").do(thumbsup)
 schedule.every().day.at("14:00").do(interact)
 schedule.every().day.at("5:00").do(sendlog)
