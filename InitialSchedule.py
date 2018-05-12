@@ -284,7 +284,7 @@ schedule.every().monday.at("23:45").do(lit)
 schedule.every().tuesday.at("23:30").do(interact)  
 schedule.every().thursday.at("23:30").do(ceramics)  
 schedule.every().friday.at("23:30").do(thumbsup)  
-schedule.every().saturday.at("23:30").do(interact)  
+schedule.every().saturday.at("23:30").do(quickstart)  
 schedule.every().sunday.at("23:30").do(alpha.alpha)  
 
 while True:
