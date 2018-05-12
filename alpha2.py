@@ -31,11 +31,12 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['explorenewzealand', 'vlog', 'sexy'], amount=50 )
+        session.like_by_tags(['keepgrinding', 'engineering', 'igworldclub'], amount=50 )
         print('alpha success')  
         #instaMail.completeTask('alpha success')
     except Exception as exc:
-        print('alpha fail!')        
+        print('alpha fail!')       
+        print("error: {0}".format(exc))
         #instaMail.completeTask('alpha fail')
         # if changes to IG layout, upload the file to help us locate the change
         #if isinstance(exc, NoSuchElementException):
@@ -56,8 +57,8 @@ alpha()
  # #myerasmus #dji #panasonic #engineer # #germany # #creative #erasmus 
 #machupicchu  #waynapicchu #dbtravel #turkmen #turkmengirl  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
 #artnude #nudeart #coutrylife # #purenewzealand #gonewzealand
-#kilonewton #renewableenergy #engineering #greenenergy
-#functionalart  #textiles #artmatsdm #whimsical #charecterdesign
+#kilonewton #renewableenergy  #greenenergy
+#functionalart  #textiles #artmatsdm # #charecterdesign
 #folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 
  #folkgoood  #agameoftones #keepitwild #roadtrippin #roadtrip #dreaming #earthpix #moodynature #exploremore #folkcreative  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
@@ -65,11 +66,11 @@ alpha()
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
  #italiainunoscatto_hdr #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
  #underwater  #landscape_captures #followback #ig_europe #topfrancephoto 
- #ig_worldclub #followbackinstantly #followme #super_europe #igworldclub 
+ #ig_worldclub #followbackinstantly #followme #super_europe #
  # #follow4follow #nature_perfection #worldtravelpics
  #igphoto #igersoftheday #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback #headuphigh #pushthroughit #igotthis 
  #almostthere # #fit #fitnessfreaks #fit#fitnessmotivation # #healthy #tone 
  #tanlines #cutoffs #countrylife #farm #liveamplified
- #noh8 #blessed #keeppushing #keepgoing #keepgrinding #getit #blah #icute #summertime
+ #noh8 #blessed #keeppushing #keepgoing   #blah #icute #summertime
  '''
