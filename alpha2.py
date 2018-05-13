@@ -32,12 +32,12 @@ def alpha():
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.like_by_tags(['keepgrinding', 'engineering', 'igworldclub'], amount=50 )
-        print('alpha success')  
-        #instaMail.completeTask('alpha success')
+        print('alpha2 success')  
+        instaMail.completeTask('alpha2 success')
     except Exception as exc:
-        print('alpha fail!')       
+        print('alpha2 fail!')       
         print("error: {0}".format(exc))
-        #instaMail.completeTask('alpha fail')
+        instaMail.completeTask('alpha2 fail')
         # if changes to IG layout, upload the file to help us locate the change
         #if isinstance(exc, NoSuchElementException):
             # file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
