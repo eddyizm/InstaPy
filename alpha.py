@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['roadtrip', 'whimsical', 'follow4follow'], amount=50 )
+        session.like_by_tags(['bulgaria', 'liveamplified', 'earthpix'], amount=50 )
         print('alpha success')  
         #instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -53,13 +53,13 @@ def alpha():
 #alpha()
 
 '''
-#photo #vlog #mavicpro #myerasmus #dji #panasonic #engineer # #germany #sexy #creative #erasmus 
-#machupicchu  #waynapicchu #dbtravel #turkmen #turkmengirl  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
+#photo #vlog #mavicpro #myerasmus #dji #panasonic #engineer # #germany  #creative #erasmus 
+#machupicchu  #waynapicchu #dbtravel #turkmen #turkmengirl  #blagoevgrad  #aubg #campus #2018 #senior #collegelife
 #artnude #nudeart #coutrylife #explorenewzealand #purenewzealand #gonewzealand
 #kilonewton #renewableenergy #engineering #greenenergy
 #functionalart  #textiles #artmatsdm  #charecterdesign
 #folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 
- #folkgoood  #agameoftones #keepitwild #roadtrippin  #dreaming #earthpix #moodynature #exploremore #folkcreative  
+ #folkgoood  #agameoftones #keepitwild #roadtrippin  #dreaming # #moodynature #exploremore #folkcreative  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
  #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare #like4like #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
@@ -70,6 +70,6 @@ def alpha():
  #igphoto #igersoftheday #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback #headuphigh #pushthroughit #igotthis 
  #almostthere #determination #fit #fitnessfreaks #fit#fitnessmotivation # #healthy #tone 
- #tanlines #cutoffs #countrylife #farm #liveamplified
+ #tanlines #cutoffs #countrylife #farm 
  #noh8 #blessed #keeppushing #keepgoing #keepgrinding #getit #blah #icute #summertime
  '''
