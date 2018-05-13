@@ -226,7 +226,7 @@ def interactUser():
         ob = 'newmexicotrue'
         return ob
     elif t == 2:
-        ob = 'she_explores'
+        ob = 'eddyizm'
         return ob
     elif t == 3:
         ob = 'noel_russ'
