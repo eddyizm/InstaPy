@@ -57,7 +57,7 @@ def interact():
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.set_do_comment(enabled=True, percentage=20)
         session.set_dont_like(['death', 'cancer'])
-        session.interact_user_followers([u], amount=50, randomize=True)
+        session.interact_user_followers(['eddyizm'], amount=50, randomize=True)
         print('interact success')
         instaMail.completeTask('interact success')
     except Exception as exc:
