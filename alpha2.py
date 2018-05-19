@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['agameoftones', 'coding', 'nudeart'], amount=50 )
+        session.like_by_tags(['renewableenergy', 'toronto', 'nudeart'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -57,7 +57,7 @@ alpha()
  # #myerasmus #dji #panasonic #engineer # #germany # #creative #erasmus 
 #machupicchu  #dbtravel #turkmen #turkmengirl  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
 #artnude # #coutrylife # #purenewzealand #gonewzealand
-#kilonewton #renewableenergy  #greenenergy
+#kilonewton #  #greenenergy
 #functionalart  #textiles #artmatsdm # #charecterdesign
 #folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 
  #folkgoood  # #keepitwild #roadtrippin #roadtrip #dreaming #earthpix #moodynature #exploremore #folkcreative  
@@ -73,4 +73,5 @@ alpha()
  #almostthere # #fit #fitnessfreaks #fit#fitnessmotivation # #healthy #tone 
  #tanlines #cutoffs #countrylife #farm #liveamplified
  #noh8 #blessed #keeppushing #keepgoing   #blah #icute #summertime
+  #artnude #great_captures_sensual #sensual_art #germanmodel #longhair #model #bodyscape #naturallight #sexypose #sensual_ladies #implied #impliednude #passion #eroticart #shotsosensual #bodypositivity #ass'
  '''
