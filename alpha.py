@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['super_europe', 'fitnessfreaks', 'textiles'], amount=50 )
+        session.like_by_tags(['folkcreative', 'igersoftheday', 'blackandwhite'], amount=50 )
         print('alpha success')  
         #instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -59,7 +59,7 @@ def alpha():
 #kilonewton #renewableenergy #engineering #greenenergy
 #functionalart  # #artmatsdm  #charecterdesign
 #folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 
- #folkgoood  #agameoftones #keepitwild #roadtrippin  #dreaming # #moodynature #exploremore #folkcreative  
+ #folkgoood  #agameoftones #keepitwild #roadtrippin  #dreaming # #moodynature #exploremore #  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
  #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare #like4like #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
@@ -67,7 +67,7 @@ def alpha():
  #underwater  #landscape_captures #followback #ig_europe #topfrancephoto 
  #ig_worldclub #followbackinstantly #followme # #igworldclub 
  #wonderful_places # #nature_perfection #worldtravelpics
- #igphoto #igersoftheday #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
+ #igphoto # #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback #headuphigh #pushthroughit #igotthis 
  #almostthere #determination #fit # #fit#fitnessmotivation # #healthy #tone 
  #tanlines #cutoffs #countrylife #farm 
