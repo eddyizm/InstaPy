@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['renewableenergy', 'toronto', 'nudeart'], amount=50 )
+        session.like_by_tags(['turkmengirl', 'great_captures_sensual', 'coutrylife'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -54,24 +54,24 @@ def alpha():
 alpha()
 
 '''
- # #myerasmus #dji #panasonic #engineer # #germany # #creative #erasmus 
-#machupicchu  #dbtravel #turkmen #turkmengirl  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
-#artnude # #coutrylife # #purenewzealand #gonewzealand
-#kilonewton #  #greenenergy
+ # #myerasmus #dji #engineer #erasmus 
+#machupicchu  #dbtravel #turkmen #  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
+#artnude #purenewzealand #gonewzealand
+#kilonewton #  
 #functionalart  #textiles #artmatsdm # #charecterdesign
 #folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 
- #folkgoood  # #keepitwild #roadtrippin #roadtrip #dreaming #earthpix #moodynature #exploremore #folkcreative  
+ #folkgoood   #keepitwild #roadtrippin #roadtrip #dreaming #earthpix #moodynature #exploremore #folkcreative  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
- #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare #like4like #vivocalabria #like4follow 
+ #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare  #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
  #italiainunoscatto_hdr #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
    #landscape_captures #followback #ig_europe #topfrancephoto 
  #ig_worldclub #followbackinstantly #followme #super_europe #
  # #follow4follow #nature_perfection #worldtravelpics
- #igphoto #igersoftheday #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
+ #igphoto # #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback # #pushthroughit #igotthis 
  #almostthere # #fit #fitnessfreaks #fit#fitnessmotivation # #healthy #tone 
  #tanlines #cutoffs #countrylife #farm #liveamplified
  #noh8 #blessed #keeppushing #keepgoing   #blah #icute #summertime
-  #artnude #great_captures_sensual #sensual_art #germanmodel #longhair #model #bodyscape #naturallight #sexypose #sensual_ladies #implied #impliednude #passion #eroticart #shotsosensual #bodypositivity #ass'
+  #artnude  #sensual_art #germanmodel #longhair #model #bodyscape #naturallight #sexypose #sensual_ladies #implied #impliednude #passion #eroticart #shotsosensual #bodypositivity #ass'
  '''

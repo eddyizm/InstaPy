@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['folkcreative', 'igersoftheday', 'blackandwhite'], amount=50 )
+        session.like_by_tags(['agameoftones', 'machupicchu', 'folkscenery'], amount=50 )
         print('alpha success')  
         #instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -54,21 +54,21 @@ def alpha():
 
 '''
 #photo #vlog #mavicpro #myerasmus #dji #panasonic #engineer # #germany  #creative #erasmus 
-#machupicchu  #waynapicchu #dbtravel #turkmen #turkmengirl  #blagoevgrad  #aubg #campus #2018 #senior #collegelife
-#artnude #nudeart #coutrylife #explorenewzealand #purenewzealand #gonewzealand
+#  #waynapicchu #dbtravel #turkmen #turkmengirl  #blagoevgrad  #aubg #campus #2018 #senior #collegelife
+#artnude #nudeart # #explorenewzealand #purenewzealand #gonewzealand
 #kilonewton #renewableenergy #engineering #greenenergy
 #functionalart  # #artmatsdm  #charecterdesign
-#folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 
- #folkgoood  #agameoftones #keepitwild #roadtrippin  #dreaming # #moodynature #exploremore #  
+# #roamtheplanet #teamcanon #folkgreen #stayandwander 
+ #folkgoood  # #keepitwild #roadtrippin  #dreaming # #moodynature #exploremore #  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
  #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare #like4like #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
  #italiainunoscatto_hdr #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
  #underwater  #landscape_captures #followback #ig_europe #topfrancephoto 
  #ig_worldclub #followbackinstantly #followme # #igworldclub 
- #wonderful_places # #nature_perfection #worldtravelpics
+ #wonderful_places # #nature_perfection #
  #igphoto # #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
- #proud #lol #smile #snapback #headuphigh #pushthroughit #igotthis 
+ #proud #lol #smile #snapback # #pushthroughit #igotthis 
  #almostthere #determination #fit # #fit#fitnessmotivation # #healthy #tone 
  #tanlines #cutoffs #countrylife #farm 
  #noh8 #blessed #keeppushing #keepgoing #keepgrinding #getit #blah #icute #summertime
