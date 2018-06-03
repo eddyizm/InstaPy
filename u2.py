@@ -3,7 +3,7 @@ from tempfile import gettempdir
 from selenium.common.exceptions import NoSuchElementException
 import os
 import instaMail
-import time
+
 
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
@@ -27,13 +27,16 @@ def unfollow():
             max_following=5555,
             min_followers=45,
             min_following=77)
-        session.set_dont_unfollow_active_users(enabled=True, posts=20)
+            
+        session.set_dont_unfollow_active_users(enabled=True, posts=10)
         session.set_dont_include(['lularoshni', 'ironbetic', 'theyoungturks'])
         session.set_dont_like(['death', 'cancer'])
         session.unfollow_users(amount=2, onlyNotFollowMe=True,  sleep_delay=30)
-        instaMail.archive_log()
+        print ('u2 success')
+        # instaMail.archive_log()
         instaMail.completeTask('u2 success')
     except Exception as exc:
+        print ('u2 fail')
         instaMail.completeTask('u2 fail')
         # if changes to IG layout, upload the file to help us locate the change
         # if isinstance(exc, NoSuchElementException):
