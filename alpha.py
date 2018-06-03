@@ -31,12 +31,12 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['agameoftones', 'machupicchu', 'folkscenery'], amount=50 )
+        session.like_by_tags(['fitnessmotivation', 'turkey', 'stayandwander'], amount=50 )
         print('alpha success')  
-        #instaMail.completeTask('alpha success')
+        instaMail.completeTask('alpha success')
     except Exception as exc:
         print('alpha fail!')        
-        #instaMail.completeTask('alpha fail')
+        instaMail.completeTask('alpha fail')
         # if changes to IG layout, upload the file to help us locate the change
         #if isinstance(exc, NoSuchElementException):
             # file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
@@ -58,7 +58,7 @@ def alpha():
 #artnude #nudeart # #explorenewzealand #purenewzealand #gonewzealand
 #kilonewton #renewableenergy #engineering #greenenergy
 #functionalart  # #artmatsdm  #charecterdesign
-# #roamtheplanet #teamcanon #folkgreen #stayandwander 
+# #roamtheplanet #teamcanon #folkgreen  
  #folkgoood  # #keepitwild #roadtrippin  #dreaming # #moodynature #exploremore #  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
  #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare #like4like #vivocalabria #like4follow 
@@ -69,7 +69,7 @@ def alpha():
  #wonderful_places # #nature_perfection #
  #igphoto # #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback # #pushthroughit #igotthis 
- #almostthere #determination #fit # #fit#fitnessmotivation # #healthy #tone 
+ #almostthere #determination #fit # # #healthy #tone 
  #tanlines #cutoffs #countrylife #farm 
  #noh8 #blessed #keeppushing #keepgoing #keepgrinding #getit #blah #icute #summertime
  '''

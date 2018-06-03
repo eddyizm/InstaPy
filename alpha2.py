@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['turkmengirl', 'great_captures_sensual', 'coutrylife'], amount=50 )
+        session.like_by_tags(['roadtrippin', 'igerscalabria', 'functionalart'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -58,11 +58,11 @@ alpha()
 #machupicchu  #dbtravel #turkmen #  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
 #artnude #purenewzealand #gonewzealand
 #kilonewton #  
-#functionalart  #textiles #artmatsdm # #charecterdesign
+#  #textiles #artmatsdm # #charecterdesign
 #folkscenery #roamtheplanet #teamcanon #folkgreen #stayandwander 
- #folkgoood   #keepitwild #roadtrippin #roadtrip #dreaming #earthpix #moodynature #exploremore #folkcreative  
+ #folkgoood   #keepitwild # #roadtrip #dreaming #earthpix #moodynature #exploremore #folkcreative  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
- #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare  #vivocalabria #like4follow 
+ #volgoitalia #ig_italia # #italia #calabriadaamare  #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
  #italiainunoscatto_hdr #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
    #landscape_captures #followback #ig_europe #topfrancephoto 
