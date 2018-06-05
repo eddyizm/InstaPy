@@ -55,7 +55,7 @@ alpha()
 
 '''
  # #myerasmus #dji #engineer #erasmus 
-#machupicchu  #dbtravel #turkmen #  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
+  #dbtravel #turkmen #  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
 #artnude #purenewzealand #gonewzealand
 #kilonewton #  
 #  #textiles #artmatsdm # #charecterdesign
