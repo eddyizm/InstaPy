@@ -160,11 +160,11 @@ def unfollow():
         insta_password = login[1]
         session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
         session.login()
-        session.set_dont_unfollow_active_users(enabled=True, posts=10)
+        session.set_dont_unfollow_active_users(enabled=True, posts=5)
         session.set_dont_include(['lularoshni', 'ironbetic'])
         session.set_dont_like(['death', 'cancer'])
         session.unfollow_users(amount=4, onlyInstapyFollowed = True, onlyInstapyMethod = 'FIFO', sleep_delay=10)
-        #instaMail.archive_log()
+        print('unfollow success!')
         instaMail.completeTask('unfollow success')
     except Exception as exc:
         print('unfollow fail!')

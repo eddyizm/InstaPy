@@ -27,13 +27,10 @@ def unfollow():
             max_following=5555,
             min_followers=45,
             min_following=77)
-            
-        session.set_dont_unfollow_active_users(enabled=True, posts=10)
         session.set_dont_include(['lularoshni', 'ironbetic', 'theyoungturks'])
         session.set_dont_like(['death', 'cancer'])
         session.unfollow_users(amount=2, onlyNotFollowMe=True,  sleep_delay=30)
         print ('u2 success')
-        # instaMail.archive_log()
         instaMail.completeTask('u2 success')
     except Exception as exc:
         print ('u2 fail')
