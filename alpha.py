@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['fitnessmotivation', 'turkey', 'stayandwander'], amount=50 )
+        session.like_by_tags(['countrylife', 'hawaii', 'artnude'], amount=50 )
         print('alpha success')  
         instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -55,7 +55,7 @@ def alpha():
 '''
 #photo #vlog #mavicpro #myerasmus #dji #panasonic #engineer # #germany  #creative #erasmus 
 #  #waynapicchu #dbtravel #turkmen #turkmengirl  #blagoevgrad  #aubg #campus #2018 #senior #collegelife
-#artnude #nudeart # #explorenewzealand #purenewzealand #gonewzealand
+# #nudeart # #explorenewzealand #purenewzealand #gonewzealand
 #kilonewton #renewableenergy #engineering #greenenergy
 #functionalart  # #artmatsdm  #charecterdesign
 # #roamtheplanet #teamcanon #folkgreen  
@@ -70,6 +70,6 @@ def alpha():
  #igphoto # #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback # #pushthroughit #igotthis 
  #almostthere #determination #fit # # #healthy #tone 
- #tanlines #cutoffs #countrylife #farm 
+ #tanlines #cutoffs # #farm 
  #noh8 #blessed #keeppushing #keepgoing #keepgrinding #getit #blah #icute #summertime
  '''
