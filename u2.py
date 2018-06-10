@@ -22,7 +22,7 @@ def unfollow():
         session.login()
         session.set_relationship_bounds(enabled=True,
         potency_ratio=None,
-        delimit_by_numbers=True,
+        delimit_by_numbers=True,git 
         max_followers=5000,
             max_following=5555,
             min_followers=45,
