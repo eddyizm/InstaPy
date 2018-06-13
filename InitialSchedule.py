@@ -218,27 +218,28 @@ def lit():
         session.end()
 
 def interactUser():
+    ob = []
     t = random.randint(0,6)
     if t == 0:
-        ob = 'runningterritory'
+        ob.append('runningterritory')
         return ob
     elif t == 1:
-        ob = 'newmexicotrue'
+        ob.append('newmexicotrue')
         return ob
     elif t == 2:
-        ob = 'theyoungturks'
+        ob.append('theyoungturks')
         return ob
     elif t == 3:
-        ob = 'noel_russ'
+        ob.append('noel_russ')
         return ob
     elif t == 4:
-        ob = 'mountaingirls'
+        ob.append('mountaingirls')
         return ob
     elif t == 5:
-        ob = 'sonyalpha'
+        ob.append('sonyalpha')
         return ob
     else:
-        ob = 'berniesanders'
+        ob.append('berniesanders')
         return ob
 
 def interact():
@@ -263,7 +264,7 @@ def interact():
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.set_do_comment(enabled=True, percentage=20)
         session.set_dont_like(['death', 'cancer'])
-        session.interact_user_followers([u], amount=25, randomize=True)
+        session.interact_user_followers(u, amount=25, randomize=True)
         instaMail.completeTask('interact success')
     except Exception as exc:
         print('interact fail!')

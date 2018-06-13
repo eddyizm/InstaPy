@@ -12,27 +12,28 @@ else:
     logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
      
 def interactUser():
+    ob = []
     t = random.randint(0,6)
     if t == 0:
-        ob = 'runningterritory'
+        ob.append('eddyizm')
         return ob
     elif t == 1:
-        ob = 'newmexicotrue'
+        ob.append('newmexicotrue')
         return ob
     elif t == 2:
-        ob = 'she_explores'
+        ob.append('theyoungturks')
         return ob
     elif t == 3:
-        ob = 'noel_russ'
+        ob.append('noel_russ')
         return ob
     elif t == 4:
-        ob = 'eddyizm'
+        ob.append('mountaingirls')
         return ob
     elif t == 5:
-        ob = 'sonyalpha'
+        ob.append('sonyalpha')
         return ob
     else:
-        ob = 'berniesanders'
+        ob.append('berniesanders')
         return ob
 
 def interact():
@@ -57,7 +58,7 @@ def interact():
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.set_do_comment(enabled=True, percentage=20)
         session.set_dont_like(['death', 'cancer'])
-        session.interact_user_followers(['eddyizm'], amount=50, randomize=True)
+        session.interact_user_followers(u, amount=50, randomize=True)
         print('interact success')
         instaMail.completeTask('interact success')
     except Exception as exc:
