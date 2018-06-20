@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['countrylife', 'hawaii', 'artnude'], amount=50 )
+        session.like_by_tags(['instanlikes', 'arizona', 'healthy'], amount=50 )
         print('alpha success')  
         instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -54,7 +54,7 @@ def alpha():
 
 '''
 #photo #vlog #mavicpro #myerasmus #dji #panasonic #engineer # #germany  #creative #erasmus 
-#  #waynapicchu #dbtravel #turkmen #turkmengirl  #blagoevgrad  #aubg #campus #2018 #senior #collegelife
+ #dbtravel #turkmen #turkmengirl  #blagoevgrad  #aubg #campus #2018 #senior #collegelife
 # #nudeart # #explorenewzealand #purenewzealand #gonewzealand
 #kilonewton #renewableenergy #engineering #greenenergy
 #functionalart  # #artmatsdm  #charecterdesign
@@ -63,13 +63,13 @@ def alpha():
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
  #volgoitalia #ig_italia #igerscalabria #italia #calabriadaamare #like4like #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
- #italiainunoscatto_hdr #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
+ #italiainunoscatto_hdr #ig_calabria #ig_crotone #igreggiocalabria # #igcosenzan
  #underwater  #landscape_captures #followback #ig_europe #topfrancephoto 
  #ig_worldclub #followbackinstantly #followme # #igworldclub 
  #wonderful_places # #nature_perfection #
  #igphoto # #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback # #pushthroughit #igotthis 
- #almostthere #determination #fit # # #healthy #tone 
+ #almostthere #determination #fit  #tone 
  #tanlines #cutoffs # #farm 
  #noh8 #blessed #keeppushing #keepgoing #keepgrinding #getit #blah #icute #summertime
  '''
