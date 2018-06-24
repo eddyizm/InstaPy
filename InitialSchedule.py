@@ -66,7 +66,7 @@ def thumbsup():
         session.set_do_comment(True, percentage=20)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.set_dont_like(['death', 'cancer'])
-        session.like_by_tags(['wanderlust', 'campvibes', 'nationalpark', 'vsconature', 'mountains', 'neverstopexploring' ], amount=50)
+        session.like_by_tags(['wanderlust', 'campvibes', 'california', 'vsconature', 'mountains', 'neverstopexploring' ], amount=50)
         instaMail.completeTask('thumbsup success')
     except Exception:
         print('thumbsup fail!')
