@@ -22,7 +22,7 @@ def unfollow():
         session.set_dont_unfollow_active_users(enabled=True, posts=5)
         session.set_dont_include(['lularoshni', 'ironbetic'])
         session.set_dont_like(['death', 'cancer'])
-        session.unfollow_users(amount=4, onlyInstapyFollowed = True, onlyInstapyMethod = 'FIFO', sleep_delay=10)
+        session.unfollow_users(amount=60, InstapyFollowed=(True, "nonfollowers"), style="FIFO", sleep_delay=10)
         print('unfollow success!')
         instaMail.completeTask('unfollow success')
     except Exception as exc:
