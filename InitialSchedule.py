@@ -275,7 +275,7 @@ def interact():
 
 if __name__ == '__main__':
     # scheduled methods
-    schedule.every().day.at("5:15").do(quickstart)
+    #schedule.every().day.at("5:15").do(quickstart)
     schedule.every().day.at("9:30").do(thumbsup)
     schedule.every().day.at("14:00").do(interact)
     schedule.every().day.at("5:00").do(sendlog)
