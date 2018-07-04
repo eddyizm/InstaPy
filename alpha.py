@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['gothefuckoutside', 'utah', 'keepitwild'], amount=50 )
+        session.like_by_tags(['gothefuckoutside', 'worldcup', 'argentina'], amount=50 )
         print('alpha success')  
         instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -50,7 +50,8 @@ def alpha():
         # end the bot session
         session.end()
        
-#alpha()
+if __name__ == '__main__':
+    alpha()
 
 '''
 #photo #vlog #mavicpro #myerasmus #dji #panasonic #engineer # #germany  #creative #erasmus 
