@@ -10,33 +10,34 @@ if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
 else:
     logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
-# read login info from file
-f = open ( logintext , 'r')
-login = f.read().splitlines()
 
-insta_username = login[0]
-insta_password = login[1]
-
-# if you want to run this script on a server, 
-# simply add nogui=True to the InstaPy() constructor
-session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
-session.login()
-
-# set up all the settings
-session.set_relationship_bounds(enabled=True,
+def thumbsup():
+    try:
+        f = open ( logintext , 'r')
+        login = f.read().splitlines()
+        f.close()
+        insta_username = login[0]
+        insta_password = login[1]
+        session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
+        session.login()
+        session.set_relationship_bounds(enabled=True,
             potency_ratio=None,
             delimit_by_numbers=True,
             max_followers=5000,
                 max_following=5555,
                 min_followers=45,
                 min_following=77)
-session.set_do_comment(True, percentage=20)
-session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-session.set_dont_like(['death', 'cancer'])
+        session.set_do_comment(True, percentage=20)
+        session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
+        session.set_dont_like(['death', 'cancer'])
+        session.like_by_tags(['wanderlust', 'campvibes', 'california', 'vsconature', 'mountains', 'neverstopexploring' ], amount=50)
+        instaMail.completeTask('thumbsup success')
+    except Exception:
+        print('thumbsup fail!')
+        instaMail.completeTask('thumbsup fail')
+        
+    finally:
+        session.end()    
 
-# do the actual liking
-session.like_by_tags(['wanderlust', 'rei1440project', 'nationalpark', 'vsconature', 'mountains', 'mytinyatlas' ], amount=50)
-# session.like_by_tags(['gothefuckoutside', 'optoutside'], amount=50)
-# end the bot session
-session.end()
-
+if __name__ == '__main__':
+    thumbsup()
