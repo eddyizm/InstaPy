@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['gothefuckoutside', 'worldcup', 'argentina'], amount=50 )
+        session.like_by_tags(['gothefuckoutside', 'cutoffs', 'worldcup'], amount=50 )
         print('alpha success')  
         instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -71,6 +71,6 @@ if __name__ == '__main__':
  #igphoto # #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback # #pushthroughit #igotthis 
  #almostthere #determination #fit  #tone 
- #tanlines #cutoffs # #farm 
+ #tanlines # # #farm 
  #noh8 #blessed #keeppushing #keepgoing #keepgrinding #getit #blah #icute #summertime
  '''

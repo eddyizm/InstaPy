@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['ig_europe', 'sensual_ladies', 'portraitpage'], amount=50 )
+        session.like_by_tags(['earthpix', 'sensual_ladies', 'bleachmyfilm'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -57,7 +57,7 @@ alpha()
  #passionpassport #livefolk #folkgreen # #traveldiary 
  #instadaily #featuremeseas #featuremeof #hinfluencercollective 
  #earth_portraits #travelgirls #femmetravel #featuremeof #l0tsabraids 
- #bleachmyfilm #seamyphotos #bravogreatphoto #photographyislifee 
+ # #seamyphotos #bravogreatphoto #photographyislifee 
  #wtnadventures #l0tsabraids #ftwotww #expofilm #ftmedd #portraitsvisuals 
  # #portraits_universe #gramkilla #artofvisual
  #myerasmus #dji #engineer #erasmus 
@@ -65,7 +65,7 @@ alpha()
 #artnude #purenewzealand #gonewzealand
 #kilonewton #textiles #artmatsdm #charecterdesign
 # #teamcanon #stayandwander 
- #folkgoood # #roadtrip #dreaming #earthpix #moodynature #exploremore #folkcreative  
+ #folkgoood # #roadtrip #dreaming # #moodynature # #folkcreative  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
  #volgoitalia #ig_italia # #italia #calabriadaamare  #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
