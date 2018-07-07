@@ -275,9 +275,15 @@ def interact():
 
 if __name__ == '__main__':
     # scheduled methods
+<<<<<<< HEAD
+    #schedule.every().day.at("5:15").do(quickstart)
+    schedule.every().day.at("9:30").do(thumbsup)
+    schedule.every().day.at("14:00").do(interact)
+=======
     # schedule.every().day.at("5:15").do(quickstart)
     # schedule.every().day.at("9:30").do(thumbsup)
     # schedule.every().day.at("14:00").do(interact)
+>>>>>>> 6ef4c29ee1f9599fa90ba3a2d95efec8a11cb5a9
     schedule.every().day.at("5:00").do(sendlog)
     #schedule.every().day.at("19:30").do(alpha.alpha)
     #schedule.every().wednesday.at("23:30").do(bouldering) 
