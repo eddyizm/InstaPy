@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['fitnessmotivation', 'sombrebeings', 'teamsony'], amount=50 )
+        session.like_by_tags(['followbackinstantly', 'implied', 'folkgreen'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -54,7 +54,7 @@ def alpha():
 alpha()
 
 '''
- #passionpassport #livefolk #folkgreen # #traveldiary 
+ #passionpassport #livefolk # # #traveldiary 
  #instadaily #featuremeseas #featuremeof #hinfluencercollective 
  #earth_portraits #travelgirls #femmetravel #featuremeof #l0tsabraids 
  # #seamyphotos #bravogreatphoto # 
@@ -71,12 +71,12 @@ alpha()
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
  #italiainunoscatto_hdr #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
  #landscape_captures #followback # #topfrancephoto 
- #ig_worldclub #followbackinstantly #followme #super_europe 
+ #ig_worldclub # #followme #super_europe 
  # #follow4follow #nature_perfection #worldtravelpics
  #igphoto # #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #proud #lol #smile #snapback # #pushthroughit #igotthis 
  #almostthere # #fit #fitnessfreaks #fit#  #healthy #tone 
  #tanlines #cutoffs #countrylife #farm #liveamplified
  #noh8 #blessed #keeppushing #keepgoing   #blah #icute #summertime
-  #artnude  #sensual_art # #longhair #model #bodyscape # #sexypose # #implied #impliednude #passion #eroticart #shotsosensual #bodypositivity #ass'
+  #artnude  #sensual_art # #longhair #model #bodyscape # #sexypose # # #impliednude #passion #eroticart #shotsosensual #bodypositivity #ass'
  '''
