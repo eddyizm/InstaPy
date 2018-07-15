@@ -36,7 +36,7 @@ try:
     # session.set_dont_include(['friend1', 'friend2', 'friend3'])
     session.set_dont_like(['death', 'cancer'])
     # do the actual liking
-    session.like_by_tags(['trailrunning', 'climbing_pictures_of_instagram', 'natgeo', 'rei1440project','optoutside'], amount=25)
+    session.like_by_tags(['trailrunning', 'bouldering', 'moodynature', 'rei1440project','stayandwander'], amount=25)
     print('bouldering success')  
     instaMail.completeTask('bouldering success')
 except Exception as exc:
