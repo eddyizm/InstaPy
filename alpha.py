@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
 '''
 #photo #vlog #mavicpro #myerasmus #dji #panasonic #engineer # #germany  #creative #erasmus 
- #dbtravel #turkmen #turkmengirl  #blagoevgrad  #aubg #campus #2018 #senior #collegelife
+ #dbtravel #turkmen #  #blagoevgrad  #aubg #campus #2018 #senior #collegelife
 # #nudeart # #explorenewzealand #purenewzealand #gonewzealand
 #kilonewton #renewableenergy #engineering #greenenergy
 #functionalart  # #artmatsdm  #charecterdesign

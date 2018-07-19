@@ -31,7 +31,7 @@ def quickstart():
                     max_following=5555,
                     min_followers=45,
                     min_following=77)
-        session.set_dont_like(['death', 'cancer'])
+        session.set_dont_like(['death', 'cancer', 'rest in peace', '#restinpeace'])
         session.like_by_feed(amount=100, unfollow=False, randomize=True, interact=False)
         instaMail.completeTask('quickstart success')
 

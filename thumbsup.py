@@ -29,7 +29,7 @@ def thumbsup():
                 min_following=77)
         session.set_do_comment(True, percentage=20)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.set_dont_like(['death', 'cancer'])
+        session.set_dont_like(['death', 'cancer', 'rest in peace', '#restinpeace'])
         session.like_by_tags(['wanderlust', 'campvibes', 'california', 'vsconature', 'mountains', 'neverstopexploring' ], amount=50)
         instaMail.completeTask('thumbsup success')
     except Exception:
