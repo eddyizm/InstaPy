@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['fullerton', 'tanlines', 'gothefuckoutside'], amount=50 )
+        session.like_by_tags(['canada', 'panasonic', 'gothefuckoutside'], amount=50 )
         print('alpha success')  
         instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     alpha()
 
 '''
-#photo #vlog #mavicpro #myerasmus #dji #panasonic #engineer # #germany  #creative #erasmus 
+#photo #vlog #mavicpro #myerasmus #dji # #engineer # #germany  #creative #erasmus 
  #dbtravel #turkmen #  #blagoevgrad  #aubg #campus #2018 #senior #collegelife
 # #nudeart # #explorenewzealand #purenewzealand #gonewzealand
 #kilonewton #renewableenergy #engineering #greenenergy

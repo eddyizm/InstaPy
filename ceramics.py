@@ -29,8 +29,8 @@ session.set_do_comment(True, percentage=20)
 session.set_do_follow(enabled=True, percentage=10, times=2)
 session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:', 'Awesome!', 'Sweet!'])
 session.set_dont_include(['helloklai'])
-session.set_dont_like(['death', 'cancer'])
+session.set_dont_like(['death', 'cancer', 'rest in peace', '#restinpeace'])
 # do the actual liking
-session.like_by_tags(['ceramics', 'coffee', 'turkmengirl'], amount=50 )
+session.like_by_tags(['ceramics', 'coffee', 'turkey'], amount=50 )
 # end the bot session
 session.end()

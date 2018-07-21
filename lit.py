@@ -26,10 +26,10 @@ def lit():
                         max_following=5555,
                         min_followers=45,
                         min_following=77)
-        session.set_dont_like(['death', 'cancer'])
+        session.set_dont_like(['death', 'cancer', 'rest in peace', '#restinpeace'])
         session.set_do_comment(True, percentage=20)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['astronomy','architecture','literature'], amount=40)
+        session.like_by_tags(['astronomy','science','literature'], amount=40)
         session.end()
         instaMail.completeTask('literature success')
     except:
