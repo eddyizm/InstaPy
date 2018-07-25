@@ -31,7 +31,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['liveamplified', 'model', 'greece'], amount=50 )
+        session.like_by_tags(['passionpassport', 'travelgirls', 'gonewzealand'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -54,15 +54,15 @@ def alpha():
 alpha()
 
 '''
- #passionpassport #livefolk # # #traveldiary 
+ # #livefolk # # #traveldiary 
  #instadaily #featuremeseas #featuremeof #hinfluencercollective 
- #earth_portraits #travelgirls #femmetravel #featuremeof #l0tsabraids 
+ #earth_portraits # #femmetravel #featuremeof #l0tsabraids 
  # #seamyphotos #bravogreatphoto # 
  #wtnadventures #l0tsabraids #ftwotww #expofilm #ftmedd #portraitsvisuals 
  # #portraits_universe #gramkilla #artofvisual
  #myerasmus #dji #engineer #erasmus 
  #dbtravel #turkmen #  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
-#artnude #purenewzealand #gonewzealand
+#artnude #purenewzealand #
 #kilonewton #textiles #artmatsdm #charecterdesign
 # #teamcanon # 
  #folkgoood # #roadtrip #dreaming # # # #folkcreative  
