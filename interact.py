@@ -57,7 +57,7 @@ def interact():
         session.set_do_like(enabled=True, percentage=80)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.set_do_comment(enabled=True, percentage=20)
-        session.set_dont_like(['death', 'cancer', 'rest in peace', '#restinpeace'])
+        session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.interact_user_followers(u, amount=50, randomize=True)
         print('interact success')
         instaMail.completeTask('interact success')

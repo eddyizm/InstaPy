@@ -28,22 +28,14 @@ def unfollow():
             min_followers=45,
             min_following=77)
         session.set_dont_include(['lularoshni', 'ironbetic', 'theyoungturks'])
-        session.set_dont_like(['death', 'cancer'])
         session.unfollow_users(amount=2, nonFollowers=True, style="RANDOM", unfollow_after=42*60*60, sleep_delay=30)
         print ('u2 success')
         instaMail.completeTask('u2 success')
     except Exception as exc:
         print ('u2 fail')
         instaMail.completeTask('u2 fail')
-        # if changes to IG layout, upload the file to help us locate the change
-        # if isinstance(exc, NoSuchElementException):
-        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-        #     with open(file_path, 'wb') as fp:
-        #         fp.write(session.browser.page_source.encode('utf8'))
-        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-        #         '*' * 70, file_path))
-        # # full stacktrace when raising Github issue
-        # raise
+        print("error: {0}".format(exc))
+        
 
     finally:
         # end the bot session

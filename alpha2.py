@@ -21,7 +21,7 @@ def alpha():
         insta_password = login[1]
         session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
         session.login()
-        session.set_dont_like(['death', 'cancer', 'rest in peace', '#restinpeace'])
+        session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.set_relationship_bounds(enabled=True,
                 potency_ratio=None,
                 delimit_by_numbers=True,

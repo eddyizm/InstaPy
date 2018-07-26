@@ -21,23 +21,14 @@ def unfollow():
         session.login()
         session.set_dont_unfollow_active_users(enabled=True, posts=5)
         session.set_dont_include(['lularoshni', 'ironbetic'])
-        session.set_dont_like(['death', 'cancer'])
         session.unfollow_users(amount=5, InstapyFollowed=(True, "nonfollowers"), style="FIFO", sleep_delay=10)
         print('unfollow success!')
         instaMail.completeTask('unfollow success')
     except Exception as exc:
         print('unfollow fail!')
+        print("error: {0}".format(exc))
         instaMail.completeTask('unfollow fail')
-        # if changes to IG layout, upload the file to help us locate the change
-        # if isinstance(exc, NoSuchElementException):
-        #     file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-        #     with open(file_path, 'wb') as fp:
-        #         fp.write(session.browser.page_source.encode('utf8'))
-        #     print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-        #         '*' * 70, file_path))
-        # # full stacktrace when raising Github issue
-        # raise
-
+        
     finally:
         # end the bot session
         session.end()

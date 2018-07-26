@@ -30,7 +30,7 @@ try:
     session.set_do_comment(True, percentage=10)
     session.set_do_follow(enabled=True, percentage=10, times=2)
     session.set_comments(['Rad!', 'Super cool!', 'Excellent!', 'Amazing!'])
-    session.set_dont_like(['death', 'cancer', 'rest in peace', '#restinpeace'])
+    session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
     # do the actual liking
     session.like_by_tags(['trailrunning', 'bouldering', 'moodynature', 'rei1440project','stayandwander'], amount=25)
     print('bouldering success')  
