@@ -10,19 +10,16 @@ if os.name == 'nt':
 else:
     logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
 try: 
-    # read login info from file
     f = open ( logintext , 'r')
     login = f.read().splitlines()
-
+    f.close()
     insta_username = login[0]
     insta_password = login[1]
-
-    # if you want to run this script on a server, 
-    # simply add nogui=True to the InstaPy() constructor
-    session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
+    print ('pre session creation')
+    session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
+    session.switch_language=False
+    print ('pre login')  
     session.login()
-
-    # set up all the settings
     session.set_relationship_bounds(enabled=True,
                 potency_ratio=None,
                 delimit_by_numbers=True,
@@ -38,6 +35,7 @@ try:
     session.like_by_tags(['trailrunning', 'bouldering', 'moodynature', 'rei1440project','stayandwander'], amount=25)
     print('bouldering success')  
     instaMail.completeTask('bouldering success')
+    
 except Exception as exc:
     print('bouldering fail!')       
     print("error: {0}".format(exc))
