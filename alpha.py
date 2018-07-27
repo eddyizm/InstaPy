@@ -19,7 +19,8 @@ def alpha():
         f.close()
         insta_username = login[0]
         insta_password = login[1]
-        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
+        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
+        session.switch_language=False
         session.login()
         session.set_dont_like(['death', 'cancer'])
         session.set_relationship_bounds(enabled=True,
@@ -30,13 +31,25 @@ def alpha():
                     min_followers=45,
                     min_following=77)
         session.set_do_comment(True, percentage=30)
+        session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.like_by_tags(['nudeart', 'wonderful_places', 'gothefuckoutside'], amount=50 )
         print('alpha success')  
         instaMail.completeTask('alpha success')
     except Exception as exc:
-        print('alpha fail!')        
+        print('alpha fail!')   
+        print("error: {0}".format(exc))  
+        if isinstance(exc, NoSuchElementException):
+            print('NoSuchElementException')
+            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
+            with open(file_path, 'wb') as fp:
+                fp.write(session.browser.page_source.encode('utf8'))
+            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
+                '*' * 70, file_path))
+        
         instaMail.completeTask('alpha fail')
+        raise   
+        
         
         
     finally:

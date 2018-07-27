@@ -19,7 +19,8 @@ def alpha():
         f.close()
         insta_username = login[0]
         insta_password = login[1]
-        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
+        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
+        session.switch_language=False
         session.login()
         session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.set_relationship_bounds(enabled=True,

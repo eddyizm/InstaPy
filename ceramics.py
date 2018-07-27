@@ -13,7 +13,8 @@ f.close()
 insta_username = login[0]
 insta_password = login[1]
 
-session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
+session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
+session.switch_language=False
 session.login()
 # set up all the settings
 session.set_relationship_bounds(enabled=True,
