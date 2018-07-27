@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['passionpassport', 'travelgirls', 'gonewzealand'], amount=50 )
+        session.like_by_tags(['phoenixmodel', 'weekendwarrior', 'gonewzealand'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -55,6 +55,9 @@ def alpha():
 alpha()
 
 '''
+#ddlg #gls #tattoos #alternative #implied  #yogi #toes #vintage #feet #nudeart  #fetish #outdoorshoot  #bathtime #fitfam #lingerie #pinup #freckles #fashionmodel  #pinkhair  #alt #kink #longlegs #girlswithtattoos #art #azmodel  #travelingmodel
+#throwrug #knit #softfurnishings #clay #knitthrow #interior #styling #decorating #interiorsdecorating #interiorstyling #sofa #bed #bambury #designhouseinteriors #throwrugs #knitted #autumncolour #autumnpalette #trendcolours
+ #SalomonSquad #Neature #OptOutside #adk #highpeaks #visitadk #46r #localadk #getoutstayout #sheadventures #hiking #sheexplores #mtnmoment  #FunIsTheBest #outdoorwomen #choosemountains #choosemountainswomen # #livewylder # # #forceofnature #GOATworthy #backcountry #rei1440project #mountainmoment #'
  # #livefolk # # #traveldiary 
  #instadaily #featuremeseas #featuremeof #hinfluencercollective 
  #earth_portraits # #femmetravel #featuremeof #l0tsabraids 
