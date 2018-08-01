@@ -16,7 +16,8 @@ def lit():
         f.close()
         insta_username = login[0]
         insta_password = login[1]
-        session = InstaPy(username=insta_username, password=insta_password,  headless_browser=True)
+        session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
+        session.switch_language=False
         session.login()
         session.set_relationship_bounds(enabled=True,
                     potency_ratio=None,
@@ -28,7 +29,7 @@ def lit():
         session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.set_do_comment(True, percentage=20)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['astronomy','science','literature'], amount=40)
+        session.like_by_tags(['currentlyreading','bookworm','literature'], amount=40)
         session.end()
         instaMail.completeTask('literature success')
     except Exception as exc:
