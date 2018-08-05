@@ -1,3 +1,4 @@
+import time
 import re
 import random
 
@@ -10,9 +11,10 @@ from selenium.common.exceptions import WebDriverException
 from selenium.common.exceptions import NoSuchElementException
 
 from .time_util import sleep
-from .util import update_activity
 from .util import add_user_to_blacklist
 from .util import click_element
+from .util import is_private_profile
+from .util import update_activity
 from .util import web_adress_navigator
 from .util import get_number_of_posts
 from .util import remove_duplicated_from_list_keep_order
@@ -330,8 +332,7 @@ def get_links_for_username(browser,
     abort = True
 
     try:
-        is_private = body_elem.find_element_by_xpath(
-            '//h2[@class="_kcrwx"]')
+        is_private = is_private_profile(browser, logger)
     except:
         logger.info('Interaction begin...')
     else:
@@ -351,7 +352,7 @@ def get_links_for_username(browser,
 
     if posts_count is not None and amount > posts_count:
         logger.info("You have requested to get {} posts from {}'s profile page BUT"
-                    "there only {} posts available :D".format(amount, username, posts_count))
+                    " there only {} posts available :D".format(amount, username, posts_count))
         amount = posts_count
 
     while len(links) < amount:
@@ -361,8 +362,9 @@ def get_links_for_username(browser,
         update_activity()
         sleep(0.66)
 
+        # using `extend`  or `+=` results reference stay alive which affects previous assignment (can use `copy()` for it)
         links = links + get_links(browser, username, logger, media, main_elem)
-        links = remove_duplicated_from_list_keep_order(links)
+        links = sorted(set(links), key=links.index)
 
         if len(links) == len(initial_links):
             if attempt >= 7:
@@ -370,6 +372,8 @@ def get_links_for_username(browser,
                 break
             else:
                 attempt += 1
+        else:
+            attempt = 0
 
     if randomize == True:
         random.shuffle(links)
