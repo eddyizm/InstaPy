@@ -20,23 +20,18 @@ def SendBody(body, d):
         s.starttls()
         s.login(u, l)
 
-        # import necessary packages
         from email.mime.multipart import MIMEMultipart
         from email.mime.text import MIMEText
 
-        # create a message
         msg = MIMEMultipart()       
         print('sending mail')
         
-        # setup the parameters of the message
         msg['From']='cervantes.e@outlook.com'
         msg['To']='eddyizm@me.com'
         msg['Subject']='Instapy Stats '+d
 
-        # add in the message body
         msg.attach(MIMEText(body, 'plain'))
 
-        # send the message via the server set up earlier.
         s.send_message(msg)
     except smtplib.SMTPException as e:
         print (str(e))
@@ -45,20 +40,12 @@ def file_len(fname):
     try: 
         count = len(open(fname).readlines())
         return count
-        # with open(fname) as f:
-        #     for i, l in enumerate(f):
-        #         pass
-        # return i + 1
+
     except IOError as e:
         print (str(e))
 
 def daily_log():
-    #get follower count 
-    #fCount = file_len('logs/followerNum.txt')
-    #f = open('logs/followerNum.txt','a+').readlines()
-    #s = f[fCount-1]
-    #followers = 'followers: '+(s[-5:]+'\n')
-    # Access DB and parse out data.
+    
     if os.name == 'nt':
         conn = sqlite3.connect("C:\\Users\\eddyizm\\Source\\Repos\\InstaPy\\db\\instapy.db")
     else:
@@ -77,23 +64,12 @@ def daily_log():
     conn.close() 
     message =  columns+x+z+'\n'
 
-    # get log info : 
-    # endFile = file_len('logs/timelog.txt')
-    # n = open('logs/timelog.txt','r')
-    # log = n.readlines()
-    # count = endFile-15
-    # for x in range(count, (endFile)):
-    #     message+=log[x]
-    # n.close()
-    # print(message)
     SendBody(message, nextday[5])
 
 def completeTask(jobname):
     # fCount = file_len('logs/general.log')
     tStamp = datetime.now()
     n = tStamp.strftime("%Y-%m-%d")
-    # import modules. 
-    from shutil import copyfile
     message = ' completed \n'
     # get log info : 
     try:
@@ -102,8 +78,6 @@ def completeTask(jobname):
         n = open(logfile,'r')
         log = n.readlines()
         count = endFile-99
-        # print (count)
-        # print (endFile)
         if endFile > 100:
             for x in range(count, (endFile-1)):
                 message+=log[x]
@@ -112,6 +86,7 @@ def completeTask(jobname):
         n.close()
     except IOError as e:
         print (str(e))
+    
     SendBody(message, jobname)    
     
 def archive_log():
