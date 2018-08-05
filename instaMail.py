@@ -97,7 +97,7 @@ def completeTask(jobname):
     message = ' completed \n'
     # get log info : 
     try:
-        logfile = 'logs/general.log'
+        logfile = 'logs/eddyizm/general.log'
         endFile = file_len(logfile)
         n = open(logfile,'r')
         log = n.readlines()
