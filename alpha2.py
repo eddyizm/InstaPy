@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['losangelesmodel', 'travelingram', 'moscow'], amount=50 )
+        session.like_by_tags(['redhead', 'getoutstayout', 'japan'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -55,13 +55,13 @@ def alpha():
 alpha()
 
 '''
-#themysterypr0ject #project_soul #female #woman #redhair #redhead #portraitphotography #sensual_ladies 
-#___bodylanguage___ #__bodyart__ #bodylanguage #topview #still_view #humanedge # #germanmodel #sensual #colors #sombrebeings #photography #soulmate #soulart #darkbeauty\n\n
+#themysterypr0ject #project_soul #female #woman #redhair # #portraitphotography #sensual_ladies 
+#___bodylanguage___ #__bodyart__ #bodylanguage #topview #still_view #humanedge # # #sensual #colors #sombrebeings #photography #soulmate #soulart #darkbeauty\n\n
 
 #domenica #sundaymood #mylove #mylife
 #ilmiocuoresoloperte #aroundtheworld  #mexico #noidue #noi #instagramstories #instagramood #instagram'
- #swimming in #grancenote  #tulum #mexico #tb #traveling # #travel #vacation #exploringmexico #cave #cenote #beautiful #water #motivacnystatusalways'
-#IBTMscout #nextmodels #WLYG #imgirls #newyork #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director #italy  #mexico #photographer #japan #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
+ #swimming  #grancenote  #tulum #mexico #tb #traveling # #travel #vacation #exploringmexico #cave #cenote #beautiful #water #motivacnystatusalways'
+#IBTMscout #nextmodels #WLYG #imgirls #newyork #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director #italy  #mexico #photographer # #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
 # #nature #roadtrippin #exploring #enjoyinglife #croatiafulloflife' 
  #vilnius #guangzhoutower #guangzhoucity #thehide #guangzhou #hongkong #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like #tokyo 
 #vilniusoldtown #kiev #odessa #hangzhou #foshan #dongguan #worldcup2018 #seoul #brasiliangirl #panyu #guangzhoufood #brasilianmodel #russianmodel'
@@ -74,7 +74,7 @@ alpha()
 #haryanvi #mood #modern #musically #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #upcomingmodel  #indianmodel #indianmodels #indianfollowers'
 #ddlg #gls #tattoos #alternative #implied  #yogi #toes #vintage #feet  #fetish #outdoorshoot  #bathtime #fitfam #lingerie #pinup #freckles #fashionmodel  #pinkhair  #alt #kink #longlegs #girlswithtattoos #art #azmodel  #travelingmodel
 #throwrug #knit #softfurnishings #clay #knitthrow #interior #styling #decorating #interiorsdecorating #interiorstyling #sofa #bed #bambury #designhouseinteriors #throwrugs #knitted #autumncolour #autumnpalette #trendcolours
- #SalomonSquad #Neature #OptOutside #adk #highpeaks # #46r #localadk #getoutstayout #sheadventures #hiking #sheexplores #mtnmoment  #FunIsTheBest #outdoorwomen #choosemountains #choosemountainswomen # #livewylder # # #forceofnature #GOATworthy #backcountry #rei1440project #mountainmoment #'
+ #SalomonSquad # #OptOutside #adk #highpeaks # #46r #localadk # #sheadventures #hiking #sheexplores #mtnmoment  #FunIsTheBest #outdoorwomen #choosemountains #choosemountainswomen # #livewylder # # #forceofnature #GOATworthy #backcountry #rei1440project #mountainmoment #'
  # #livefolk # # #traveldiary 
  #instadaily #featuremeseas #featuremeof #hinfluencercollective 
  #earth_portraits # #femmetravel #featuremeof #l0tsabraids 
@@ -82,7 +82,7 @@ alpha()
  #wtnadventures #l0tsabraids #ftwotww #expofilm #ftmedd #portraitsvisuals 
  # #portraits_universe #gramkilla #artofvisual
  #myerasmus #dji #engineer #erasmus 
- #dbtravel #turkmen #  #blagoevgrad #bulgaria  #aubg #campus #2018 #senior #collegelife
+ #dbtravel #turkmen #  #blagoevgrad #  #aubg #campus #2018 #senior #collegelife
 #artnude #purenewzealand #
 #kilonewton #textiles #artmatsdm #charecterdesign
 # #teamcanon # 
@@ -99,5 +99,5 @@ alpha()
  #almostthere # #fit #fitnessfreaks #fit#  #healthy #tone 
  #tanlines #cutoffs #countrylife #farm #
  #noh8 #blessed #keeppushing #keepgoing   #blah #icute #summertime
-  #artnude  #sensual_art # #longhair # #bodyscape # #sexypose # # #impliednude #passion #eroticart #shotsosensual #bodypositivity #ass'
+  #artnude  #sensual_art # #longhair # # # #sexypose # # #impliednude #passion #eroticart # #bodypositivity #ass'
  '''
