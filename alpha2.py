@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['redhead', 'getoutstayout', 'japan'], amount=50 )
+        session.like_by_tags(['forest', 'impliednude', 'india'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -70,7 +70,7 @@ alpha()
  b'#uncoveredmagazine #sensual_trophy #sensual_dreams #boudoirphotography #sensuality_bnw #sensuality_world #sensual_ladies #infinity_sense #sensualart_flair 
 #igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual #sexypics #my_secret_lover_ #great_captures_sensual #sexylingerie #beautyandboudoir #best_expression_sensuality 
 #loves_sensual_mood #pizza #insta_legs_2015 #pizzadreams #hot #hotgirls #fit4life #fitbody #fitlove'   
-'#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling #modellife #model #medellin #modello #italy #india 
+'#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling #modellife #model #medellin #modello #italy # 
 #haryanvi #mood #modern #musically #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #upcomingmodel  #indianmodel #indianmodels #indianfollowers'
 #ddlg #gls #tattoos #alternative #implied  #yogi #toes #vintage #feet  #fetish #outdoorshoot  #bathtime #fitfam #lingerie #pinup #freckles #fashionmodel  #pinkhair  #alt #kink #longlegs #girlswithtattoos #art #azmodel  #travelingmodel
 #throwrug #knit #softfurnishings #clay #knitthrow #interior #styling #decorating #interiorsdecorating #interiorstyling #sofa #bed #bambury #designhouseinteriors #throwrugs #knitted #autumncolour #autumnpalette #trendcolours
@@ -99,5 +99,5 @@ alpha()
  #almostthere # #fit #fitnessfreaks #fit#  #healthy #tone 
  #tanlines #cutoffs #countrylife #farm #
  #noh8 #blessed #keeppushing #keepgoing   #blah #icute #summertime
-  #artnude  #sensual_art # #longhair # # # #sexypose # # #impliednude #passion #eroticart # #bodypositivity #ass'
+  #artnude  #sensual_art # #longhair # # # #sexypose # # # #passion #eroticart # #bodypositivity #ass'
  '''
