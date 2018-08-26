@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['forest', 'impliednude', 'india'], amount=50 )
+        session.like_by_tags(['programmer', 'sensual_ladies', 'exploringmexico'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -55,12 +55,12 @@ def alpha():
 alpha()
 
 '''
-#themysterypr0ject #project_soul #female #woman #redhair # #portraitphotography #sensual_ladies 
-#___bodylanguage___ #__bodyart__ #bodylanguage #topview #still_view #humanedge # # #sensual #colors #sombrebeings #photography #soulmate #soulart #darkbeauty\n\n
+#themysterypr0ject #project_soul #female #woman #redhair # #portraitphotography 
+#___bodylanguage___ #__bodyart__ #bodylanguage #topview #still_view #humanedge # # #sensual #colors #sombrebeings # #soulmate #soulart #darkbeauty\n\n
 
-#domenica #sundaymood #mylove #mylife
+#domenica #sundaymood  #mylife
 #ilmiocuoresoloperte #aroundtheworld  #mexico #noidue #noi #instagramstories #instagramood #instagram'
- #swimming  #grancenote  #tulum #mexico #tb #traveling # #travel #vacation #exploringmexico #cave #cenote #beautiful #water #motivacnystatusalways'
+ #swimming  #grancenote  #tulum  #tb #traveling # #travel #vacation # #cave #cenote #beautiful #water #motivacnystatusalways'
 #IBTMscout #nextmodels #WLYG #imgirls #newyork #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director #italy  #mexico #photographer # #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
 # #nature #roadtrippin #exploring #enjoyinglife #croatiafulloflife' 
  #vilnius #guangzhoutower #guangzhoucity #thehide #guangzhou #hongkong #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like #tokyo 
@@ -86,7 +86,7 @@ alpha()
 #artnude #purenewzealand #
 #kilonewton #textiles #artmatsdm #charecterdesign
 # #teamcanon # 
- #folkgoood # #roadtrip #dreaming # # # #folkcreative  
+ #folkgood # #roadtrip #dreaming # # # #  
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
  #volgoitalia #ig_italia # #italia #calabriadaamare  #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
