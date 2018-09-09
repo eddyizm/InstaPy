@@ -30,6 +30,6 @@ session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:', 'Awesome!', '
 session.set_dont_include(['helloklai'])
 session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
 # do the actual liking
-session.like_by_tags(['ceramics', 'coffee', 'turkey'], amount=50 )
+session.like_by_tags(['ceramics', 'coffee', 'canada'], amount=50 )
 # end the bot session
 session.end()
