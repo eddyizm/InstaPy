@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['programmer', 'sensual_ladies', 'exploringmexico'], amount=50 )
+        session.like_by_tags(['#tacomaoffroad', 'bodylanguage', 'hongkong'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -55,17 +55,19 @@ def alpha():
 alpha()
 
 '''
-#themysterypr0ject #project_soul #female #woman #redhair # #portraitphotography 
-#___bodylanguage___ #__bodyart__ #bodylanguage #topview #still_view #humanedge # # #sensual #colors #sombrebeings # #soulmate #soulart #darkbeauty\n\n
-
+#toyotatacoma #trdtacoma #trdoffroad #tacomaworld #yotalife #yotamafia #yota #offroad #overland # #overlanding #explore #pnw #pnwlife #pnwonderland #pnwcollective #outdoors #getoutside #getoutstayout #getdirty
+#themysterypr0ject #project_soul  # #portraitphotography 
+#___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge # # #sensual #colors #sombrebeings # #soulmate #soulart #darkbeauty\n\n
+#tacomaoffroad #tacomaworld #hellatrails #foxshocks #tacomabeast #scs #stealthcustomseries
 #domenica #sundaymood  #mylife
-#ilmiocuoresoloperte #aroundtheworld  #mexico #noidue #noi #instagramstories #instagramood #instagram'
+#ilmiocuoresoloperte #aroundtheworld   #noidue #noi #instagramstories #instagramood #instagram'
  #swimming  #grancenote  #tulum  #tb #traveling # #travel #vacation # #cave #cenote #beautiful #water #motivacnystatusalways'
-#IBTMscout #nextmodels #WLYG #imgirls #newyork #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director #italy  #mexico #photographer # #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
+#IBTMscout #nextmodels #WLYG #imgirls #newyork #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director #italy   #photographer # #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
 # #nature #roadtrippin #exploring #enjoyinglife #croatiafulloflife' 
- #vilnius #guangzhoutower #guangzhoucity #thehide #guangzhou #hongkong #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like #tokyo 
+ #vilnius #guangzhoutower #guangzhoucity #thehide #guangzhou # #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like #tokyo 
 #vilniusoldtown #kiev #odessa #hangzhou #foshan #dongguan #worldcup2018 #seoul #brasiliangirl #panyu #guangzhoufood #brasilianmodel #russianmodel'
-
+#lawofattraction #meditiation #spiritualawakening #spiritualjourney #faith #manifestation #upliftingquotes #lightwarrior #consciousness #spirituality #spiritualgangster #freethinking #quoteoftheday #positivevibes #positivethinking #presentmoment 
+# #love #thirdeye # #higherconsciousness #success #gratitude #positivethinking #loa #thesecret #spiritual #energy
 #sannyday#summer#summer2017#see#beach#batumi#batumi2017#batumicity#batumibeach#georgia#georgiagirl#russianmodel#russiangirl#followme#follow#followers#weekend#face'
  b'#uncoveredmagazine #sensual_trophy #sensual_dreams #boudoirphotography #sensuality_bnw #sensuality_world #sensual_ladies #infinity_sense #sensualart_flair 
 #igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual #sexypics #my_secret_lover_ #great_captures_sensual #sexylingerie #beautyandboudoir #best_expression_sensuality 
