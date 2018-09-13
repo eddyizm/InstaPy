@@ -2826,11 +2826,8 @@ class InstaPy:
 
         return self
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 5dee4ebca38b0da4a423e1c84ed6d58d034eebed
     def like_by_feed_generator(self,
                                 amount=50,
                                  randomize=False,

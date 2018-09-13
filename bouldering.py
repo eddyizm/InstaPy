@@ -5,7 +5,7 @@ from tempfile import gettempdir
 import os
 
 if os.name == 'nt':
-    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+    logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"`
 else:
     logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
 try: 
