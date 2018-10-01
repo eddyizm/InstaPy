@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['#tacomaoffroad', 'bodylanguage', 'hongkong'], amount=50 )
+        session.like_by_tags(['#trdoffroad', 'sensual', 'vancouver'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -55,9 +55,9 @@ def alpha():
 alpha()
 
 '''
-#toyotatacoma #trdtacoma #trdoffroad #tacomaworld #yotalife #yotamafia #yota #offroad #overland # #overlanding #explore #pnw #pnwlife #pnwonderland #pnwcollective #outdoors #getoutside #getoutstayout #getdirty
+#toyotatacoma #trdtacoma # #tacomaworld #yotalife #yotamafia #yota #offroad #overland # #overlanding #explore #pnw #pnwlife #pnwonderland #pnwcollective #outdoors #getoutside #getoutstayout #getdirty
 #themysterypr0ject #project_soul  # #portraitphotography 
-#___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge # # #sensual #colors #sombrebeings # #soulmate #soulart #darkbeauty\n\n
+#___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge # # # #colors #sombrebeings # #soulmate #soulart #darkbeauty\n\n
 #tacomaoffroad #tacomaworld #hellatrails #foxshocks #tacomabeast #scs #stealthcustomseries
 #domenica #sundaymood  #mylife
 #ilmiocuoresoloperte #aroundtheworld   #noidue #noi #instagramstories #instagramood #instagram'
