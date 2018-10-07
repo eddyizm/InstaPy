@@ -1,7 +1,7 @@
 <img src="https://i.imgur.com/sJzfZsL.jpg" width="150" align="right">
 
 # InstaPy
-[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/timgrossmann/InstaPy/blob/master/LICENSE)
+[![MIT license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/timgrossmann/InstaPy/blob/master/LICENSE)
 [![built with Selenium](https://img.shields.io/badge/built%20with-Selenium-yellow.svg)](https://github.com/SeleniumHQ/selenium)
 [![built with Python3](https://img.shields.io/badge/built%20with-Python3-red.svg)](https://www.python.org/)
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://travis-ci.org/timgrossmann/InstaPy)
@@ -32,7 +32,7 @@ Table of Contents
 
 * [Getting Started](#getting-started)
   * [Basic Installation](#basic-installation)
-  * [Basic Setup](#basic-setup)
+  * [Preferred Installation](#preferred-installation)
 * [InstaPy Available Features](#instapy-available-features)
   * [Commenting](#commenting)
   * [Following](#following)
@@ -49,8 +49,11 @@ Table of Contents
   * [Unfollowing](#unfollowing)
   * [Don't unfollow active users](#dont-unfollow-active-users)
   * [Interactions based on the number of followers and/or following a user has](#interactions-based-on-the-number-of-followers-andor-following-a-user-has)
+  * [Interactions based on the number of posts a user has](#interactions-based-on-the-number-of-posts-a-user-has)
+  * [Skipping user for private account, no profile picture, business account](#skipping-user-for-private-account-no-profile-picture-business-account)
   * [Liking based on the number of existing likes a post has](#liking-based-on-the-number-of-existing-likes-a-post-has)
   * [Commenting based on the number of existing comments a post has](#commenting-based-on-the-number-of-existing-comments-a-post-has)
+  * [Commenting based on madatory words in the description or first comment](#commenting-based-on-madatory-words-in-the-description-or-first-comment)
   * [Comment by Locations](#comment-by-locations)
   * [Like by Locations](#like-by-locations)
   * [Like by Tags](#like-by-tags)
@@ -86,7 +89,12 @@ Table of Contents
   * [cron](#cron)
   * [Schedule](#schedule)
 * [Extra Information](#extra-information)  
+  * [Using one of the templates](#using-one-of-the-templates)
+  * [How not to be banned](#how-not-to-be-banned)
   * [Simulation](#simulation)
+  * [Disable Image Loading](#disable-image-loading)
+  * [Using Multiple Chromedrivers](#using-multiple-chromedrivers)
+  * [Changing DB or Chromedriver locations](#changing-db-or-chromedriver-locations)
 
 ## Getting started
 
@@ -134,33 +142,36 @@ Basic setup is a good way to test the tool. At project root folder open `quickst
 
 ```python
 from instapy import InstaPy
+from instapy.util import smart_run
 
+
+
+# login credentials
 insta_username = ''
 insta_password = ''
 
-# if you want to run this script on a server,
-# simply add nogui=True to the InstaPy() constructor
-session = InstaPy(username=insta_username, password=insta_password)
-session.login()
+# get an InstaPy session!
+# set headless_browser=True to run InstaPy in the background
+session = InstaPy(username=insta_username,
+                  password=insta_password,
+                  headless_browser=False)
 
-# set up all the settings
-session.set_relationship_bounds(enabled=True,
-				 potency_ratio=-1.21,
-				  delimit_by_numbers=True,
-				   max_followers=4590,
-				    max_following=5555,
-				     min_followers=45,
-				      min_following=77)
-session.set_do_comment(True, percentage=10)
-session.set_comments(['aMEIzing!', 'So much fun!!', 'Nicey!'])
-session.set_dont_include(['friend1', 'friend2', 'friend3'])
-session.set_dont_like(['pizza', 'girl'])
 
-# do the actual liking
-session.like_by_tags(['natgeo', 'world'], amount=100)
-
-# end the bot session
-session.end()
+with smart_run(session):
+    """ Activity flow """
+    # settings
+    session.set_relationship_bounds(enabled=True,
+                                      delimit_by_numbers=True,
+                                       max_followers=4590,
+                                        min_followers=45,
+                                        min_following=77)
+    
+    session.set_dont_include(["friend1", "friend2", "friend3"])
+    session.set_dont_like(["pizza", "#store"])
+    
+    
+    # actions
+    session.like_by_tags(["natgeo"], amount=10)
 ```
 
 Execute it:
@@ -171,9 +182,7 @@ $ python quickstart.py
 
 ### Or use our GUI
 
-[1. Official Cross Platform GUI](https://github.com/ahmadudin/electron-instaPy-GUI)
-
-[<img src="https://raw.githubusercontent.com/ahmadudin/ahmadudin.github.io/master/assets/images/screencapture1.PNG" width="400" />](https://github.com/ahmadudin/electron-instaPy-GUI)
+[1. Cross Platform GUI](https://github.com/ahmadudin/electron-instaPy-GUI)
 
 [2. Session scheduling with Telegram](https://github.com/Tkd-Alex/Telegram-InstaPy-Scheduling)
 
@@ -511,7 +520,7 @@ _here the unfollow method- **alFollowing** is used_
 session.set_dont_unfollow_active_users(enabled=True, posts=5)
 ```
 
-### Interactions based on the number of followers and/or following a user has
+### Interactions based on the number of followers and/or following a user has 
 
 ##### This is used to check the number of _followers_ and/or _following_ a user has and if these numbers _either_ **exceed** the number set OR **does not pass** the number set OR if **their ratio does not reach** desired potency ratio then no further interaction happens
 ```python
@@ -521,7 +530,9 @@ session.set_relationship_bounds(enabled=True,
 				   max_followers=8500,
 				    max_following=4490,
 				     min_followers=100,
-				      min_following=56)
+				      min_following=56,
+				       min_posts=10,
+                                        max_posts=1000)
 ```
 Use `enabled=True` to **activate** this feature, and `enabled=False` to **deactivate** it, _any time_  
 `delimit_by_numbers` is used to **activate** & **deactivate** the usage of max & min values  
@@ -535,7 +546,6 @@ _**find** desired_ `potency_ratio` _with this formula_: `potency_ratio` == **fol
 _**find** desired_ `potency_ratio` _with this formula_: `potency_ratio` == **following count** / **followers count**  (_use desired counts_)
 >_**e.g.**_, target user has _`2000` followers_ & _`3000` following_ and you set `potency_ratio = -1.7`.  
 **Now** it _will **not** interact_ with this user, **cos** the user's **relationship ratio** is `3000/2000==1.5` and `1.5` is **below** _desired_ `potency_ratio` _of `1.7`_ (_**note that**, negative `-` sign is only used to determine your style, nothing more_)
-
 
 ###### There are **3** **COMBINATIONS** _available_ to use:
 * **1**. You can use `potency_ratio` **or not** (**e.g.**, `potency_ratio=None`, `delimit_by_numbers=True`) - _will decide only by your **pre-defined** max & min values regardless of the_ `potency_ratio`
@@ -555,9 +565,96 @@ session.set_relationship_bounds (enabled=True, potency_ratio=2.35, delimit_by_nu
 > **All** of the **4** max & min values are _able to **freely** operate_, **e.g.**, you may want to _**only** delimit_ `max_followers` and `min_following` (**e.g.**, `max_followers=52639`, `max_following=None`, `min_followers=None`, `min_following=2240`)
 ```python
 session.set_relationship_bounds (enabled=True, potency_ratio=-1.44, delimit_by_numbers=True, max_followers=52639, max_following=None, min_followers=None, min_following=2240)
-```  
+```
+### Interactions based on the number of posts a user has
+#### This is used to check number of posts of a user and skip if they aren't in the boundaries provided
+```python
+session.set_relationship_bounds(min_posts=10,
+                                 max_posts=1000)
+```
+Users that have more than 1000 posts or less than 10 will be discarded
+
+**N.B.:** It is up to the user to check that `min_posts < max_posts`
+
+You can also set only one parameter at a time:
+```python
+session.set_relationship_bounds(max_posts=1000)
+```
+
+Will skip only users that have more than 1000 posts in their feed
 
 
+### Skipping user for private account, no profile picture, business account
+
+#### This is used to skip users with certain condition
+```python
+session.set_skip_users(skip_private=True,
+                       private_percentage=100,
+                       skip_no_profile_pic=False,
+                       no_profile_pic_percentage=100,
+                       skip_business=False,
+                       business_percentage=100,
+                       skip_business_categories=[],
+                       dont_skip_business_categories=[])
+```
+##### Skip private account
+**This is done by default**
+```python
+session.set_skip_users(skip_private=True,
+                       private_percentage=100)
+```
+Will skip users that have private account, even if are followed by running account.
+You can set a percentage of skipping:
+    _private_percentage_= 100 always skip private users
+    _private_percentage_= 0 never skip private users (so set skip_private=False)
+
+##### Skip users that don't have profile picture
+
+```python
+session.set_skip_users(skip_private=True,
+                       skip_no_profile_pic=True,
+                       no_profile_pic_percentage=100)
+```
+Will skip users that haven't uploaded yet a profile picture
+You can set a percentage of skipping:
+    _no_profile_pic_percentage_= 100 always skip users without profile picture
+    _no_profile_pic_percentage_= 0 never skip users without profile picture (so set _skip_no_profile_pic_=False)
+
+##### Skip users that have business account
+
+```python
+session.set_skip_users(skip_private=True,
+                       skip_no_profile_pic=True,
+		               skip_business=True,
+		               business_percentage=100)
+```
+This will skip all users that have business account activated.
+You can set a percentage of skipping:
+    _business_percentage_= 100 always skip business users
+    _business_percentage_= 0 never skip business users (so set _skip_business_=False)
+
+**N.B.:** This _business_percentage_ parameter works only if no _skip_business_categories_ or _dont_skip_business_categories_ are provided!
+
+###### Skip only users that have certain business account
+```python
+session.set_skip_users(skip_private=True,
+                       skip_no_profile_pic=True,
+		       skip_business=True,
+		       skip_business_categories=['Creators & Celebrities'])
+```
+This will skip all business accounts that have category in given list
+**N.B.** In _skip_business_categories_ you can add more than one category
+###### Skip all business accounts, except from list given
+```python
+session.set_skip_users(skip_private=True,
+                       skip_no_profile_pic=True,
+		       skip_business=True,
+		       dont_skip_business_categories=['Creators & Celebrities'])
+```
+This will skip all business accounts except the ones that have a category that matches one item in the list of _dont_skip_business_categories_
+**N.B.** If both _dont_skip_business_categories_ and _skip_business_categories_, InstaPy will skip only business accounts in the list given from _skip_business_categories_.
+		       
+> [A list of all availlable business categories can be found here](./assets/business_categories.md)
 
 ### Liking based on the number of existing likes a post has
 
@@ -592,8 +689,10 @@ session.set_delimit_commenting(enabled=True, max=32, min=0)
 Use `enabled=True` to **activate** and `enabled=False` to **deactivate** it, _any time_  
 `max` is the maximum number of comments to compare  
 `min` is the minimum number of comments to compare
-> You can use **both** _max_ & _min_ values OR **one of them** _as you desire_, just **put** the value of `None` _to the one_ you **don't want to** check for., _e.g._,
+> You can use **both** _max_ & _min_ values OR **one of them** _as you desire_, just **leave** it out or **put** it to `None` _to the one_ you **don't want to** check for., _e.g._,
 ```python
+session.set_delimit_commenting(enabled=True, min=4)
+# or
 session.set_delimit_commenting(enabled=True, max=None, min=4)
 ```
 _at this configuration above, it **will not** check number of the existing comments against **maximum** value_
@@ -605,7 +704,16 @@ session.set_delimit_commenting(enabled=True, max=70, min=5)
 _**Now**, if a post has more comments than the maximum value of `70`, then it will not comment on that post,
 **similarly**, if that post has less comments than the minimum value of `5`, then it will not comment on that post..._
 
+### Commenting based on madatory words in the description or first comment
 
+##### This is used to check the description of the post and the first comment of the post (some users only put tags in the comments instead of the post description) for the occurence of mandatory words before commenting. If none of the mandatory words is present, the post will not be commented.
+
+This feature is helpful when you want to comment only on specific tags.
+
+```python
+session.set_delimit_commenting(enabled=True, comments_mandatory_words=['cat', 'dog'])
+```
+> This will only comment on posts that contain either cat or dog in the post description or first comment.
 
 ### Comment by Locations
 
@@ -1488,9 +1596,18 @@ while True:
 
 ## Extra Information
 
+### Using one of the templates
 
-#### How not to be banned?
-Built-in delays prevent your account from getting banned. (Just make sure you don't like 1000s of post/day)
+If you're interested in what other users setup looks like, feel free to check out the `quickstart_templates` folder which includes several working setups with different features.
+
+In order to use them, just copy the desired file and put it next to the `quickstart.py` file in the, what is called root, directory.
+
+Finally simply adjust the username and any tags or firend lists before executing it.
+That's it.
+
+### How not to be banned
+- Built-in delays prevent your account from getting banned. (Just make sure you don't like 1000s of post/day)
+- Use the Quota Supervisor feature to set some fixed limits for the bot for maximum safety.
 
 
 ### Chrome Browser
@@ -1510,6 +1627,35 @@ session.set_simulation(enabled=True, percentage=66)
 ```
 
 
+### Disable Image Loading
+If you want to save some bandwidth, you can simply disable the image/video loading. This will lead to, if you watch InstaPy running, not downloading and displaying any more images and videos.
+
+> Note: This can save a tremendous amount of data. This is turned off by default (`False`).
+
+To do this simply pass the `disable_image_load=True` parameter in the InstaPy constructor like so:
+```python
+session = InstaPy(username=insta_username,
+                  password=insta_password,
+                  headless_browser=False,
+		  disable_image_load=True,
+                  multi_logs=True)
+```
+
+### Using Multiple Chromedrivers
+If you need multiple os versions of chromedriver just rename it like:
+```bash
+chromedriver_linux
+chromedriver_osx
+chromedriver_windows
+```
+
+### Changing DB or Chromedriver locations
+If you want to change the location/path of either the DB or the chromedriver, simply head into the `instapy/settings.py` file and change the following lines. 
+Set these in instapy/settings.py if you're locating the library in the /usr/lib/pythonX.X/ directory.
+```
+Settings.database_location = '/path/to/instapy.db'
+Settings.chromedriver_location = '/path/to/chromedriver'
+```
 
 ---
 ###### Have Fun & Feel Free to report any issues

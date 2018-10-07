@@ -21,6 +21,8 @@ from .util import load_user_id
 from .util import get_username
 from .util import find_user_id
 from .util import explicit_wait
+from .util import get_username_from_id
+from .util import is_page_available
 from .print_log_writer import log_followed_pool
 from .print_log_writer import log_uncertain_unfollowed_pool
 from .print_log_writer import log_record_all_unfollowed
@@ -89,40 +91,44 @@ def set_automated_followed_pool(username, unfollow_after, logger, logfolder):
         followedPoolFile.close()
 
     except BaseException as exc:
-        logger.error("Error occured while generating a user list from the followed pool!\n\t{}"
+        logger.error("Error occurred while generating a user list from the followed pool!\n\t{}"
                         .format(str(exc).encode("utf-8")))
 
     return automatedFollowedPool
 
 
 
-def get_following_status(browser, person, logger):
+def get_following_status(browser, track, person, logger):
     """ Verify if you are following the user in the loaded page """
-    following = None
-    follow_button = None
+    if track == "profile":
+        user_link = "https://www.instagram.com/{}/".format(person)
+        web_address_navigator(browser, user_link)
 
-    try:
-        follow_button = browser.find_element_by_xpath(
-            "//*[contains(text(), 'Follow')]")
+    follow_button_XP = ("//button[text()='Following' or \
+                                  text()='Requested' or \
+                                  text()='Follow' or \
+                                  text()='Follow Back' or \
+                                  text()='Unblock']")
 
-        if follow_button.text == 'Following':
-            following = True
+    # wait until the follow button is located and visible, then get it
+    follow_button = explicit_wait(browser, "VOEL", [follow_button_XP, "XPath"], logger, 7, False)
 
-        else:
-            if follow_button.text in ['Follow', 'Follow Back']:
-                following = False
+    if not follow_button:
+        browser.execute_script("location.reload()")
+        update_activity()
 
-            else:
-                follow_button = browser.find_element_by_xpath(
-                    "//*[contains(text(), 'Requested')]")
+        follow_button = explicit_wait(browser, "VOEL", [follow_button_XP, "XPath"], logger, 14, False)
 
-                if follow_button.text == "Requested":
-                    following = "Requested"
+        if not follow_button:
+            logger.error("--> Unable to detect the following status of '{}'!"
+                                  .format(person.encode("utf-8")))
+            return None, None
 
-    except NoSuchElementException:
-        logger.error("--> Unfollow issue with '{}'!"
-                      "\t~unable to detect the following status"
-                          .format(person.encode("utf-8")))
+    # get follow state
+    state = follow_button.text
+    following = (False if state in ['Follow', 'Follow Back'] else
+                 True if state == "Following" else "Requested" if
+                 state == "Requested" else "Blocked")
 
     return following, follow_button
 
@@ -204,7 +210,7 @@ def unfollow(browser,
 
         elif InstapyFollowed == True:
             logger.info("Unfollowing the users followed by InstaPy\n")
-            unfollow_list = automatedFollowedPool["eligible"].keys()
+            unfollow_list = list(automatedFollowedPool["eligible"].keys())
 
         elif nonFollowers == True:
             logger.info("Unfollowing the users who do not follow back\n")
@@ -292,7 +298,7 @@ def unfollow(browser,
                     logger.warning("--> Unfollow quotient reached its peak!\t~leaving Unfollow-Users activity\n")
                     break
 
-                if sleep_counter >= sleep_after:
+                if sleep_counter >= sleep_after and sleep_delay not in [0, None]:
                     delay_random = random.randint(ceil(sleep_delay*0.85), ceil(sleep_delay*1.14))
                     logger.info("Unfollowed {} new users  ~sleeping about {}\n".format(sleep_counter,
                                     '{} seconds'.format(delay_random) if delay_random < 60 else
@@ -329,7 +335,7 @@ def unfollow(browser,
                         # will break the loop after certain consecutive jumps
                         jumps["consequent"]["unfollows"] += 1
 
-                    elif msg in ["shadow ban", "not connected", "not logged in"]:
+                    elif msg in ["temporary block", "not connected", "not logged in"]:
                         # break the loop in extreme conditions to prevent misbehaviours
                         logger.warning("There is a serious issue: '{}'!\t~leaving Unfollow-Users activity".format(msg))
                         break
@@ -348,6 +354,7 @@ def unfollow(browser,
                     continue
         except BaseException as e:
             logger.error("Unfollow loop error:  {}\n".format(str(e)))
+
 
     elif allFollowing == True:
         logger.info("Unfollowing the users you are following")
@@ -433,7 +440,8 @@ def unfollow(browser,
 
                 if (unfollowNum != 0 and
                         hasSlept is False and
-                            unfollowNum % 10 == 0):
+                            unfollowNum % 10 == 0 and
+                                sleep_delay not in [0, None]):
                     logger.info("sleeping for about {} min\n"
                                 .format(int(sleep_delay/60)))
                     sleep(sleep_delay)
@@ -466,7 +474,7 @@ def unfollow(browser,
                         # will break the loop after certain consecutive jumps
                         jumps["consequent"]["unfollows"] += 1
 
-                    elif msg in ["shadow ban", "not connected", "not logged in"]:
+                    elif msg in ["temporary block", "not connected", "not logged in"]:
                         # break the loop in extreme conditions to prevent misbehaviours
                         logger.warning("There is a serious issue: '{}'!\t~leaving Unfollow-Users activity".format(msg))
                         break
@@ -506,6 +514,7 @@ def follow_user(browser, track, login, user_name, button, blacklist, logger, log
             follow_xpath = "//button[text()='Follow' or text()='Follow Back']"
             follow_button = browser.find_element_by_xpath(follow_xpath)
 
+            # click to follow
             if follow_button.is_displayed():
                 click_element(browser, follow_button)
 
@@ -515,20 +524,28 @@ def follow_user(browser, track, login, user_name, button, blacklist, logger, log
                                        "arguments[0].style.width = '10px'; "
                                        "arguments[0].style.opacity = 1",
                                             follow_button)
+                # update server calls
+                update_activity()
 
                 click_element(browser, follow_button)
 
-                # verify the last follow
+            # wait until the follow action succeed
+            post_follow_element = "//button[text()='Following' or text()='Requested']"
+            button_change = explicit_wait(browser, "VOEL", [post_follow_element, "XPath"], logger, 9, False)
+
+            # verify the last follow
+            if not button_change:
+                browser.execute_script("location.reload()")
+                update_activity()
+                sleep(2)
+
                 following, follow_button = get_following_status(browser,
-                                                                 user_name,
-                                                                  logger)
-                if not following:
-                    browser.execute_script("location.reload()")
-                    sleep(2)
-                    following, follow_button = get_following_status(browser,
-                                                                     user_name,
-                                                                      logger)
-                    if following is None:
+                                                                 track,
+                                                                  user_name,
+                                                                   logger)
+                if following is None:
+                    valid_page = is_page_available(browser, logger)
+                    if valid_page:
                         sirens_wailing, emergency_state = emergency_exit(browser,
                                                                           user_name,
                                                                            logger)
@@ -536,17 +553,17 @@ def follow_user(browser, track, login, user_name, button, blacklist, logger, log
                             logger.warning("There is a serious issue: '{}'!\n".format(emergency_state))
                             return False, emergency_state
 
-                        else:
-                            logger.error("Unexpected failure happened after last follow!\n")
-                            return False, "unexpected failure"
+                    if not valid_page or sirens_wailing == False:
+                        logger.error("Unexpected failure happened after last follow!\n")
+                        return False, "unexpected failure"
 
-                    if following == False:
-                        logger.warning("Last follow is not verified!\t~smells of a shadow ban\n")
-                        sleep(600)
-                        return False, "shadow ban"
+                if following == False:
+                    logger.warning("Last follow is not verified!\t~smells of a temporary block\n")
+                    sleep(600)
+                    return False, "temporary block"
 
-                    else:
-                        logger.info("Last follow is verified after reloading the page!\n")
+                elif following in [True, "Requested"]:
+                    logger.info("Last follow is verified after reloading the page!\n")
 
         except NoSuchElementException:
             logger.info("--> '{}' is already followed".format(user_name))
@@ -784,7 +801,7 @@ def follow_through_dialog(browser,
                 logger.info("Not followed '{}'  ~inappropriate user".format(person))
 
     except BaseException as e:
-        logger.error("Error occured while following through dialog box:\n{}".format(str(e)))
+        logger.error("Error occurred while following through dialog box:\n{}".format(str(e)))
 
     return person_followed
 
@@ -826,28 +843,35 @@ def get_given_user_followers(browser,
     try:
         allfollowers = format_number(browser.find_element_by_xpath("//a[contains"
                                 "(@href,'followers')]/span").text)
+
     except NoSuchElementException:
         try:
             allfollowers = browser.execute_script(
                 "return window._sharedData.entry_data."
                 "ProfilePage[0].graphql.user.edge_followed_by.count")
+
         except WebDriverException:
             try:
                 browser.execute_script("location.reload()")
+                update_activity()
+
                 allfollowers = browser.execute_script(
                     "return window._sharedData.entry_data."
                     "ProfilePage[0].graphql.user.edge_followed_by.count")
+
             except WebDriverException:
                 try:
                     topCount_elements = browser.find_elements_by_xpath(
                         "//span[contains(@class,'g47SY')]")
+
                     if topCount_elements:
                         allfollowers = format_number(topCount_elements[1].text)
                     else:
                         logger.info("Failed to get followers count of '{}'  ~empty list".format(user_name))
                         allfollowers = None
+
                 except NoSuchElementException:
-                    logger.error("Error occured during getting the followers count of '{}'\n".format(user_name))
+                    logger.error("Error occurred during getting the followers count of '{}'\n".format(user_name))
                     return [], []
 
     # skip early for no followers
@@ -907,28 +931,35 @@ def get_given_user_following(browser,
     try:
         allfollowing = format_number(browser.find_element_by_xpath("//a[contains"
                                 "(@href,'following')]/span").text)
+
     except NoSuchElementException:
         try:
             allfollowing = browser.execute_script(
                 "return window._sharedData.entry_data."
                 "ProfilePage[0].graphql.user.edge_follow.count")
+
         except WebDriverException:
             try:
                 browser.execute_script("location.reload()")
+                update_activity()
+
                 allfollowing = browser.execute_script(
                     "return window._sharedData.entry_data."
                     "ProfilePage[0].graphql.user.edge_follow.count")
+
             except WebDriverException:
                 try:
                     topCount_elements = browser.find_elements_by_xpath(
                         "//span[contains(@class,'g47SY')]")
+
                     if topCount_elements:
                         allfollowing = format_number(topCount_elements[2].text)
                     else:
                         logger.info("Failed to get following count of '{}'  ~empty list".format(user_name))
                         allfollowing = None
+
                 except NoSuchElementException:
-                    logger.error("\nError occured during getting the following count of '{}'\n".format(user_name))
+                    logger.error("\nError occurred during getting the following count of '{}'\n".format(user_name))
                     return [], []
 
     # skip early for no followers
@@ -998,7 +1029,7 @@ def dump_follow_restriction(profile_name, logger, logfolder):
                 json.dump(current_data, followResFile)
 
     except Exception as exc:
-        logger.error("Pow! Error occured while dumping follow restriction data to a local JSON:\n\t{}".format(str(exc).encode("utf-8")))
+        logger.error("Pow! Error occurred while dumping follow restriction data to a local JSON:\n\t{}".format(str(exc).encode("utf-8")))
 
     finally:
         if conn:
@@ -1052,7 +1083,7 @@ def follow_restriction(operation, username, limit, logger):
                     return True
 
     except Exception as exc:
-        logger.error("Dap! Error occured with follow Restriction:\n\t{}".format(str(exc).encode("utf-8")))
+        logger.error("Dap! Error occurred with follow Restriction:\n\t{}".format(str(exc).encode("utf-8")))
 
     finally:
         if conn:
@@ -1074,65 +1105,77 @@ def unfollow_user(browser, track, username, person, person_id, button, relations
             web_address_navigator(browser, user_link)
 
         # find out following status
-        following, follow_button = get_following_status(browser, person, logger)
+        following, follow_button = get_following_status(browser, track, person, logger)
 
         if following is None:
-            # check out if the loop has to be broken immidiately
-            sirens_wailing, emergency_state = emergency_exit(browser, username, logger)
-            if sirens_wailing == True:
-                return False, emergency_state
+            # check if the page is available
+            valid_page = is_page_available(browser, logger)
+            if valid_page:
+                # check out if the loop has to be broken immidiately
+                sirens_wailing, emergency_state = emergency_exit(browser, username, logger)
+                if sirens_wailing == True:
+                    return False, emergency_state
 
-            else:   # there is no any serious issue- loop should continue
+            if not valid_page or sirens_wailing == False:
                 logger.warning("Maybe '{}' has changed the username!\t~verifying through the user ID"
                                     .format(person.encode('utf-8')))
-                # try to find the user by ID
-                if person_id is None:
-                    person_id = load_user_id(username, person, logger, logfolder)
-
-                if person_id and person_id not in [None, "unknown", "undefined"] :
-                    user_link_by_id = ("https://www.instagram.com/web/friendships/{}/follow/"
-                                            .format(person_id))
-                    web_address_navigator(browser, user_link_by_id)
+                person_new = verify_username_by_id(browser, username, person, person_id, logger, logfolder)
+                if person_new:
                     # re-check the following status
-                    following, follow_button = get_following_status(browser, person, logger)
-
+                    following, follow_button = get_following_status(browser, track, person_new, logger)
                     if following is None:
                         logger.warning("--> Couldn't access the profile page of '{}'!"
                                        "\t~user has either closed the profile or blocked you"
-                                            .format(person.encode('utf-8')))
+                                            .format(person_new.encode('utf-8')))
                         post_unfollow_cleanup("uncertain", username, person, relationship_data, logger, logfolder)
                         return False, "user unavailable"
 
-                    else:
-                        person_new = get_username(browser, logger)
-                        logger.info("User '{}' has changed username and now is called '{}' :S"
-                                        .format(person, person_new))
                 else:
-                    logger.info("--> Couldn't unfollow '{0}'!\t~the user ID of '{0}' "
-                                "doesn't exist in local records".format(person))
+                    logger.warning("--> Couldn't unfollow '{}'!".format(person))
                     post_unfollow_cleanup("uncertain", username, person, relationship_data, logger, logfolder)
                     return False, "user inaccessible"
-
 
         if following in [True, "Requested"]:
             click_element(browser, follow_button)
             sleep(4)
             confirm_unfollow(browser)
-            # double check the following state
-            follow_button = browser.find_element_by_xpath(
-                                "//*[contains(text(), 'Follow')]")
-            # if the button still has not changed it can be a temporary block
-            if follow_button.text not in ['Follow', 'Follow Back']:
-                logger.warning("--> Unfollow error!\t~username '{}' might be blocked from unfollowing\n"
-                                   .format(username))
-                return False, "shadow ban"
+            # wait until it properly unfollows
+            post_unfollow_element = "//button[text()='Follow' or text()='Follow Back']"
+            button_change = explicit_wait(browser, "VOEL", [post_unfollow_element, "XPath"], logger, 7, False)
 
+            if not button_change:
+                browser.execute_script("location.reload()")
+                update_activity()
+                sleep(2)
+
+                # double check the following state
+                follow_button = browser.find_element_by_xpath(
+                    "//*[contains(text(), 'Follow')]")
+
+                if follow_button.text not in ["Follow", "Follow Back"]:
+                    click_element(browser, follow_button)
+                    sleep(4)
+                    confirm_unfollow(browser)
+                    # wait until it properly unfollows
+                    button_change = explicit_wait(browser, "VOEL", [post_unfollow_element, "XPath"], logger, 9, False)
+
+                    if not button_change:
+                        # if the button still has not changed it can be a temporary block
+                        logger.warning("--> Unfollow error!\t~username '{}' might be blocked from unfollowing\n"
+                                           .format(username))
+                        return False, "temporary block"
 
         elif following == False:
-            logger.info("--> Couldn't unfollow '{}'!\t~maybe unfollowed before"
+            logger.info("--> Couldn't unfollow '{}'!\t~maybe was unfollowed before"
                                 .format(person.encode('utf-8')))
             post_unfollow_cleanup("uncertain", username, person, relationship_data, logger, logfolder)
             return False, "uncertain"
+
+        elif following == "Blocked":
+            logger.info("--> Couldn't unfollow '{}'!\t~user is in block"
+                                .format(person.encode('utf-8')))
+            post_unfollow_cleanup("uncertain", username, person, relationship_data, logger, logfolder)
+            return False, "user in block"
 
 
     elif track == "dialog":
@@ -1141,8 +1184,7 @@ def unfollow_user(browser, track, username, person, person_id, button, relations
         confirm_unfollow(browser)
 
 
-    ## general tasks after a successful unfollow
-
+    # general tasks after a successful unfollow
     logger.info("--> Unfollowed '{}'!".format(person))
     update_activity('unfollows')
     post_unfollow_cleanup("successful", username, person, relationship_data, logger, logfolder)
@@ -1157,9 +1199,9 @@ def confirm_unfollow(browser):
 
     while attempt<3:
         try:
+            attempt += 1
             button_xp = "//button[text()='Unfollow']"   # "//button[contains(text(), 'Unfollow')]"
             unfollow_button = browser.find_element_by_xpath(button_xp)
-            attempt += 1
 
             if unfollow_button.is_displayed():
                 click_element(browser, unfollow_button)
@@ -1224,6 +1266,33 @@ def get_user_id(browser, track, username, logger):
         user_id = find_user_id(browser, track, username, logger)
 
     return user_id
+
+
+
+def verify_username_by_id(browser, username, person, person_id, logger, logfolder):
+    """ Check if the given user has changed username after the time of followed """
+    # try to find the user by ID
+    if person_id is None:
+        person_id = load_user_id(username, person, logger, logfolder)
+
+    if person_id and person_id not in [None, "unknown", "undefined"] :
+        # get the [new] username of the user from the stored user ID
+        person_new = get_username_from_id(browser, person_id, logger)
+        if person_new:
+            if person_new != person:
+                logger.info("User '{}' has changed username and now is called '{}' :S"
+                                .format(person, person_new))
+            return person_new
+
+        else:
+            logger.info("The user with the ID of '{0}' "
+                            "is unreachable".format(person))
+
+    else:
+        logger.info("The user ID of '{0}' "
+                        "doesn't exist in local records".format(person))
+
+    return None
 
 
 

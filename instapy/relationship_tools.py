@@ -22,7 +22,7 @@ def get_followers(browser,
                          logfolder):
     """ Get entire list of followers using graphql queries. """
     if username not in relationship_data:
-        relationship_data[username] = {"all_following":[], "all_followers":[]}
+        relationship_data.update({username: {"all_following":[], "all_followers":[]}})
 
     grab_info = "at \"full\" range" if grab=="full" else "at the range of {}".format(grab)
     tense = "live" if (live_match == True or not relationship_data[username]["all_followers"]) else "fresh"
@@ -59,6 +59,7 @@ def get_followers(browser,
     user_data['id'] = browser.execute_script(
         "return window._sharedData.entry_data.ProfilePage[0]."
         "graphql.user.id")
+
     variables['id'] = user_data['id']
     variables['first'] = 50
 
@@ -76,8 +77,8 @@ def get_followers(browser,
             '{}&variables={}'
             .format(graphql_followers, str(json.dumps(variables)))
         )
-        sleep(2)
-        browser.get(url)
+        web_address_navigator(browser, url)
+
         """ Get stored graphql queries data to be used """
         try:
             filename = '{}graphql_queries.json'.format(logfolder)
@@ -104,7 +105,7 @@ def get_followers(browser,
                 sc_rolled_all = graphql_queries[username][query_date]["sc_rolled"]
 
         except Exception as exc:
-            logger.info("Error occured while getting `scroll` data from graphql_queries.json\n{}\n".format(str(exc).encode("utf-8")))
+            logger.info("Error occurred while getting `scroll` data from graphql_queries.json\n{}\n".format(str(exc).encode("utf-8")))
             local_read_failure = True
 
         start_time = time.time()
@@ -160,9 +161,10 @@ def get_followers(browser,
                     .format(
                         graphql_followers, str(json.dumps(variables)))
                 )
-                sleep(2)
-                browser.get(url)
+
+                web_address_navigator(browser, url)
                 sc_rolled += 1
+
                 #dump the current graphql queries data
                 if local_read_failure != True:
                     try:
@@ -172,7 +174,7 @@ def get_followers(browser,
                                 json.dump(graphql_queries, graphql_queries_file)
                     except Exception as exc:
                         print('\n')
-                        logger.info("Error occured while writing `scroll` data to graphql_queries.json\n{}\n".format(str(exc).encode("utf-8")))
+                        logger.info("Error occurred while writing `scroll` data to graphql_queries.json\n{}\n".format(str(exc).encode("utf-8")))
 
                 #take breaks gradually
                 if sc_rolled > 91:
@@ -201,7 +203,7 @@ def get_followers(browser,
             logger.info("The `Followers` data is identical with the data in previous query  ~not storing the file again")
 
         if grab=="full":
-            relationship_data[username]["all_followers"] = all_followers
+            relationship_data[username].update({"all_followers": all_followers})
 
     sleep_t = sc_rolled*6
     sleep_t = sleep_t if sleep_t < 600 else random.randint(585, 655)
@@ -227,7 +229,7 @@ def get_following(browser,
                          logfolder):
     """ Get entire list of following using graphql queries. """
     if username not in relationship_data:
-        relationship_data[username] = {"all_following":[], "all_followers":[]}
+        relationship_data.update({username: {"all_following":[], "all_followers":[]}})
 
     grab_info = "at \"full\" range" if grab=="full" else "at the range of {}".format(grab)
     tense = "live" if (live_match == True or not relationship_data[username]["all_following"]) else "fresh"
@@ -264,6 +266,7 @@ def get_following(browser,
     user_data['id'] = browser.execute_script(
         "return window._sharedData.entry_data.ProfilePage[0]."
         "graphql.user.id")
+
     variables['id'] = user_data['id']
     variables['first'] = 50
 
@@ -281,8 +284,8 @@ def get_following(browser,
             '{}&variables={}'
             .format(graphql_following, str(json.dumps(variables)))
         )
-        sleep(2)
-        browser.get(url)
+        web_address_navigator(browser, url)
+
         """ Get stored graphql queries data to be used """
         try:
             filename = '{}graphql_queries.json'.format(logfolder)
@@ -303,7 +306,7 @@ def get_following(browser,
                     graphql_queries[username][query_date] = {"sc_rolled":0}
                 sc_rolled_all = graphql_queries[username][query_date]["sc_rolled"]
         except Exception as exc:
-            logger.info("Error occured while getting `scroll` data from graphql_queries.json\n{}\n".format(str(exc).encode("utf-8")))
+            logger.info("Error occurred while getting `scroll` data from graphql_queries.json\n{}\n".format(str(exc).encode("utf-8")))
             local_read_failure = True
 
         start_time = time.time()
@@ -359,9 +362,10 @@ def get_following(browser,
                     .format(
                         graphql_following, str(json.dumps(variables)))
                 )
-                sleep(2)
-                browser.get(url)
+
+                web_address_navigator(browser, url)
                 sc_rolled += 1
+
                 #dumps the current graphql queries data
                 if local_read_failure != True:
                     try:
@@ -371,7 +375,7 @@ def get_following(browser,
                                 json.dump(graphql_queries, graphql_queries_file)
                     except Exception as exc:
                         print('\n')
-                        logger.info("Error occured while writing `scroll` data to graphql_queries.json\n{}\n".format(str(exc).encode("utf-8")))
+                        logger.info("Error occurred while writing `scroll` data to graphql_queries.json\n{}\n".format(str(exc).encode("utf-8")))
 
                 #take breaks gradually
                 if sc_rolled > 91:
@@ -401,7 +405,7 @@ def get_following(browser,
             logger.info("The `Following` data is identical with the data in previous query  ~not storing the file again")
 
         if grab=="full":
-            relationship_data[username]["all_following"] = all_following
+            relationship_data[username].update({"all_following": all_following})
 
     sleep_t = sc_rolled*6
     sleep_t = sleep_t if sleep_t < 600 else random.randint(585, 655)
@@ -994,6 +998,4 @@ def progress_tracker(current_value, highest_value, initial_time, logger):
         sys.stdout.flush()
 
     except Exception as exc:
-        logger.info("Error occured with Progress Tracker:\n{}".format(str(exc).encode("utf-8")))
-
-
+        logger.info("Error occurred with Progress Tracker:\n{}".format(str(exc).encode("utf-8")))
