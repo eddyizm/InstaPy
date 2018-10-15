@@ -29,7 +29,7 @@ def unfollow():
             min_followers=45,
             min_following=77)
         session.set_dont_include(['lularoshni', 'ironbetic', 'theyoungturks'])
-        session.unfollow_users(amount=2, nonFollowers=True, style="RANDOM", unfollow_after=42*60*60, sleep_delay=30)
+        session.unfollow_users(amount=5, nonFollowers=True, style="RANDOM", unfollow_after=42*60*60, sleep_delay=30)
         print ('u2 success')
         instaMail.completeTask('u2 success')
     except Exception as exc:
