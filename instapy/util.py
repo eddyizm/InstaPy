@@ -329,7 +329,7 @@ def add_user_to_blacklist(username, campaign, action, logger, logfolder):
     today = datetime.date.today().strftime('%m/%d/%y')
 
     try:
-        with open('{}blacklist.csv'.format(logfolder), 'a+', encoding="utf-8") as blacklist:
+        with open('{}blacklist.csv'.format(logfolder), 'a+') as blacklist:
             writer = csv.DictWriter(blacklist, fieldnames=fieldnames)
             if not file_exists:
                 writer.writeheader()
@@ -686,10 +686,23 @@ def username_url_to_username(username_url):
 
 def get_number_of_posts(browser):
     """Get the number of posts from the profile screen"""
-    num_of_posts_txt = browser.find_element_by_xpath("//section/main/div/header/section/ul/li[1]/span/span").text
-    num_of_posts_txt = num_of_posts_txt.replace(" ", "")
-    num_of_posts_txt = num_of_posts_txt.replace(",", "")
-    num_of_posts = int(num_of_posts_txt)
+    try:
+        num_of_posts = browser.execute_script(
+            "return window._sharedData.entry_data."
+            "ProfilePage[0].graphql.user.edge_owner_to_timeline_media.count")
+
+    except WebDriverException:
+      
+        try:
+            num_of_posts_txt = browser.find_element_by_xpath("//section/main/div/header/section/ul/li[1]/span/span").text
+
+        except NoSuchElementException:
+            num_of_posts_txt = browser.find_element_by_xpath("//section/div[3]/div/header/section/ul/li[1]/span/span").text
+
+        num_of_posts_txt = num_of_posts_txt.replace(" ", "")
+        num_of_posts_txt = num_of_posts_txt.replace(",", "")
+        num_of_posts = int(num_of_posts_txt)
+
     return num_of_posts
 
 

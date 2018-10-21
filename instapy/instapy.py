@@ -164,6 +164,9 @@ class InstaPy:
 
         self.use_clarifai = False
         self.clarifai_api_key = None
+        self.clarifai_models = []
+        self.clarifai_workflow = []
+        self.clarifai_probability = 0.50
         self.clarifai_img_tags = []
         self.clarifai_img_tags_skip = []
         self.clarifai_full_match = False
@@ -537,7 +540,7 @@ class InstaPy:
         self.switch_language = option
         return self
 
-    def set_use_clarifai(self, enabled=False, api_key=None, full_match=False):
+    def set_use_clarifai(self, enabled=False, api_key=None, models=None, workflow=None, probability=0.50, full_match=False):
         """
         Defines if the clarifai img api should be used
         Which 'project' will be used (only 5000 calls per month)
@@ -558,6 +561,9 @@ class InstaPy:
         elif api_key is not None:
             self.clarifai_api_key = api_key
 
+        self.clarifai_models = models or ['general']
+        self.clarifai_workflow = workflow or []
+        self.clarifai_probability = probability
         self.clarifai_full_match = full_match
 
         return self
@@ -605,7 +611,7 @@ class InstaPy:
         return self
 
     def clarifai_check_img_for(self, tags=None, tags_skip=None, comment=False, comments=None):
-        """Defines the tags, the images should be checked for"""
+        """Defines the tags the images should be checked for"""
         if self.aborting:
             return self
 
@@ -613,9 +619,16 @@ class InstaPy:
             self.use_clarifai = False
         elif tags:
             self.clarifai_img_tags.append((tags, comment, comments))
-            self.clarifai_img_tags_skip = tags_skip
+            self.clarifai_img_tags_skip = tags_skip or []
 
         return self
+
+    def query_clarifai(self):
+        """Method for querying Clarifai using parameters set in clarifai_check_img_for"""
+        return check_image(self.browser, self.clarifai_api_key, self.clarifai_img_tags,
+                           self.clarifai_img_tags_skip, self.logger, self.clarifai_models,
+                           self.clarifai_workflow, self.clarifai_probability,
+                           self.clarifai_full_match)
 
     def follow_commenters(self, usernames, amount=10, daysold=365, max_pic=50, sleep_delay=600, interact=False):
         """ Follows users' commenters """
@@ -1158,14 +1171,8 @@ class InstaPy:
 
                             if self.use_clarifai and (following or commenting):
                                 try:
-                                    checked_img, temp_comments = (
-                                        check_image(self.browser,
-                                                    self.clarifai_api_key,
-                                                    self.clarifai_img_tags,
-                                                    self.clarifai_img_tags_skip,
-                                                    self.logger,
-                                                    self.clarifai_full_match)
-                                    )
+                                    checked_img, temp_comments = (self.query_clarifai())
+
                                 except Exception as err:
                                     self.logger.error(
                                         'Image check error: {}'.format(err))
@@ -1347,14 +1354,8 @@ class InstaPy:
 
                         if self.use_clarifai:
                             try:
-                                checked_img, temp_comments = (
-                                    check_image(self.browser,
-                                                self.clarifai_api_key,
-                                                self.clarifai_img_tags,
-                                                self.clarifai_img_tags_skip,
-                                                self.logger,
-                                                self.clarifai_full_match)
-                                )
+                                checked_img, temp_comments = (self.query_clarifai())
+
                             except Exception as err:
                                 self.logger.error(
                                     'Image check error: {}'.format(err))
@@ -1551,14 +1552,8 @@ class InstaPy:
 
                             if self.use_clarifai and (following or commenting):
                                 try:
-                                    checked_img, temp_comments = (
-                                        check_image(self.browser,
-                                                    self.clarifai_api_key,
-                                                    self.clarifai_img_tags,
-                                                    self.clarifai_img_tags_skip,
-                                                    self.logger,
-                                                    self.clarifai_full_match)
-                                    )
+                                    checked_img, temp_comments = (self.query_clarifai())
+
                                 except Exception as err:
                                     self.logger.error(
                                         'Image check error: {}'.format(err))
@@ -1793,14 +1788,8 @@ class InstaPy:
 
                             if self.use_clarifai and (following or commenting):
                                 try:
-                                    checked_img, temp_comments = (
-                                        check_image(self.browser,
-                                                    self.clarifai_api_key,
-                                                    self.clarifai_img_tags,
-                                                    self.clarifai_img_tags_skip,
-                                                    self.logger,
-                                                    self.clarifai_full_match)
-                                    )
+                                    checked_img, temp_comments = (self.query_clarifai())
+
                                 except Exception as err:
                                     self.logger.error(
                                         'Image check error: {}'.format(err))
@@ -2028,13 +2017,7 @@ class InstaPy:
 
                                 if self.use_clarifai and commenting:
                                     try:
-                                        checked_img, temp_comments = (
-                                            check_image(self.browser,
-                                                        self.clarifai_api_key,
-                                                        self.clarifai_img_tags,
-                                                        self.clarifai_img_tags_skip,
-                                                        self.logger,
-                                                        self.clarifai_full_match))
+                                        checked_img, temp_comments = (self.query_clarifai())
 
                                     except Exception as err:
                                         self.logger.error(
@@ -2963,15 +2946,8 @@ class InstaPy:
                                     if (self.use_clarifai and
                                             (following or commenting)):
                                         try:
-                                            checked_img, temp_comments = (
-                                                check_image(
-                                                    self.browser,
-                                                    self.clarifai_api_key,
-                                                    self.clarifai_img_tags,
-                                                    self.clarifai_img_tags_skip,
-                                                    self.logger,
-                                                    self.clarifai_full_match)
-                                            )
+                                            checked_img, temp_comments = (self.query_clarifai())
+
                                         except Exception as err:
                                             self.logger.error(
                                                 'Image check error:'
@@ -3503,13 +3479,7 @@ class InstaPy:
 
                         if self.use_clarifai and (following or commenting):
                             try:
-                                checked_img, temp_comments = (
-                                    check_image(self.browser,
-                                                self.clarifai_api_key,
-                                                self.clarifai_img_tags,
-                                                self.logger,
-                                                self.clarifai_full_match)
-                                )
+                                checked_img, temp_comments = (self.query_clarifai())
                             except Exception as err:
                                 self.logger.error(
                                     'Image check error: {}'.format(err))
