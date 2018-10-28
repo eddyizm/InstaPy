@@ -611,7 +611,11 @@ def follow_user(browser, track, login, user_name, button, blacklist, logger, log
 
     return True, "success"
 
-
+def scroll_to_bottom_of_followers_list(browser, element):
+    browser.execute_script(
+            "arguments[0].children[1].scrollIntoView()", element)
+    sleep(1)
+    return
 
 def get_users_through_dialog(browser,
                           login,
@@ -651,6 +655,9 @@ def get_users_through_dialog(browser,
     simulated_list = []
     simulator_counter = 0
 
+    # scroll to end of follower list to initiate first load which hides the suggestions
+    scroll_to_bottom_of_followers_list(browser, dialog)
+    
     # scroll down if the generated list of user to follow is not enough to
     # follow amount set
     while (total_list < amount) and not abort:
@@ -840,39 +847,7 @@ def get_given_user_followers(browser,
     web_address_navigator(browser, user_link)
 
     # check how many people are following this user.
-    try:
-        allfollowers = format_number(browser.find_element_by_xpath("//a[contains"
-                                "(@href,'followers')]/span").text)
-
-    except NoSuchElementException:
-        try:
-            allfollowers = browser.execute_script(
-                "return window._sharedData.entry_data."
-                "ProfilePage[0].graphql.user.edge_followed_by.count")
-
-        except WebDriverException:
-            try:
-                browser.execute_script("location.reload()")
-                update_activity()
-
-                allfollowers = browser.execute_script(
-                    "return window._sharedData.entry_data."
-                    "ProfilePage[0].graphql.user.edge_followed_by.count")
-
-            except WebDriverException:
-                try:
-                    topCount_elements = browser.find_elements_by_xpath(
-                        "//span[contains(@class,'g47SY')]")
-
-                    if topCount_elements:
-                        allfollowers = format_number(topCount_elements[1].text)
-                    else:
-                        logger.info("Failed to get followers count of '{}'  ~empty list".format(user_name))
-                        allfollowers = None
-
-                except NoSuchElementException:
-                    logger.error("Error occurred during getting the followers count of '{}'\n".format(user_name))
-                    return [], []
+    allfollowers, allfollowing = get_relationship_counts(browser, user_name, logger)
 
     # skip early for no followers
     if not allfollowers:
