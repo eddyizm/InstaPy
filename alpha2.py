@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['Mountaincrushmonday', 'sexypics', 'finland'], amount=50 )
+        session.like_by_tags(['musically', 'upcomingmodel', 'croatia'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -55,7 +55,7 @@ def alpha():
 alpha()
 
 '''
-#toyotatacoma #trdtacoma # #tacomaworld #yotalife #yotamafia #yota #offroad #overland # # #explore #pnw # #pnwonderland #pnwcollective #outdoors #getoutside #getoutstayout 
+#toyotatacoma #trdtacoma # #tacomaworld #yotalife #yotamafia #yota #offroad # # # #explore #pnw # #pnwonderland #pnwcollective #outdoors #getoutside #getoutstayout 
 #themysterypr0ject #project_soul  # #portraitphotography getdirty
 #___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge # # # #colors #sombrebeings # #soulmate #soulart #darkbeauty\n\n
 #tacomaoffroad #tacomaworld #hellatrails #foxshocks #tacomabeast #scs #
@@ -63,7 +63,7 @@ alpha()
 #ilmiocuoresoloperte #aroundtheworld   #noidue #noi #instagramstories #instagramood #instagram'
  #swimming  #grancenote  #tulum  #tb #traveling # #travel #vacation # #cave #cenote #beautiful #water #motivacnystatusalways'
 #IBTMscout # #WLYG #imgirls #newyork #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director #italy   #photographer # #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
-# #nature # #exploring #enjoyinglife #croatiafulloflife' 
+# #nature # #exploring # # 
  #vilnius #guangzhoutower #guangzhoucity #thehide # # #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like #tokyo 
 #vilniusoldtown #kiev #odessa #hangzhou #foshan #dongguan #worldcup2018 #seoul #brasiliangirl #panyu #guangzhoufood #brasilianmodel 
 #lawofattraction #meditiation #spiritualawakening #spiritualjourney #faith #manifestation #upliftingquotes #lightwarrior #consciousness #spirituality #spiritualgangster #freethinking #quoteoftheday #positivevibes #positivethinking #presentmoment 
@@ -73,7 +73,7 @@ alpha()
 #igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual # #my_secret_lover_ #great_captures_sensual #sexylingerie #beautyandboudoir #best_expression_sensuality 
 #loves_sensual_mood #pizza #insta_legs_2015 #pizzadreams #hot #hotgirls  #fitbody #fitlove'   
 '#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling #modellife #model #medellin #modello #italy # 
-#haryanvi #mood #modern #musically #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #upcomingmodel  #indianmodel #indianmodels #indianfollowers'
+#haryanvi #mood #modern # #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #  #indianmodel #indianmodels #indianfollowers'
 #ddlg #gls #tattoos #alternative #  #toes #vintage #feet  #fetish #outdoorshoot  #bathtime #fitfam #lingerie #pinup #freckles #fashionmodel  #pinkhair  #alt #kink #longlegs #girlswithtattoos #art #azmodel  #travelingmodel
 #throwrug #knit #softfurnishings #clay #knitthrow #interior #styling #decorating #interiorsdecorating #interiorstyling #sofa #bed #bambury #designhouseinteriors #throwrugs #knitted #autumncolour #autumnpalette #trendcolours
  #SalomonSquad # #OptOutside #adk #highpeaks # #46r #localadk # #sheadventures #hiking #sheexplores #mtnmoment  #FunIsTheBest #outdoorwomen # #choosemountainswomen # #livewylder # # #forceofnature #GOATworthy #backcountry #rei1440project #mountainmoment #'
