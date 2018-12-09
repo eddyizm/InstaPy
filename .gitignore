@@ -118,3 +118,12 @@ db/*
 # pytest
 .pytest_cache/
 tests/logs
+<<<<<<< HEAD
+=======
+
+# Pipfile
+Pipfile
+
+# Instances
+z_*
+>>>>>>> db5a1c5cb0066c728eb43b62abaaa536bfd29cfe

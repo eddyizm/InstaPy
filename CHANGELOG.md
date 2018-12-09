@@ -3,6 +3,38 @@ The **goal** of this file is explaining to the users of our project the notable 
 
 _The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)_.
 
+## [Unreleased] - 2018-12-08
+### Fixed
+- remove https://i.instagram.com/api/v1/users/{}/info/ as it not working and killing the unfollow with error
+- fix logging uncertain having no userid nor time log, will be important for sync feature
+- fix get active users when Video have no likes button / no posts in page
+
+## [Unreleased] - 2018-12-08
+### Added
+- Full docker-compose and complex template + documentation
+
+### Fixed
+- Fixes likers_from_photo when liked counter is "liked by X and N others"
+
+## [Unreleased] - 2018-12-06
+### Fixed
+- Fix for python 2.7 users, ceil returns a float in python 2
+
+## [Unreleased] - 2018-12-05
+### Added
+- Added mandatory_language (updated check_link definition in like_util)
+
+### Fixed
+- Add self.aborts for the follow followers and follow following because otherwise InstaPy won't exit properly on them.
+
+## [Unreleased] - 2018-11-26
+### Changed
+- Switch mandatory_words from ALL to ANY
+
+## [Unreleased] - 2018-11-22
+### Fixed
+- "Added location to image_text in the check_link method in like_util.py, so the script also searches for mandatory words in the location information.
+
 ## [Unreleased] - 2018-11-17
 ### Fixed
 - "Cookie file not found, creating cookie..." bug fix

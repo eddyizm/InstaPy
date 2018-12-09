@@ -27,9 +27,13 @@ Head over to https://github.com/timgrossmann/InstaPy/wiki/Reporting-An-Issue to 
 
 ### Do you need help ?
 
-Join our [Discord channel](https://discord.gg/FDETsht).
+<a href="https://discord.gg/FDETsht"><img alt="Discord channel" src="https://camo.githubusercontent.com/e4a739df27356a78e9cae2e2dda642d118567e7c/68747470733a2f2f737465616d63646e2d612e616b616d616968642e6e65742f737465616d636f6d6d756e6974792f7075626c69632f696d616765732f636c616e732f32373039303534312f386464356339303766326130656563623733646336613437373666633961323538373865626364642e706e67" width=250/></a>
 
-[![paypal](https://img.shields.io/badge/-PayPal-blue.svg)](https://www.paypal.me/supportInstaPy)
+### Do you want to support us ?
+
+<a href="https://www.paypal.me/supportInstaPy">
+	<img alt="paypalme" src="http://codeinpython.com/tutorials/wp-content/uploads/2017/09/PayPal-ME-300x300.jpg.png" width=150/>
+</a>
 
 Table of Contents
 =================
@@ -51,6 +55,7 @@ Table of Contents
   * [Interact with users that someone else is following](#interact-with-users-that-someone-else-is-following)
   * [Interact with someone else's followers](#interact-with-someone-elses-followers)
   * [Interact on posts at given URLs](#interact-on-posts-at-given-urls)
+  * [Interact by Comments](#interact-by-comments)
   * [Unfollowing](#unfollowing)
   * [Don't unfollow active users](#dont-unfollow-active-users)
   * [Interactions based on the number of followers and/or following a user has](#interactions-based-on-the-number-of-followers-andor-following-a-user-has)
@@ -64,6 +69,7 @@ Table of Contents
   * [Like by Tags](#like-by-tags)
   * [Like by Feeds](#like-by-feeds)
   * [Mandatory Words](#mandatory-words)
+  * [Mandatory Language](#mandatory-language)
   * [Restricting Likes](#restricting-likes)
   * [Ignoring Users](#ignoring-users)
   * [Ignoring Restrictions](#ignoring-restrictions)
@@ -80,6 +86,9 @@ Table of Contents
   * [Pick Nonfollowers of a user](#pick-nonfollowers-of-a-user)
   * [Pick Fans of a user](#pick-fans-of-a-user)
   * [Pick Mutual Following of a user](#pick-mutual-following-of-a-user)
+* [Text Analytics](#text-analytics)
+  *  [Yandex Translate API](#yandex-translate-api)
+  *  [MeaningCloud Sentiment Analysis API](#meaningcloud-sentiment-analysis-api)
 * [Use a proxy](#use-a-proxy)
 * [Switching to Firefox](#switching-to-firefox)
 * [Emoji Support](#emoji-support)
@@ -88,7 +97,8 @@ Table of Contents
 * [Running on a Headless Browser](#running-on-a-headless-browser)
 * [Running Multiple Accounts](#running-multiple-accounts)
 * [Running with Docker microservices manual](#running-with-docker-microservices-manual)
-* [Running all-in-one with Docker (obsolete)](#running-all-in-one-with-docker-obsolete)
+* [Running all-in-one with Docker (legacy)](#running-all-in-one-with-docker-legacy)
+* [Running all with Docker Compose using config file](./docs/How_to_Docker_Compose.md)
 * [Automate InstaPy](#automate-instapy)
   * [Windows Task Scheduler](#windows-task-scheduler)
   * [cron](#cron)
@@ -455,6 +465,120 @@ Use it if you like to also _interact the post owner_ **after** doing interaction
 
 
 
+### Interact by Comments
+###### Like comments on posts, reply on them and then interact by the users whose comment was liked on the post
+
+```python
+session.interact_by_comments(usernames=["somebody", "other buddy"],
+                              posts_amount=10,
+                               comments_per_post=5,
+                                reply=True,
+                                interact=True,
+                                 randomize=True,
+                                  media="Photo")
+```
+#### Parameters
+`usernames`
+: A list containing the _usernames_ of users on WHOSE **posts'** _comments will be interacted_;  
+
+`posts_amount`
+: Number of the posts to get from **each user** for interacting by comments;  
+
+`comments_per_post`
+: Choose how many comments to interact (_like and then reply_) on **each post**;  
+
+`reply`
+: Choose if it **should reply** on comments;  
+
+`interact`
+: Use if you also like to _interact the commenters_ **after** finishing liking (_and then replying_) comments on the **post**;  
+
+`randomize`
+: Shuffles the **order** of the **_posts_** from users' feed and **_comments_** in the given post;  
+
+`media`
+: Choose the **type of** media to be interacted - _`"Photo"`_ for photos, _`"Video"`_ for videos, `None` for any media;
+
+
+#### Usage
+**To use**, set **commenting** configuration (_for replying on comments_) and **interaction** configuration (_for interating with the commenters after liking and replying on each post's comments.._)
+```python
+session.set_do_comment(enabled=True, percentage=14)
+# set reply comments to be used while replying on liked comments:
+session.set_reply_comments(replies=[u"😎😎😎", u"😁😁😁😁😁😁😁💪🏼", u"😋🎉", "😀🍬", u"😂😂😂👈🏼👏🏼👏🏼", u"🙂🙋🏼‍♂️🚀🎊🎊🎊", u"😁😁😁", u"😂",  u"🎉",  u"😎", u"🤓🤓🤓🤓🤓", u"👏🏼😉"],
+                            media="Photo")
+
+session.set_user_interact(amount=2, percentage=70, randomize=False, media="Photo")
+# also configure [at least] liking to be used while interacting with the commenters ...
+session.set_do_like(enabled=True, percentage=100)
+
+#start the feature
+session.interact_by_comments(usernames=["somebody", "other.buddy"], posts_amount=10, comments_per_post=5, reply=True, interact=True, randomize=True, media="Photo")
+```
+**Note**: To be able to reply on comments, you have to **turn on** _text analytics_- [**Yandex**](#yandex-translate-api) & [**MeaningCloud**](#meaningcloud-sentiment-analysis-api).  
+So that they will analyze the content of comments and if it is appropriate, will send a reply to the comment.  
+_To configure those text analytics, see the usage in their sections_.
+
+There are **3** **COMBINATIONS** _available_ to use regarding _text analysis_:  
+**a**-) ONLY **Sentiment Analysis**;  
+_MeaningCloud must be turned on and Yandex must be enabled with a valid API key_,
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P")
+session.set_use_yandex(enabled=True, API_key='')
+```
+**b**-) ONLY **Language Match**;
+_Yandex must be turned on_,
+```python
+session.set_use_yandex(enabled=True, API_key='', match_language=False, language_code="en")
+```
+**c**-) BOTH **Sentiment Analysis** and **Language Match**;
+_MeaningCloud and Yandex must be turned on_,  
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P")
+session.set_use_yandex(enabled=True, API_key='', match_language=True, language_code="en")
+```
+
+If you have **followed** any of those 3 _text analysis_ combinations:  
+It will first _analyze comments' content_ and if it _is appropriate_, then it will _be_ liked, _then_ replied.  
+All those inappropriate comments will neither be liked, nor replied.  
+
+If you have **not followed** any of those 3 _text analysis_ combinations OR **misconfigured** them:  
+Comments' content will _not be able to be analyzed_ and that's why _no any comments will be_ replied.  
+_Yet_, it will like _all of the comments_ that are available.  
+
+In conclusion, the whole block SHOULD look like this,  
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P")
+session.set_use_yandex(enabled=True, API_key='', match_language=True, language_code="en")
+
+session.set_do_comment(enabled=True, percentage=14)
+session.set_reply_comments(replies=[u"😎😎😎", u"😁😁😁😁😁😁😁💪🏼"], media="Photo")
+
+session.set_user_interact(amount=2, percentage=70, randomize=False, media="Photo")
+session.set_do_like(enabled=True, percentage=100)
+
+session.interact_by_comments(usernames=["somebody", "other.buddy"], posts_amount=10, comments_per_post=5, reply=True, interact=True, randomize=True, media="Photo")
+```
+
+#### Extras
++ comments from the poster are ignored (_those comments are mostly poster's reply comments_);  
++ owner's (_logged in user_) comments are also ignored;  
++ if the commenter is in _blacklist_ or `ignored_users` list that comment will also be ignored;  
++ it will take only one comment from each unique user;  
++ as if there are any usable comments, it will first **like the post itself** before _interacting by comments_ cos liking comments and replying them without liking the post can look spammy;    
++ it will not reply the same comment again on overall posts per each username in the list provided by you;  
++ it will reply to a comment only after liking it;  
+
+#### PROs
++ you can use this feature to **auto-like** and **auto-reply** the _comments_ on your _own_ posts;  
++ else than interacting by the comments in your _own_ posts, you can use this feature to like lots of comments from _other users'_ posts, reply some of _them_ and interact by those users just after _liking_ & _replying_ on their comments;  
+
+#### CONs
++ liking a comment doesn't fill up your like quota, but replying to a comment does it to the comment quota. Try to compensate it in your style and do not overuse;  
++ using auto-reply capability of this feature can result in unwanted miscommunication between you and the commenter IN CASE OF you do not make an efficient use of text analytics;  
+
+
+
 ### Unfollowing
 ###### Unfollows the accounts you're following  
 _It will unfollow ~`10` accounts and sleep for ~`10` minutes and then will continue to unfollow..._
@@ -473,7 +597,7 @@ _if **track** is `"nonfollowers"`, it will unfollow all of the users in a given 
 custom_list = ["user_1", "user_2", "user_49", "user332", "user50921", "user_n"]
 session.unfollow_users(amount=84, customList=(True, custom_list, "nonfollowers"), style="RANDOM", unfollow_after=55*60*60, sleep_delay=600)
 ```
-* **PRO**: `customList` method can any kind of _iterable container_, such as `list`, `tuple` or `set`.
+* **PRO**: `customList` method can take any kind of _iterable container_, such as `list`, `tuple` or `set`.
 
 **2** - Unfollow the users **WHO** was _followed by `InstaPy`_ (_has `2` **track**s- `"all"` and `"nonfollowers"`_):  
 _again, if you like to unfollow **all of the users** followed by InstaPy, use the **track**- `"all"`_;
@@ -554,7 +678,7 @@ session.set_relationship_bounds(enabled=True,
 				     min_followers=100,
 				      min_following=56,
 				       min_posts=10,
-                                        max_posts=1000)
+                max_posts=1000)
 ```
 Use `enabled=True` to **activate** this feature, and `enabled=False` to **deactivate** it, _any time_  
 `delimit_by_numbers` is used to **activate** & **deactivate** the usage of max & min values  
@@ -838,8 +962,18 @@ session.like_by_tags(amount=10, use_smart_hashtags=True)
 session.set_mandatory_words(['#food', '#instafood'])
 ```
 
-`.set_mandatory_words` searches the description and owner comments for words and
-will like the image if **all** of those words are in there
+`.set_mandatory_words` searches the description, location and owner comments for words and
+will like the image if **any** of those words are in there
+
+### Mandatory Language
+
+```python
+session.set_mandatory_language(enabled=True, character_set='LATIN')
+```
+
+`.set_mandatory_language` restrict the interactions, liking and following if any character of the description is outside of the character set selected (the location is not included and non-alphabetic characters are ignored). For example if you choose `LATIN`, any character in Cyrillic will flag the post as inappropriate.
+
+* Available character sets: `LATIN`,  `GREEK`, `CYRILLIC`, `ARABIC`, `HEBREW`, `CJK`, `HANGUL`, `HIRAGANA`, `KATAKANA` and `THAI`
 
 ### Restricting Likes
 
@@ -1344,6 +1478,203 @@ There are **several** `use cases` of this tool for **various purposes**.
 
 
 
+## Text Analytics
+
+
+### Yandex Translate API
+
+<img src="https://yastatic.net/www/_/Q/r/sx-Y7-1azG3UMxG55avAdgwbM.svg" width="196" align="right">
+
+<img src="https://yastatic.net/s3/home/logos/services/1/translate.svg" width="66" align="left">
+
+###### Offers excellent language detection and synchronized translation for over 95 languages 😎 worldwide
+
+_This service currently is supported only by the [Interact by Comments](#interact-by-comments) feature_.
+
+#### Usage
+Go [**sign up**](https://translate.yandex.com/developers/keys) on [_translate.yandex.com_](https://translate.yandex.com) and get a _free_ `API_key`;  
+_Then configure its usage at your **quickstart** script_,
+```python
+session.set_use_yandex(enabled=True,
+                       API_key='',
+                       match_language=True,
+                       language_code="en")
+```
+
+
+#### Parameters
+`enabled`
+: Put `True` to **activate** or `False` to **deactivate** the service usage;  
+
+`API_key`
+: The _key_ which is **required** to authenticate `HTTP` _requests_ to the **API**;  
+
+`match_language`
+: **Enable** if you would like to match the language of the text;
+
+`language_code`
+: **Set** your desired language's code to **match language** (_if it's enabled_);
+>You can get the list of all supported languages and their codes at [_tech.yandex.com_](https://tech.yandex.com/translate/doc/dg/concepts/api-overview-docpage/#api-overview__languages).
+
+
+#### Rate Limits
+In its _free_ plan, the **daily** request _limit_ is `1,000,000` characters and the **monthly** _limit_ is `10,000,000` characters.
+>To increase the request limit, you can **switch** to the `fee-based` version of the service (_$`15`/million chars_)..
+
+
+#### Examples
+
+**1**-) Matching language;
+```python
+session.set_use_yandex(enabled=True, API_key='', match_language=True, language_code="az")
+```
+Target text
+: "_your technique encourages📸 me_"  
+
+_Now that text is gonna be labeled **inappropriate** COS its language is `english` rather than the desired `azerbaijani`_..    
+
+**2**-) Enabling the **Yandex** service _but NOT_ matching language;
+Since **Yandex** Translate is being used [internally] by the **MeaningCloud** service, you can just provide the API key of **Yandex** and enable it without enabling the `match_language` parameter what will be sufficient for the **MeaningCloud** to work..
+```python
+session.set_use_yandex(enabled=True, API_key='', match_language=False)
+```
+>And yes, you can enable **Yandex** service to make it be available for **MeaningCloud** and then also _match language_ if you like, in the same setup just by turning the `match_language` parameter on..
+
+
+#### Legal Notice
+[Powered by Yandex.Translate](http://translate.yandex.com/)
+
+
+
+### MeaningCloud Sentiment Analysis API
+
+<img src="https://www.meaningcloud.com/developer/img/LogoMeaningCloud210x85.png" width="210" align="right">
+
+###### Offers a detailed, multilingual analysis of all kind of unstructured content determining its sentiment ⚖
+_This service currently is supported only by the [Interact by Comments](#interact-by-comments) feature_.
+
+Determines if text displays _positive_, _negative_, or _neutral_ sentiment - or is _not possible_ to detect.  
+Phrases are identified with the _relationship between_ them evaluated which identifies a _global polarity_ value of the text.
+
+
+#### Usage
+**1**-) Go [**sign up**](https://www.meaningcloud.com/developer/login) (_offers **sign in** with_ 😎 _**Github**_) on [_meaningcloud.com_](https://www.meaningcloud.com) and get a _free_ `license_key`;  
+_Then configure its usage at your **quickstart** script_,
+```python
+session.set_use_meaningcloud(enabled=True,
+                             license_key='',
+                             polarity="P",
+                             agreement="AGREEMENT",
+                             subjectivity="SUBJECTIVE",
+                             confidence=94)
+```
+**2**-) Install its _package_ for **python** by `pip`;
+```powershell
+pip install MeaningCloud-python
+```
+**3**-) Turn on **Yandex** _Translate_ service which is a **requirement** for the language _detection_ & _translation_ at request;  
+_To have it configured, read its [documentation](#yandex-translate-api)_.
+
+
+#### Parameters  
+`enabled`
+: Put `True` to **activate** or `False` to **deactivate** the service usage;  
+
+`license_key`
+: The license key is **required** to do _calls_ to the API;  
+
+`polarity`
+: It indicates the polarity found (_or not found_) in the text and applies to the **global** polarity of the text;  
+_It's a **graduated** polarity - rates from **very** negative to **very** positive_.
+
+| `score_tag` |                   definition                    |  
+| ----------- | ----------------------------------------------- |    
+|    `"P+"`   |       match if text is _**strong** positive_    |  
+|    `"P"`    |       match if text is _positive_ or above      |   
+|    `"NEU"`  |       match if text is _neutral_ or above       |  
+|    `"N"`    |       match if text is _negative_ or above      |
+|    `"N+"`   | match if text is _**strong** negative_ or above |  
+|    `None`   |     do not match per _polarity_ found, at all   |  
+
+  > By "_or above_" it means- _e.g._, if you set `polarity` to `"P"`, and text is `"P+"` then it'll also be appropriate (_as it always leans towards positivity_) ..
+
+`agreement`
+: Identifies **opposing** opinions - _contradictory_, _ambiguous_;  
+_It marks the agreement **between** the sentiments detected in the text, the sentence or the segment it refers to_.
+
+|    `agreement`   |                            definition                                     |  
+| ---------------- | ------------------------------------------------------------------------- |    
+|   `"AGREEMENT"`  |       match if the different elements have **the same** polarity          |  
+| `"DISAGREEMENT"` | match if there is _disagreement_ between the different elements' polarity |   
+|      `None`      |              do not match per _agreement_ found, at all                   |    
+
+
+`subjectivity`
+: Identification of _opinions_ and _facts_ - **distinguishes** between _objective_ and _subjective_;  
+_It marks the subjectivity of the text_.
+
+| `subjectivity` |                          definition                           |  
+| -------------- | ------------------------------------------------------------- |    
+| `"SUBJECTIVE"` |           match if text that has _subjective_ marks           |  
+| `"OBJECTIVE"`  | match if text that does not have **any** _subjectivity_ marks |   
+|     `None`     |         do not match per _subjectivity_ found, at all         |    
+
+`confidence`
+: It represents the _confidence_ associated with the sentiment analysis **performed on the** text and takes an integer number in the _range of_ `(0, 100]`;  
+>If you **don't want to** match per _confidence_ found, at all, use the value of `None`.
+
+
+#### Rate Limits
+It gives you `20 000` single API calls per each month (_starting from the date you have **signed up**_).  
+It has _no daily limit_ but if you hit the limit set for number of requests can be carried out concurrently (_per second_) it'll return with error code of `104` rather than the result 😉
+
+
+#### Language Support
+**MeaningCloud** currently supports a generic sentiment model (_called general_) in these languages: _english_, _spanish_, _french_, _italian_, _catalan_, and _portuguese_.  
+>You can define your own sentiment models using the user sentiment models console and work with them in the same way as with the sentiment models it provides.  
+
+But **no need to worry** IF your _language_ or _target audience's language_ is NONE of those **officially** supported.  
+Cos, to **increase the coverage** and support **all other** languages, as well, **Yandex** _Translate_ service comes to rescue!  
+It detects the text's langugage before passing it to **MeaningCloud**, and, if its language is not supported by **MeaningCloud**, it translates it into english and only then passes it to **MeaningCloud** _Sentiment Analysis_..
+
+
+#### Examples
+**a** -) Match **ONLY** per `polarity` and `agreement`
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P", agreement="AGREEMENT")
+```
+Target text
+: "_I appreciate your innovative thinking that results, brilliant images_"  
+
+_Sentiment Analysis_ results for the text:
+
+| `score_tag` |  `agreement`  | `subjectivity` | `confidence` |
+| ----------- | ------------- | -------------- | ------------ |
+|   `"P+"`    | `"AGREEMENT"` | `"SUBJECTIVE"` |     `100`    |
+
+_Now that text is gonna be labeled **appropriate** COS its polarity is `"P+"` which is more positive than `"P"` and `agreement` values also do match_..  
+
+**b** -) Match **FULLY**
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P+", agreement="AGREEMENT", subjectivity="SUBJECTIVE", confidence=98)
+```
+Target text
+: "_truly fantastic but it looks sad!_"  
+
+_Sentiment Analysis_ results for the text:
+
+| `score_tag` |    `agreement`   | `subjectivity` | `confidence` |
+| ----------- | ---------------- | -------------- | ------------ |
+|    `"P"`    | `"DISAGREEMENT"` | `"SUBJECTIVE"` |     `92`    |
+
+_Now that text is gonna be labeled **inappropriate** COS its polarity is `"P"` which is less positive than `"P+"` and also, `agreement` values also **do NOT** match, and **lastly**, `confidence` is **below** user-defined `98`_..    
+
+
+#### Legal Notice
+This project uses MeaningCloud™ (http://www.meaningcloud.com) for Text Analytics.
+
+
+
 ### Use a proxy
 
 You can use InstaPy behind a proxy by specifying server address and port
@@ -1672,7 +2003,7 @@ To access yor container console to run bot type `localhost:22` in your favorite 
 docker-compose -f docker-prod.yml up -d
 ```
 
-## Running all-in-one with Docker (obsolete)
+## Running all-in-one with Docker (legacy)
 
 ### 1. Build the Image
 

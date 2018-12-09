@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['musically', 'upcomingmodel', 'croatia'], amount=50 )
+        session.like_by_tags(['getdirty', 'sensual_trophy', 'tokyo'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -56,20 +56,20 @@ alpha()
 
 '''
 #toyotatacoma #trdtacoma # #tacomaworld #yotalife #yotamafia #yota #offroad # # # #explore #pnw # #pnwonderland #pnwcollective #outdoors #getoutside #getoutstayout 
-#themysterypr0ject #project_soul  # #portraitphotography getdirty
-#___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge # # # #colors #sombrebeings # #soulmate #soulart #darkbeauty\n\n
+#themysterypr0ject #project_soul  # #portraitphotography 
+#___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge #colors #sombrebeings # #soulmate #soulart #darkbeauty\n\n
 #tacomaoffroad #tacomaworld #hellatrails #foxshocks #tacomabeast #scs #
 #domenica #sundaymood  #mylife
 #ilmiocuoresoloperte #aroundtheworld   #noidue #noi #instagramstories #instagramood #instagram'
  #swimming  #grancenote  #tulum  #tb #traveling # #travel #vacation # #cave #cenote #beautiful #water #motivacnystatusalways'
 #IBTMscout # #WLYG #imgirls #newyork #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director #italy   #photographer # #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
 # #nature # #exploring # # 
- #vilnius #guangzhoutower #guangzhoucity #thehide # # #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like #tokyo 
+ #vilnius #guangzhoutower #guangzhoucity #thehide # # #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like # 
 #vilniusoldtown #kiev #odessa #hangzhou #foshan #dongguan #worldcup2018 #seoul #brasiliangirl #panyu #guangzhoufood #brasilianmodel 
 #lawofattraction #meditiation #spiritualawakening #spiritualjourney #faith #manifestation #upliftingquotes #lightwarrior #consciousness #spirituality #spiritualgangster #freethinking #quoteoftheday #positivevibes #positivethinking #presentmoment 
 # #love #thirdeye # #higherconsciousness #success #gratitude  #loa #thesecret #spiritual 
 #sannyday#summer#summer2017#see#beach#batumi#batumi2017#batumicity#batumibeach#georgia#georgiagirl##russiangirl#followme#follow#followers#weekend#face'
- b'#uncoveredmagazine #sensual_trophy #sensual_dreams #boudoirphotography #sensuality_bnw #sensuality_world #sensual_ladies #infinity_sense #sensualart_flair 
+ b'#uncoveredmagazine # #sensual_dreams #boudoirphotography #sensuality_bnw #sensuality_world #sensual_ladies #infinity_sense #sensualart_flair 
 #igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual # #my_secret_lover_ #great_captures_sensual #sexylingerie #beautyandboudoir #best_expression_sensuality 
 #loves_sensual_mood #pizza #insta_legs_2015 #pizzadreams #hot #hotgirls  #fitbody #fitlove'   
 '#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling #modellife #model #medellin #modello #italy # 

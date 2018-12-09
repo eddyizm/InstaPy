@@ -31,7 +31,7 @@ try:
     session.set_comments(['Rad!', 'Super cool!', 'Excellent!', 'Amazing!'])
     session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
     # do the actual liking
-    session.like_by_tags(['artist', 'positivethinking', 'stealthcustomseries', '4x4','northcascades'], amount=25)
+    session.like_by_tags(['painter', 'gratitude', 'offroad', 'thirdeye','earth_portraits'], amount=25)
     print('bouldering success')  
     instaMail.completeTask('bouldering success')
     
