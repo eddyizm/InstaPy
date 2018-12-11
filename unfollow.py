@@ -4,6 +4,8 @@ from selenium.common.exceptions import NoSuchElementException
 import os
 import instaMail
 import time
+import regex
+
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
 else:
