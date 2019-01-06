@@ -6,6 +6,7 @@ import instaMail
 import time
 import regex
 
+
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
 else:
@@ -35,7 +36,5 @@ def unfollow():
     finally:
         # end the bot session
         session.end()
-    
-        
 
 unfollow()
