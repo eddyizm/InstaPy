@@ -18,7 +18,7 @@ def interactUser():
         ob.append('eddyizm')
         return ob
     elif t == 1:
-        ob.append('newmexicotrue')
+        ob.append('bengreenfieldfitness')
         return ob
     elif t == 2:
         ob.append('theyoungturks')
@@ -27,13 +27,13 @@ def interactUser():
         ob.append('noel_russ')
         return ob
     elif t == 4:
-        ob.append('cbioffroadfab')
+        ob.append('tacoma_krew')
         return ob
     elif t == 5:
         ob.append('sonyalpha')
         return ob
     else:
-        ob.append('berniesanders')
+        ob.append('ocasio2018')
         return ob
 
 def interact():
