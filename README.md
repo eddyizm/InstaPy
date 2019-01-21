@@ -63,13 +63,14 @@ Table of Contents
   * [Interact on posts at given URLs](#interact-on-posts-at-given-urls)
   * [Interact by Comments](#interact-by-comments)
   * [Unfollowing](#unfollowing)
+  * [Remove outgoing follow requests](#remove-outgoing-follow-requests)
   * [Don't unfollow active users](#dont-unfollow-active-users)
   * [Interactions based on the number of followers and/or following a user has](#interactions-based-on-the-number-of-followers-andor-following-a-user-has)
   * [Interactions based on the number of posts a user has](#interactions-based-on-the-number-of-posts-a-user-has)
   * [Skipping user for private account, no profile picture, business account](#skipping-user-for-private-account-no-profile-picture-business-account)
   * [Liking based on the number of existing likes a post has](#liking-based-on-the-number-of-existing-likes-a-post-has)
   * [Commenting based on the number of existing comments a post has](#commenting-based-on-the-number-of-existing-comments-a-post-has)
-  * [Commenting based on madatory words in the description or first comment](#commenting-based-on-madatory-words-in-the-description-or-first-comment)
+  * [Commenting based on mandatory words in the description or first comment](#commenting-based-on-mandatory-words-in-the-description-or-first-comment)
   * [Comment by Locations](#comment-by-locations)
   * [Like by Locations](#like-by-locations)
   * [Like by Tags](#like-by-tags)
@@ -121,7 +122,7 @@ Table of Contents
 ## Getting started
 
 ### Video tutorials:
-**[Setting up InstaPy for OSX](https://www.youtube.com/watch?v=I025CEBJCvQ)**
+**[Setting up InstaPy for MacOS using Firefox](https://www.youtube.com/watch?v=A1a8J_IjSPs)**
 
 **[Setting up InstaPy at Digital Ocean (for Debian)](https://www.youtube.com/watch?v=2Ci-hXU1IEY)**
 
@@ -147,7 +148,36 @@ or
 
 ### Preferred Installation:
 
-The best way to install InstaPy is to create a virtualenv, install InstaPy there and run it from a separate file:
+The best way to install InstaPy is to create a virtual enviornment, install InstaPy there and run it from a separate file:
+
+#### Python >= 3.6
+
+##### Mac/Linux
+
+```bash
+1. git clone https://github.com/timgrossmann/InstaPy.git
+2. cd InstaPy
+3. python3 -m venv venv
+4. source venv/bin/activate
+5. pip install .
+```
+
+##### Windows
+
+```cmd
+1. git clone https://github.com/timgrossmann/InstaPy.git
+2. cd InstaPy
+3. python3 -m venv venv
+4. venv\Scripts\activate.bat
+5. pip install .
+```
+
+If you're not familiar with venv, please [read about it here](https://docs.python.org/3/library/venv.html) and use it to your advantage.
+Running `source venv/bin/activate` will activate the correct Python to run InstaPy. To exit an activated venv run `deactivate`.
+Now, copy/paste the `quickstart.py` Python code below and run your first InstaPy script. Remember to run it with Python from the venv. To make sure which Python is used, run `which python`, it will tell you which Python is 'active'.
+Whenever you run the script, the virtual enviornment must be active.
+
+#### Python < 3.6
 
 ```bash
 1. virtualenv venv
@@ -157,8 +187,8 @@ The best way to install InstaPy is to create a virtualenv, install InstaPy there
 
 If you're not familiar with virtualenv, please [read about it here](https://virtualenv.pypa.io/en/stable/) and use it to your advantage.
 In essence, this is be the _only_ Python library you should install as root (e.g., with sudo). All other Python libraries should be inside a virtualenv.
-Now copy/paste the `quickstart.py` Python code below and run your first InstaPy script. Remember to run it with Python from the virtualenv, so from `venv/bin/python`. To make sure which Python is used, run `which python`, it will tell you which Python is 'active'.
-Running `source venv/bin/activate` will activate the correct Python to run InstaPy. To exit an activated virtualenv run `deactivate'.
+Running `source venv/bin/activate` will activate the correct Python to run InstaPy. To exit an activated virtualenv run `deactivate`.
+Now, copy/paste the `quickstart.py` Python code below and run your first InstaPy script. Remember to run it with Python from the virtualenv, so from `venv/bin/python`. To make sure which Python is used, run `which python`, it will tell you which Python is 'active'.
 
 ### Set it up yourself with this Basic Setup
 
@@ -653,6 +683,15 @@ session.unfollow_users(amount=200, allFollowing=True, style="FIFO", unfollow_aft
 ```
 _here the unfollow method- **alFollowing** is used_
 
+
+
+### Remove outgoing follow requests
+
+```python
+# Remove outgoing unapproved follow requests from private accounts
+
+session.remove_follow_requests(amount=200, sleep_delay=600)
+```
 
 
 ### Don't unfollow active users

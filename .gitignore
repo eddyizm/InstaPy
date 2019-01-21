@@ -8,6 +8,7 @@ __pycache__/
 
 quickstart.py
 SendMail.py
+docker_quickstart.py
 
 # C extensions
 *.so
