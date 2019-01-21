@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['adk', 'sexypose', 'losangeles'], amount=50 )
+        session.like_by_tags(['trdtacoma', 'brasiliangirl', 'kiev'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -55,31 +55,35 @@ def alpha():
 alpha()
 
 '''
-#toyotatacoma #trdtacoma # #tacomaworld # #yotamafia #yota # # # # #explore #pnw # #pnwonderland #pnwcollective #outdoors #getoutside #getoutstayout 
+#toyotatacoma # # #tacomaworld # #yotamafia #yota  #explore #pnw # #pnwonderland #pnwcollective #outdoors #getoutside  
 #themysterypr0ject #project_soul  # #portraitphotography 
 #___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge #colors # # #soulmate #soulart #darkbeauty\n\n
 #tacomaoffroad #tacomaworld #hellatrails #foxshocks #tacomabeast #scs #
 # #sundaymood  #mylife
+'#lypsing #like #likeforlike #floodlike #views #viewer #view #musicallyview #musically #tiktok #likeapps #transition #followers #followme #hitlike #bitlike #transition #lypsing'
 #ilmiocuoresoloperte #aroundtheworld   #noidue #noi #instagramstories #instagramood #instagram'
  #swimming  #grancenote  #tulum  #tb #traveling # #travel #vacation # #cave #cenote #beautiful #water #motivacnystatusalways'
-#IBTMscout # #WLYG #imgirls #newyork #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director #italy   #photographer # #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
-# #nature # #exploring # # 
+#IBTMscout # #WLYG #imgirls # #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director 
+# #italy   #photographer # #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
+ #nature # #exploring # # 
  #vilnius #guangzhoutower #guangzhoucity #thehide # # #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like # 
-#vilniusoldtown #kiev #odessa #hangzhou #foshan #dongguan #worldcup2018 #seoul #brasiliangirl #panyu #guangzhoufood #brasilianmodel 
-#lawofattraction #meditiation #spiritualawakening #spiritualjourney #faith #manifestation # #lightwarrior #consciousness #spirituality #spiritualgangster #freethinking #quoteoftheday #positivevibes #positivethinking #presentmoment 
+#vilniusoldtown # #odessa #hangzhou #foshan #dongguan #seoul # #panyu #guangzhoufood #brasilianmodel 
+#lawofattraction #meditiation # #spiritualjourney #faith # #lightwarrior #consciousness #spirituality #spiritualgangster #freethinking #quoteoftheday #positivevibes #positivethinking #presentmoment 
 # #love # # #higherconsciousness #success #  #loa #thesecret #spiritual 
 #sannyday#summer#summer2017#see#beach#batumi#batumi2017#batumicity#batumibeach#georgia#georgiagirl##russiangirl#followme#follow#followers#weekend#face'
  b'#uncoveredmagazine # #sensual_dreams #boudoirphotography #sensuality_bnw #sensuality_world #sensual_ladies #infinity_sense #sensualart_flair 
-#igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual # #my_secret_lover_ #great_captures_sensual #sexylingerie #beautyandboudoir #best_expression_sensuality 
+#igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual # #my_secret_lover_ #great_captures_sensual # #beautyandboudoir #best_expression_sensuality 
 #loves_sensual_mood #pizza #insta_legs_2015 #pizzadreams #hot #hotgirls  #fitbody #fitlove'   
 '#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling #modellife #model #medellin #modello #italy # 
 #haryanvi #mood #modern # #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #  #indianmodel #indianmodels #indianfollowers'
-#ddlg #gls #tattoos #alternative #  #toes #vintage #feet  #fetish #outdoorshoot  #bathtime #fitfam # #pinup #freckles #fashionmodel  #pinkhair  #alt # #longlegs #girlswithtattoos #art #azmodel  #travelingmodel
-#throwrug #knit #softfurnishings #clay #knitthrow #interior #styling #decorating #interiorsdecorating #interiorstyling #sofa #bed #bambury #designhouseinteriors #throwrugs #knitted #autumncolour #autumnpalette #trendcolours
- #SalomonSquad #  #adk # # #46r #localadk # #sheadventures #hiking #sheexplores #mtnmoment  #FunIsTheBest #outdoorwomen # #choosemountainswomen # #livewylder # # #forceofnature #GOATworthy #backcountry #rei1440project #mountainmoment #'
-   
+#ddlg #gls #tattoos #alternative #  #toes # #feet  #fetish #outdoorshoot  #bathtime #fitfam # #pinup #freckles #fashionmodel  #pinkhair  
+##alt # #longlegs #art #  #travelingmodel
+#throwrug #knit #softfurnishings #clay #knitthrow #interior #styling #decorating #interiorsdecorating #interiorstyling #sofa #bed #bambury 
+# #designhouseinteriors #throwrugs #knitted # #autumnpalette #trendcolours
+ #SalomonSquad  #46r #localadk # #sheadventures #hiking #sheexplores #mtnmoment  #FunIsTheBest #outdoorwomen # #choosemountainswomen 
+ # #forceofnature #GOATworthy #backcountry #rei1440project #mountainmoment #'
  #instadaily #featuremeseas #featuremeof #hinfluencercollective 
- # # #femmetravel #featuremeof #l0tsabraids 
+ #femmetravel #featuremeof #l0tsabraids 
  # #seamyphotos #bravogreatphoto # 
  #wtnadventures #l0tsabraids #ftwotww #expofilm #ftmedd #portraitsvisuals 
  # #portraits_universe #gramkilla #artofvisual
@@ -89,7 +93,7 @@ alpha()
 #kilonewton #textiles #artmatsdm #charecterdesign
 # #teamcanon #  #folkgood # # #dreaming 
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
- #volgoitalia #ig_italia # #italia #calabriadaamare  #vivocalabria #like4follow 
+ #volgoitalia #ig_italia # # #calabriadaamare  #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
  #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
  #landscape_captures #followback # #topfrancephoto 
@@ -97,8 +101,8 @@ alpha()
  # #follow4follow #nature_perfection #worldtravelpics
  #igphoto #igersworldwide #ig_captures #igs_photos #ig_daily #worldbestgram #splendid_shotz
  #snapback #pushthroughit #igotthis 
- #almostthere # #fit #fitnessfreaks #fit#  #healthy #tone 
+ #almostthere # #fit # #fit#   #tone 
  #tanlines #cutoffs #countrylife #farm
- #noh8 #blessed #keeppushing #keepgoing   #blah #icute #summertime
+ 
   #artnude  #sensual_art # #longhair ## #  #passion  #bodypositivity #ass'
  '''
