@@ -32,21 +32,14 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['trdtacoma', 'brasiliangirl', 'kiev'], amount=50 )
+        session.like_by_tags(['4x4', 'astronomy', 'colombia'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
         print('alpha2 fail!')       
         print("error: {0}".format(exc))
         instaMail.completeTask('alpha2 fail')
-        # if changes to IG layout, upload the file to help us locate the change
-        #if isinstance(exc, NoSuchElementException):
-            # file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            # with open(file_path, 'wb') as fp:
-            #     fp.write(session.browser.page_source.encode('utf8'))
-            # print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-            #     '*' * 70, file_path))
-        # full stacktrace when raising Github issue
+        
         
     finally:
         # end the bot session
@@ -55,18 +48,17 @@ def alpha():
 alpha()
 
 '''
-#toyotatacoma # # #tacomaworld # #yotamafia #yota  #explore #pnw # #pnwonderland #pnwcollective #outdoors #getoutside  
-#themysterypr0ject #project_soul  # #portraitphotography 
-#___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge #colors # # #soulmate #soulart #darkbeauty\n\n
-#tacomaoffroad # #hellatrails # #tacomabeast #scs #
-# #sundaymood  #mylife
-'#lypsing #like #likeforlike #floodlike #views #viewer #view #musicallyview #musically #tiktok #likeapps #transition #followers #followme #hitlike #bitlike #transition #lypsing'
+#toyotatacoma #tacomaworld #yotamafia #yota #explore #pnw #pnwonderland #pnwcollective #outdoors #getoutside  
+#themysterypr0ject #project_soul #portraitphotography 
+#___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge #colors #soulmate #soulart #darkbeauty
+#tacomaoffroad # #hellatrails #tacomabeast #scs
+#sundaymood #mylife #nature #exploring 
+#lypsing #like #likeforlike #floodlike #views #viewer #view #musicallyview #musically #tiktok #likeapps #transition #followers #followme #hitlike #bitlike #transition #lypsing'
 #ilmiocuoresoloperte #aroundtheworld   #noidue #noi #instagramstories #instagramood #instagram'
- #swimming  #grancenote  #tulum  #tb #traveling # #travel #vacation # #cave #cenote #beautiful #water #motivacnystatusalways'
+#swimming  #grancenote  #tulum  #tb #traveling # #travel #vacation # #cave #cenote #beautiful #water #motivacnystatusalways'
 #IBTMscout # #WLYG #imgirls # #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director 
-# #italy   # # #acting #shortfilm #colombia #bloger #beauty #makeup #magazine #trends #clothes #paris'
- #nature # #exploring # # 
- #vilnius #guangzhoutower #guangzhoucity #thehide # # #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like # 
+#italy#acting #shortfilm  #bloger #beauty #makeup #magazine #trends #clothes #paris'
+#vilnius #guangzhoutower #guangzhoucity #thehide # # #shanghai #shenzhen #milan #dubai #jeddah # #foodporn #like4like # 
 #vilniusoldtown # #odessa #hangzhou #foshan #dongguan #seoul # #panyu #guangzhoufood #brasilianmodel 
 #lawofattraction #meditiation # #spiritualjourney #faith # #lightwarrior #consciousness #spirituality #spiritualgangster #freethinking #quoteoftheday #positivevibes #positivethinking #presentmoment 
 # #love # # #higherconsciousness #success #  #loa #thesecret #spiritual 
@@ -74,26 +66,26 @@ alpha()
  b'#uncoveredmagazine # #sensual_dreams #boudoirphotography #sensuality_bnw #sensuality_world # #infinity_sense #sensualart_flair 
 #igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual # #my_secret_lover_ #great_captures_sensual # #beautyandboudoir #best_expression_sensuality 
 #loves_sensual_mood #pizza #insta_legs_2015 #pizzadreams #hot #hotgirls  #fitbody #fitlove'   
-'#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling #modellife #model #medellin #modello #italy # 
-#haryanvi #mood #modern # #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #  #indianmodel #indianmodels #indianfollowers'
-#ddlg #gls #tattoos #alternative #  #toes # #feet  #fetish #outdoorshoot  #bathtime #fitfam # #pinup #freckles #fashionmodel  #pinkhair  
-##alt # #longlegs #art #  #travelingmodel
+'#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling #modellife #model #medellin #modello #italy 
+#haryanvi #mood #modern # #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #  #indianmodel #indianmodels #indianfollowers
+#ddlg #gls #tattoos #alternative #toes #feet #fetish #outdoorshoot  #bathtime #fitfam #pinup #freckles #fashionmodel  #pinkhair  
+##alt #longlegs #art #travelingmodel
 #throwrug #knit #softfurnishings #clay #knitthrow #interior #styling #decorating #interiorsdecorating #interiorstyling #sofa #bed #bambury 
 # #designhouseinteriors #throwrugs #knitted # #autumnpalette #trendcolours
-  #46r #localadk # #sheadventures #hiking # #mtnmoment  #FunIsTheBest #outdoorwomen # #choosemountainswomen 
- # #forceofnature #GOATworthy #backcountry #rei1440project #mountainmoment #'
- #instadaily #featuremeseas #featuremeof #hinfluencercollective 
- #femmetravel #featuremeof #l0tsabraids 
- # #seamyphotos #bravogreatphoto # 
- #wtnadventures #l0tsabraids #ftwotww #expofilm #ftmedd #portraitsvisuals 
- # #portraits_universe #gramkilla #artofvisual
- #myerasmus #dji #engineer #erasmus 
- #dbtravel #turkmen #  #blagoevgrad #  #aubg #campus #2018 #senior #collegelife
-#artnude #purenewzealand #
+#46r #localadk # #sheadventures #hiking # #mtnmoment  #FunIsTheBest #outdoorwomen # #choosemountainswomen 
+#forceofnature #GOATworthy #backcountry #rei1440project #mountainmoment
+#instadaily #featuremeseas #featuremeof #hinfluencercollective 
+#femmetravel #featuremeof #l0tsabraids 
+#seamyphotos #bravogreatphoto 
+#wtnadventures #l0tsabraids #ftwotww #expofilm #ftmedd #portraitsvisuals 
+#portraits_universe #gramkilla #artofvisual
+#myerasmus #dji #engineer #erasmus 
+#dbtravel #turkmen #blagoevgrad #aubg #campus #2018 #senior #collegelife
+#artnude #purenewzealand 
 #kilonewton #textiles #artmatsdm #charecterdesign
-# #teamcanon #  #folkgood # # #dreaming 
+# #teamcanon #folkgood #dreaming 
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
- #volgoitalia #ig_italia # # #calabriadaamare  #vivocalabria #like4follow 
+ #volgoitalia #ig_italia #calabriadaamare #vivocalabria #like4follow 
  #verso_sud #yallerscalabria #follow4follow #yallersitalia #italia_inunoscatto #likeforlike
  #ig_calabria #ig_crotone #igreggiocalabria #instanlikes #igcosenzan
  #landscape_captures #followback # #topfrancephoto 
@@ -103,6 +95,5 @@ alpha()
  #snapback #pushthroughit #igotthis 
  #almostthere # #fit # #fit#   #tone 
  #tanlines #cutoffs #countrylife #farm
- 
-  #artnude  #sensual_art # #longhair ## #  #passion  #bodypositivity #ass'
+ #artnude  #sensual_art # #longhair #passion  #bodypositivity #ass
  '''
