@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['4x4', 'astronomy', 'colombia'], amount=50 )
+        session.like_by_tags(['tacomaoffroad', 'artnude', 'vietnam'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -51,9 +51,9 @@ alpha()
 #toyotatacoma #tacomaworld #yotamafia #yota #explore #pnw #pnwonderland #pnwcollective #outdoors #getoutside  
 #themysterypr0ject #project_soul #portraitphotography 
 #___bodylanguage___ #__bodyart__ # #topview #still_view #humanedge #colors #soulmate #soulart #darkbeauty
-#tacomaoffroad # #hellatrails #tacomabeast #scs
+# # #hellatrails #tacomabeast #scs
 #sundaymood #mylife #nature #exploring 
-#lypsing #like #likeforlike #floodlike #views #viewer #view #musicallyview #musically #tiktok #likeapps #transition #followers #followme #hitlike #bitlike #transition #lypsing'
+#lypsing #like #likeforlike #floodlike #views #viewer #view #musicallyview # #tiktok #likeapps #transition #followers #followme #hitlike #bitlike #transition #lypsing'
 #ilmiocuoresoloperte #aroundtheworld   #noidue #noi #instagramstories #instagramood #instagram'
 #swimming  #grancenote  #tulum  #tb #traveling # #travel #vacation # #cave #cenote #beautiful #water #motivacnystatusalways'
 #IBTMscout # #WLYG #imgirls # #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director 
@@ -65,7 +65,7 @@ alpha()
 #sannyday#summer#summer2017#see#beach#batumi#batumi2017#batumicity#batumibeach#georgia#georgiagirl##russiangirl#followme#follow#followers#weekend#face'
  b'#uncoveredmagazine # #sensual_dreams #boudoirphotography #sensuality_bnw #sensuality_world # #infinity_sense #sensualart_flair 
 #igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual # #my_secret_lover_ #great_captures_sensual # #beautyandboudoir #best_expression_sensuality 
-#loves_sensual_mood #pizza #insta_legs_2015 #pizzadreams #hot #hotgirls  #fitbody #fitlove'   
+#loves_sensual_mood #pizza #insta_legs_2015  #hot #hotgirls  #fitbody #fitlove'   
 '#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling #modellife #model #medellin #modello #italy 
 #haryanvi #mood #modern # #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #  #indianmodel #indianmodels #indianfollowers
 #ddlg #gls #tattoos #alternative #toes #feet #fetish #outdoorshoot  #bathtime #fitfam #pinup #freckles #fashionmodel  #pinkhair  
@@ -81,7 +81,7 @@ alpha()
 #portraits_universe #gramkilla #artofvisual
 #myerasmus #dji #engineer #erasmus 
 #dbtravel #turkmen #blagoevgrad #aubg #campus #2018 #senior #collegelife
-#artnude #purenewzealand 
+#artnude # 
 #kilonewton #textiles #artmatsdm #charecterdesign
 # #teamcanon #folkgood #dreaming 
  #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 
@@ -95,5 +95,5 @@ alpha()
  #snapback #pushthroughit #igotthis 
  #almostthere # #fit # #fit#   #tone 
  #tanlines #cutoffs #countrylife #farm
- #artnude  #sensual_art # #longhair #passion  #bodypositivity #ass
+ #  #sensual_art # #longhair #passion  #bodypositivity #ass
  '''

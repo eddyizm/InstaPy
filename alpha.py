@@ -33,7 +33,7 @@ def alpha():
         session.set_do_comment(True, percentage=30)
         session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['girlswithtattoos', 'nasa', 'colorado'], amount=50 )
+        session.like_by_tags(['musically', 'cosmos', 'purenewzealand'], amount=50 )
         print('alpha success')  
         instaMail.completeTask('alpha success')
     except Exception as exc:
@@ -49,12 +49,10 @@ def alpha():
         
         instaMail.completeTask('alpha fail')
         raise   
-        
-        
-        
+         
     finally:
-        # end the bot session
-        session.end()
+            # end the bot session
+            session.end()
        
 if __name__ == '__main__':
     alpha()
