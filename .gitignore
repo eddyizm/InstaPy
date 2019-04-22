@@ -104,10 +104,6 @@ ENV/
 
 # Storage
 *.db
-<<<<<<< HEAD
-instapy.db
-=======
->>>>>>> 1e687e31dbe6ecca556713238be0895826909103
 logs/
 
 # Editors
