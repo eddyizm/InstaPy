@@ -1,17 +1,17 @@
 """Module only used for the login part of the script"""
 # import built-in & third-party modules
-import time
 import pickle
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 
 # import InstaPy modules
 from .time_util import sleep
 from .util import update_activity
 from .util import web_address_navigator
-from .util import reload_webpage
 from .util import explicit_wait
 from .util import click_element
 from .util import check_authorization
+from .util import reload_webpage
 
 # import exceptions
 from selenium.common.exceptions import NoSuchElementException
@@ -150,7 +150,6 @@ def login_user(browser,
                password,
                logger,
                logfolder,
-               switch_language=True,
                bypass_suspicious_attempt=False,
                bypass_with_mobile=False):
     """Logins the user with the given username and password"""
@@ -170,16 +169,7 @@ def login_user(browser,
     except (WebDriverException, OSError, IOError):
         print("Cookie file not found, creating cookie...")
 
-    # include time.sleep(1) to prevent getting stuck on google.com
-    time.sleep(1)
-
-    # changes instagram website language to english to use english xpaths
-    if switch_language:
-        language_element_ENG = browser.find_element_by_xpath(
-            "//select[@class='hztqj']/option[text()='English']")
-        click_element(browser, language_element_ENG)
-
-    web_address_navigator(browser, ig_homepage)
+    # force refresh after cookie load or check_authorization() will FAIL
     reload_webpage(browser)
 
     # cookie has been LOADED, so the user SHOULD be logged in
@@ -200,8 +190,16 @@ def login_user(browser,
               "new cookie...".format(username))
 
     # Check if the first div is 'Create an Account' or 'Log In'
-    login_elem = browser.find_element_by_xpath(
-        "//article//a[text()='Log in']")
+    try:
+        login_elem = browser.find_element_by_xpath(
+            "//a[text()='Log in']")
+    except NoSuchElementException:
+        print("Login A/B test detected! Trying another string...")
+        try:
+            login_elem = browser.find_element_by_xpath(
+                "//a[text()='Log In']")
+        except NoSuchElementException:
+            return False
 
     if login_elem is not None:
         try:
@@ -254,20 +252,17 @@ def login_user(browser,
      .send_keys(password)
      .perform())
 
-    # update server calls for both 'click' and 'send_keys' actions
-    for i in range(2):
-        update_activity()
-
-    login_button = browser.find_element_by_xpath(
-        "//button//div[text()='Log in']")
+    sleep(1)
 
     (ActionChains(browser)
-     .move_to_element(login_button)
+     .move_to_element(input_password[0])
      .click()
+     .send_keys(Keys.ENTER)
      .perform())
 
-    # update server calls
-    update_activity()
+    # update server calls for both 'click' and 'send_keys' actions
+    for i in range(4):
+        update_activity()
 
     dismiss_get_app_offer(browser, logger)
     dismiss_notification_offer(browser, logger)
