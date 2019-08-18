@@ -29,7 +29,7 @@ def lit():
         session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.set_do_comment(True, percentage=20)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['literature','fetish','quotes'], amount=40)
+        session.like_by_tags(['haryana','modello','quotes'], amount=40)
         session.end()
         instaMail.completeTask('literature success')
     except Exception as exc:

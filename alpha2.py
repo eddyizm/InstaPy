@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['lightwarrior', 'modellife', 'northeast'], amount=50 )
+        session.like_by_tags(['autumnpalette', 'sensuality_bnw', 'shanghai'], amount=50 )
         print('alpha2 success')  
         instaMail.completeTask('alpha2 success')
     except Exception as exc:
@@ -48,31 +48,31 @@ def alpha():
 alpha()
 
 '''
-# #tacomaworld #yotamafia #yota #explore #pnw # #pnwcollective #outdoors #getoutside  
+#tacomaworld # #yotamafia #yota #explore #pnw #outdoors #getoutside  
 #themysterypr0ject #project_soul 
 #___bodylanguage___ #__bodyart__ #topview #still_view #humanedge #colors #soulmate #soulart #darkbeauty
-#hellatrails #tacomabeast #scs
-#sundaymood #mylife #nature #exploring 
+# #tacomabeast #scs
+# #mylife #nature #exploring 
 #lypsing #like #likeforlike #floodlike #views #viewer #view #musicallyview # #tiktok #likeapps #transition #followers #followme #hitlike #bitlike #transition #lypsing'
 #ilmiocuoresoloperte #noidue #noi #instagramstories #instagramood #instagram'
 #swimming  #grancenote  #tulum  #tb #traveling #travel # #cave #cenote #beautiful #water #motivacnystatusalways'
 #IBTMscout #WLYG #imgirls #numa #wescoutusa #m4scouting #LA #manager #model #fashion #filmmaker #cast #director 
 #italy#acting #shortfilm  #bloger #beauty #makeup #magazine #trends #clothes #paris'
-#vilnius #guangzhoutower #guangzhoucity #thehide #shanghai #shenzhen #milan #dubai #jeddah #foodporn #like4like 
+#vilnius #guangzhoutower #guangzhoucity #thehide # #shenzhen #milan #dubai #jeddah #foodporn #like4like 
 #vilniusoldtown #odessa #hangzhou #foshan #dongguan #panyu #guangzhoufood #brasilianmodel 
 #lawofattraction #spiritualjourney #faith # # #consciousness #spirituality #spiritualgangster #freethinking #quoteoftheday #positivevibes #positivethinking #presentmoment 
 #love #success #loa #thesecret #spiritual 
 #sannyday#summer#summer2017#see#beach#batumi#batumi2017#batumicity#batumibeach#georgiagirl###followme#follow#followers#weekend#face'
- b'#uncoveredmagazine #sensual_dreams #boudoirphotography #sensuality_bnw #sensuality_world #infinity_sense #sensualart_flair 
+ b'#uncoveredmagazine #sensual_dreams #boudoirphotography # #sensuality_world #infinity_sense #sensualart_flair 
 #igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual #my_secret_lover_ #great_captures_sensual #beautyandboudoir #best_expression_sensuality 
 #loves_sensual_mood #pizza #insta_legs_2015 #hot #fitbody #fitlove'   
 '#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling # #model # #modello #italy 
-#haryanvi #mood #modern #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #indianmodel #indianmodels #indianfollowers
+#haryanvi #mood # #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #indianmodel #indianmodels #indianfollowers
 #ddlg #gls #tattoos #alternative #toes #feet # #outdoorshoot  #bathtime #fitfam #pinup #freckles #fashionmodel  #pinkhair  
 ##alt #longlegs #art #travelingmodel
 #throwrug #knit #softfurnishings #clay #knitthrow #interior #styling #decorating #interiorsdecorating #interiorstyling #sofa #bed #bambury 
-# #designhouseinteriors #throwrugs #knitted #autumnpalette #trendcolours
-#46r #localadk # #sheadventures #hiking # #mtnmoment  #FunIsTheBest #outdoorwomen # #choosemountainswomen 
+# #designhouseinteriors #throwrugs # # #trendcolours
+#46r #localadk # #sheadventures #hiking # #mtnmoment  #FunIsTheBest # # #choosemountainswomen 
 #forceofnature #GOATworthy # #rei1440project #mountainmoment
 #instadaily #featuremeseas #featuremeof #hinfluencercollective 
 #femmetravel #featuremeof #l0tsabraids 
@@ -81,7 +81,7 @@ alpha()
 #portraits_universe #gramkilla
 #myerasmus #dji #engineer #erasmus 
 #dbtravel #turkmen #blagoevgrad #aubg #campus #2018 #senior #collegelife
-# 
+
 #kilonewton #textiles #artmatsdm #charecterdesign
 #teamcanon #folkgood #dreaming 
 #ingrande_crew #calabria #loves_united_calabria #loves_united_italia #volgocalabria 

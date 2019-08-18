@@ -19,19 +19,14 @@ def SendBody(body, d):
         s = smtplib.SMTP(host='smtp.live.com', port=587)
         s.starttls()
         s.login(u, l)
-
         from email.mime.multipart import MIMEMultipart
         from email.mime.text import MIMEText
-
         msg = MIMEMultipart()       
         print('sending mail')
-        
         msg['From']='cervantes.e@outlook.com'
-        msg['To']='eddyizm@me.com'
+        msg['To']='7149003339@msg.fi.google.com'
         msg['Subject']='Instapy Stats '+d
-
         msg.attach(MIMEText(body, 'plain'))
-
         s.send_message(msg)
     except smtplib.SMTPException as e:
         print (str(e))
@@ -67,7 +62,6 @@ def daily_log():
     SendBody(message, nextday[5])
 
 def completeTask(jobname):
-    # fCount = file_len('logs/general.log')
     tStamp = datetime.now()
     n = tStamp.strftime("%Y-%m-%d")
     message = ' completed \n'
@@ -77,8 +71,8 @@ def completeTask(jobname):
         endFile = file_len(logfile)
         n = open(logfile,'r')
         log = n.readlines()
-        count = endFile-99
-        if endFile > 100:
+        count = endFile-24
+        if endFile > 25:
             for x in range(count, (endFile-1)):
                 message+=log[x]
         else:
