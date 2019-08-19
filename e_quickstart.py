@@ -8,8 +8,11 @@ import instaMail
 
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+    set_workspace(path="C:\\Users\\eddyizm\\Source\\Repos\\InstaPy\\")
 else:
     logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
+    set_workspace(path="/Users/eduardocervantes/Downloads/Repo/InstaPy/")
+    
 print ('quickstart solo')
 
 def quickstart():

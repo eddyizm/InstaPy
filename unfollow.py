@@ -9,8 +9,11 @@ import regex
 
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+    set_workspace(path="C:\\Users\\eddyizm\\Source\\Repos\\InstaPy\\")
 else:
     logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
+    set_workspace(path="/Users/eduardocervantes/Downloads/Repo/InstaPy/")
+
 print ('unfollow solo')
 
 def unfollow():
@@ -25,7 +28,7 @@ def unfollow():
         session.login()
         session.set_dont_unfollow_active_users(enabled=True, posts=5)
         session.set_dont_include(['lularoshni', 'ironbetic'])
-        session.unfollow_users(amount=10, InstapyFollowed=(True, "nonfollowers"), style="FIFO", sleep_delay=10)
+        session.unfollow_users(amount=10, instapy_followed_enabled=True, instapy_followed_param="nonfollowers", style="FIFO", unfollow_after=90*60*60, sleep_delay=501)
         print('unfollow success!')
         instaMail.completeTask('unfollow success')
     except Exception as exc:

@@ -3,6 +3,8 @@ import sqlite3
 from datetime import datetime
 import os
 
+
+
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
 else:
@@ -64,15 +66,15 @@ def daily_log():
 def completeTask(jobname):
     tStamp = datetime.now()
     n = tStamp.strftime("%Y-%m-%d")
-    message = ' completed \n'
+    message = jobname + ' completed - '+ n + '\n'
     # get log info : 
     try:
         logfile = 'logs/eddyizm/general.log'
         endFile = file_len(logfile)
         n = open(logfile,'r')
         log = n.readlines()
-        count = endFile-24
-        if endFile > 25:
+        count = endFile-14
+        if endFile > 15:
             for x in range(count, (endFile-1)):
                 message+=log[x]
         else:

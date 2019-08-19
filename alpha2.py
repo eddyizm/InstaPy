@@ -8,8 +8,10 @@ import os
 
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
+    set_workspace(path="C:\\Users\\eddyizm\\Source\\Repos\\InstaPy\\")
 else:
     logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
+    set_workspace(path="/Users/eduardocervantes/Downloads/Repo/InstaPy/")
 
 def alpha():
     try:
@@ -63,17 +65,17 @@ alpha()
 #lawofattraction #spiritualjourney #faith # # #consciousness #spirituality #spiritualgangster #freethinking #quoteoftheday #positivevibes #positivethinking #presentmoment 
 #love #success #loa #thesecret #spiritual 
 #sannyday#summer#summer2017#see#beach#batumi#batumi2017#batumicity#batumibeach#georgiagirl###followme#follow#followers#weekend#face'
- b'#uncoveredmagazine #sensual_dreams #boudoirphotography # #sensuality_world #infinity_sense #sensualart_flair 
+ b'#uncoveredmagazine #sensual_dreams #boudoirphotography # # #infinity_sense #sensualart_flair 
 #igf_sensual2 #lamalaeducacion #digers_body #shotsosensual #seduction_sensuality #be_one_sensual #my_secret_lover_ #great_captures_sensual #beautyandboudoir #best_expression_sensuality 
 #loves_sensual_mood #pizza #insta_legs_2015 #hot #fitbody #fitlove'   
-'#haryanvi #haryanvistatus #haryanvi #haryanviculture #haryana #models #modelling # #model # #modello #italy 
+'#haryanvi #haryanvistatus #haryanvi #haryanviculture # #models #modelling # #model # # #italy 
 #haryanvi #mood # #manjul #handsome #handsomehunk #tag  #cool #dashing #supermodel #actor #indianmodel #indianmodels #indianfollowers
 #ddlg #gls #tattoos #alternative #toes #feet # #outdoorshoot  #bathtime #fitfam #pinup #freckles #fashionmodel  #pinkhair  
 ##alt #longlegs #art #travelingmodel
 #throwrug #knit #softfurnishings #clay #knitthrow #interior #styling #decorating #interiorsdecorating #interiorstyling #sofa #bed #bambury 
 # #designhouseinteriors #throwrugs # # #trendcolours
 #46r #localadk # #sheadventures #hiking # #mtnmoment  #FunIsTheBest # # #choosemountainswomen 
-#forceofnature #GOATworthy # #rei1440project #mountainmoment
+#forceofnature #GOATworthy # #rei1440project #
 #instadaily #featuremeseas #featuremeof #hinfluencercollective 
 #femmetravel #featuremeof #l0tsabraids 
 #seamyphotos #bravogreatphoto 
