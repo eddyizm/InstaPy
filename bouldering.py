@@ -1,4 +1,5 @@
 from instapy import InstaPy
+from instapy import set_workspace
 import instaMail
 from selenium.common.exceptions import NoSuchElementException
 from tempfile import gettempdir

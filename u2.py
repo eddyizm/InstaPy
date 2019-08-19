@@ -1,5 +1,6 @@
 from instapy import InstaPy
 from instapy import smart_run
+from instapy import set_workspace
 from tempfile import gettempdir
 from selenium.common.exceptions import NoSuchElementException
 import os

@@ -3,6 +3,7 @@ import time
 from tempfile import gettempdir
 from selenium.common.exceptions import NoSuchElementException
 from instapy import InstaPy
+from instapy import set_workspace
 import instaMail
 
 

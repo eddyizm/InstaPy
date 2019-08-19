@@ -1,4 +1,5 @@
 from instapy import InstaPy
+from instapy import set_workspace
 import time
 import instaMail
 from selenium.common.exceptions import NoSuchElementException

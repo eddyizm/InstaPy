@@ -1,4 +1,5 @@
 from instapy import InstaPy
+from instapy import set_workspace
 import os
 
 if os.name == 'nt':
