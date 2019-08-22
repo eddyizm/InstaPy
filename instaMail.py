@@ -3,8 +3,6 @@ import sqlite3
 from datetime import datetime
 import os
 
-
-
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
 else:
