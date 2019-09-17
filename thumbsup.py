@@ -1,8 +1,9 @@
 from instapy import InstaPy
-import time
+#import time
 import instaMail
-from selenium.common.exceptions import NoSuchElementException
-from tempfile import gettempdir
+from instapy import set_workspace
+#from selenium.common.exceptions import NoSuchElementException
+# from tempfile import gettempdir
 import os
 
 if os.name == 'nt':
@@ -39,7 +40,7 @@ def thumbsup():
     except Exception as err:
         print('thumbsup fail!')
         print("error: {0}".format(err))
-        instaMail.completeTask('thumbsup fail')
+        # instaMail.completeTask('thumbsup fail')
         
     finally:
         session.end()    
