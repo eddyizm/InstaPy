@@ -1,9 +1,5 @@
 from instapy import InstaPy
 from instapy import set_workspace
-import time
-import instaMail
-from selenium.common.exceptions import NoSuchElementException
-from tempfile import gettempdir
 import os
 
 
@@ -38,23 +34,13 @@ def alpha():
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.like_by_tags(['modern', 'datascience', 'newmexico'], amount=50 )
         print('alpha success')  
-        instaMail.completeTask('alpha success')
+        
     except Exception as exc:
         print('alpha fail!')   
         print("error: {0}".format(exc))  
-        if isinstance(exc, NoSuchElementException):
-            print('NoSuchElementException')
-            file_path = os.path.join(gettempdir(), '{}.html'.format(time.strftime('%Y%m%d-%H%M%S')))
-            with open(file_path, 'wb') as fp:
-                fp.write(session.browser.page_source.encode('utf8'))
-            print('{0}\nIf raising an issue, please also upload the file located at:\n{1}\n{0}'.format(
-                '*' * 70, file_path))
         
-        instaMail.completeTask('alpha fail')
-        raise   
          
     finally:
-        # end the bot session
         session.end()
        
 if __name__ == '__main__':

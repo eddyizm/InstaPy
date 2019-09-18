@@ -1,8 +1,5 @@
 from instapy import InstaPy
 from instapy import set_workspace
-import time
-import instaMail
-import random
 import os
 
 if os.name == 'nt':
@@ -35,10 +32,10 @@ def lit():
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.like_by_tags(['haryana','modello','quotes'], amount=40)
         session.end()
-        instaMail.completeTask('literature success')
+        
     except Exception as exc:
         print('lit fail!')        
         print("error: {0}".format(exc))
-        instaMail.completeTask('lit fail')
-
-lit()
+        
+if __name__ == '__main__':
+    lit()
