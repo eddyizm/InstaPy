@@ -1,9 +1,5 @@
 from instapy import InstaPy
 from instapy import set_workspace
-import time
-import instaMail
-from selenium.common.exceptions import NoSuchElementException
-from tempfile import gettempdir
 import os
 
 
@@ -25,7 +21,6 @@ def alpha():
         session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
         session.switch_language=False
         session.login()
-        session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.set_relationship_bounds(enabled=True,
                 potency_ratio=None,
                 delimit_by_numbers=True,
@@ -34,21 +29,18 @@ def alpha():
                     min_followers=45,
                     min_following=77)
         session.set_do_comment(True, percentage=30)
+        session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.like_by_tags(['autumnpalette', 'sensuality_bnw', 'shanghai'], amount=50 )
+        session.end()
         print('alpha2 success')  
-        instaMail.completeTask('alpha2 success')
+        
     except Exception as exc:
         print('alpha2 fail!')       
         print("error: {0}".format(exc))
-        instaMail.completeTask('alpha2 fail')
-        
-        
-    finally:
-        # end the bot session
-        session.end()
        
-alpha()
+if __name__ == '__main__':       
+    alpha()
 
 '''
 #tacomaworld # #yotamafia #yota #explore #pnw #outdoors #getoutside  
