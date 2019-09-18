@@ -33,15 +33,14 @@ def alpha():
         session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
         session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
         session.like_by_tags(['modern', 'datascience', 'newmexico'], amount=50 )
+        session.end()
         print('alpha success')  
         
     except Exception as exc:
         print('alpha fail!')   
         print("error: {0}".format(exc))  
         
-         
-    finally:
-        session.end()
+       
        
 if __name__ == '__main__':
     alpha()
