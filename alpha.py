@@ -21,7 +21,6 @@ def alpha():
         session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
         session.switch_language=False
         session.login()
-        session.set_dont_like(['death', 'cancer'])
         session.set_relationship_bounds(enabled=True,
                 potency_ratio=None,
                 delimit_by_numbers=True,

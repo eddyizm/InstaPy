@@ -40,7 +40,7 @@ def thumbsup():
     except Exception as err:
         print('thumbsup fail!')
         print("error: {0}".format(err))
-        # instaMail.completeTask('thumbsup fail')
+        
         
     finally:
         session.end()    
