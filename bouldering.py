@@ -2,6 +2,8 @@ from instapy import smart_run
 from instapy import InstaPy
 from instapy import set_workspace
 import os
+import interact
+import instaMail
 
 if os.name == 'nt':
     logintext = "C:\\Users\\eddyizm\\Desktop\\Work\\login.txt"
@@ -47,7 +49,6 @@ with smart_run(session):
         to review the list
     """
     # session.just_get_nonfollowers()
-    # my account is small at the moment, so I keep smaller upper threshold
     session.set_quota_supervisor(enabled=True,
                                  sleep_after=["likes", "comments_d", "follows",
                                               "unfollows", "server_calls_h"],
@@ -60,17 +61,19 @@ with smart_run(session):
                                  peak_server_calls_daily=3000)
     """ Actions start here """
     # Unfollow users
-    session.unfollow_users(amount=25, instapy_followed_enabled=True,
+    session.unfollow_users(amount=10, instapy_followed_enabled=True,
                            style="RANDOM",
                            unfollow_after=168 * 60 * 60,
                            sleep_delay=600)
 
     session.like_by_tags(['outdoorwomen', 'sundaymood', 'hellatrails', 'climbing','ohio'], amount=25)
     session.set_dont_include(['lularoshni', 'ironbetic', 'theyoungturks'])
-    session.follow_user_followers(['theyoungturks', 'nasa'],
-                                  amount=2, randomize=False,
+    vUser = interact.interactUser()
+    session.follow_user_followers([vUser],
+                                  amount=3, randomize=False,
                                   interact=True, sleep_delay=240)
 
+    instaMail.completeTask('instapy session complete.')
     # Remove specific users immediately
     """ I use InstaPy only for my personal account, I sometimes use custom 
     list to remove users who fill up my feed
@@ -80,4 +83,4 @@ with smart_run(session):
     # session.unfollow_users(amount=20, customList=(True, custom_list,
     # "all"), style="RANDOM",
     #                        unfollow_after=1 * 60 * 60, sleep_delay=200)
-    """
+    """    

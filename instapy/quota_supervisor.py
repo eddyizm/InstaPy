@@ -121,6 +121,9 @@ def inspector(job, peaks):
     if daily_peak is not None:
         daily_record = get_record(job, "daily")
 
+        if isinstance(daily_peak, int):
+            daily_peak = 0
+            
         if daily_record >= daily_peak:
             return True, "daily", "job"
 

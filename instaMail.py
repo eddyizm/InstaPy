@@ -8,6 +8,7 @@ if os.name == 'nt':
 else:
     logintext = "/Users/eduardocervantes/Desktop/Macbook/login.txt"
 
+
 def SendBody(body, d):
     f = open ( logintext , 'r')
     login = f.read().splitlines()
@@ -31,6 +32,7 @@ def SendBody(body, d):
     except smtplib.SMTPException as e:
         print (str(e))
 
+
 def file_len(fname):
     try: 
         count = len(open(fname).readlines())
@@ -38,6 +40,7 @@ def file_len(fname):
 
     except IOError as e:
         print (str(e))
+
 
 def daily_log():
     
@@ -58,8 +61,8 @@ def daily_log():
     # close db connection
     conn.close() 
     message =  columns+x+z+'\n'
-
     SendBody(message, nextday[5])
+
 
 def completeTask(jobname):
     tStamp = datetime.now()
@@ -82,7 +85,8 @@ def completeTask(jobname):
         print (str(e))
     
     SendBody(message, jobname)    
-    
+
+
 def archive_log():
     from shutil import copyfile
     tStamp = datetime.now()
@@ -99,3 +103,5 @@ def archive_log():
         print (str(e))
 
    
+if __name__ == '__main__':
+    pass

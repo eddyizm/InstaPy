@@ -25,3 +25,5 @@ def interactUser():
         ob.append('ocasio2018')
         return ob
 
+if __name__ == '__main__':
+    pass
