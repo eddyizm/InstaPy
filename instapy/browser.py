@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options as Firefox_Options
 from selenium.webdriver import Remote
 from webdriverdownloader import GeckoDriverDownloader
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 # general libs
 import os
@@ -78,7 +79,9 @@ def set_selenium_local_session(
     Settings.user_agent = user_agent
 
     firefox_options = Firefox_Options()
-
+    capabilities = DesiredCapabilities.FIREFOX
+    capabilities['marionette'] = True
+    
     if headless_browser:
         firefox_options.add_argument("-headless")
 
@@ -112,10 +115,12 @@ def set_selenium_local_session(
         firefox_profile=firefox_profile,
         executable_path=driver_path,
         options=firefox_options,
+         capabilities=capabilities,
     )
 
+    
     # add extenions to hide selenium
-    browser.install_addon(create_firefox_extension(), temporary=True)
+    # browser.install_addon(create_firefox_extension(), temporary=True)
 
     # converts to custom browser
     # browser = convert_selenium_browser(browser)

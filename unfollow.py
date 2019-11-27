@@ -35,7 +35,7 @@ def unfollow():
     except Exception as exc:
         print('unfollow fail!')
         print("error: {0}".format(exc))
-        instaMail.completeTask('unfollow fail')
+        
         
     finally:
         # end the bot session
