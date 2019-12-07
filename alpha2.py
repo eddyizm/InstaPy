@@ -1,6 +1,7 @@
 from instapy import InstaPy
 from instapy import set_workspace
 import os
+import instaMail
 
 
 if os.name == 'nt':
@@ -21,6 +22,7 @@ def alpha():
         session = InstaPy(username=insta_username, password=insta_password, headless_browser=True, multi_logs=True)
         session.switch_language=False
         session.login()
+        session.set_dont_include(['lularoshni', 'ironbetic', 'theyoungturks'])
         session.set_relationship_bounds(enabled=True,
                 potency_ratio=None,
                 delimit_by_numbers=True,
@@ -29,11 +31,18 @@ def alpha():
                     min_followers=45,
                     min_following=77)
         session.set_do_comment(True, percentage=30)
+        session.set_do_follow(enabled=True, percentage=20, times=2)
+        session.unfollow_users(amount=2, instapy_followed_enabled=True,
+                           style="RANDOM",
+                           unfollow_after=168 * 60 * 60,
+                           sleep_delay=600)
         session.set_dont_like(['death', 'cancer', 'rest in peace', 'restinpeace'])
-        session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:'])
-        session.like_by_tags(['autumnpalette', 'sensuality_bnw', 'shanghai'], amount=50 )
+        session.set_comments([u':clap:', u':thumbsup:', u':raised_hands:','Amazing!', 'Awesome!!', 'Cool!', 'Good one!',
+                          'Really good one', 'Love this!', 'Like it!',
+                          'Beautiful!', 'Great!', 'Nice one'])
+        session.like_by_tags(['outdoorwomen', 'sundaymood', 'hellatrails', 'climbing','autumnpalette', 'sensuality_bnw', 'shanghai'], amount=10 )
         session.end()
-        print('alpha2 success')  
+        instaMail.completeTask('instapy session complete.')
         
     except Exception as exc:
         print('alpha2 fail!')       
