@@ -32,7 +32,7 @@ def alpha():
                     min_following=77)
         session.set_do_comment(True, percentage=30)
         session.set_do_follow(enabled=True, percentage=20, times=2)
-        session.unfollow_users(amount=2, instapy_followed_enabled=True,
+        session.unfollow_users(amount=3, instapy_followed_enabled=True,
                            style="RANDOM",
                            unfollow_after=168 * 60 * 60,
                            sleep_delay=600)
