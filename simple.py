@@ -20,7 +20,7 @@ insta_password = login[1]
 # get a session!
 session = InstaPy(username=insta_username,
                   password=insta_password,
-                  headless_browser=True,
+                  headless_browser=False,
                   multi_logs=True)
 
 # let's go! :>
@@ -33,14 +33,14 @@ with smart_run(session):
                                     max_following=3000,
                                     min_followers=100,
                                     min_following=100)
-    session.set_user_interact(amount=50, randomize=True, percentage=30,
+    session.set_user_interact(amount=10, randomize=True, percentage=30,
                               media='Photo')
     session.set_do_like(enabled=True, percentage=100)
     session.set_do_comment(enabled=True, percentage=5)
     session.set_comments(
         ['Nice shot! @{}', 'I love your profile! @{}', '@{} Love it!',
-        '@{} :heart::heart:',
-        'Love your posts @{}',
+        '@{} :heart::heart:', 'Very cool', 'Excellent'
+        'Love your posts @{}', 'Sweet!'
         'Looks awesome @{}',
         'Getting inspired by you @{}',
         ':raised_hands: Yes!',
